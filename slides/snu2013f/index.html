@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Development of HTML5 Mashup Application</title>
+
+		<meta name="description" content="SNU Project - development of HTML5 Mashup application">
+		<meta name="author" content="Chang W. Doh ( changwook.doh@gmail.com )">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="../reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<script type="text/javascript" src="../reveal.js/js/jquery-1.8.2.min.js"></script>
+		<style>
+		/*@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+		html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal iframe, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal p, .reveal blockquote, .reveal pre, .reveal a, .reveal abbr, .reveal acronym, .reveal address, .reveal big, .reveal cite, .reveal code, .reveal del, .reveal dfn, .reveal em, .reveal img, .reveal ins, .reveal kbd, .reveal q, .reveal s, .reveal samp, .reveal small, .reveal strike, .reveal strong, .reveal sub, .reveal sup, .reveal tt, .reveal var, .reveal b, .reveal u, .reveal i, .reveal center, .reveal dl, .reveal dt, .reveal dd, .reveal ol, .reveal ul, .reveal li, .reveal fieldset, .reveal form, .reveal label, .reveal legend, .reveal table, .reveal caption, .reveal tbody, .reveal tfoot, .reveal thead, .reveal tr, .reveal th, .reveal td, .reveal article, .reveal aside, .reveal canvas, .reveal details, .reveal embed, .reveal figure, .reveal figcaption, .reveal footer, .reveal header, .reveal hgroup, .reveal menu, .reveal nav, .reveal output, .reveal ruby, .reveal section, .reveal summary, .reveal time, .reveal mark, .reveal audio, video {
+		    font-family: 'Open sans','Nanum Gothic','Malgun Gothic',Dotum,sans-serif;
+		}*/
+		.absoulte {
+			position: absolute;
+		}
+
+		.no-deco {
+			background: none !important;
+			border: 0 !important;
+			box-shadow: 0 0 0 !important;
+		}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h4 align="right">SNU, 2013 Fall</h4>
+					<p>
+						<h3>Development of</h3>
+						<h1>HTML5 Mashup</h1>
+						<h2>Application</h2>
+					</p>
+					<p>
+						<small>
+							<p><a href="mailto:changwook.doh@gmail.com">changwook.doh@gmail.com</a></p>
+							<p><a href="http://cwdoh.github.io">cwdoh.github.io</a></p>
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>slide link</h2>
+					<a href="http://goo.gl/iouedk" style="font-size: 90px;">http://goo.gl/iouedk</a>
+				</section>
+
+				<section>
+					<h2>&lt;Hi&gt;Everyone!&lt;/Hi&gt;</h2>
+				</section>
+				
+				<section>
+					<section>
+						<h2>HTML5?</h2>
+					</section>
+
+					<section>
+						<h3>Lastest version of the Web standard</h3>
+						<img class="no-deco fragment roll-in" src="./image/HTML5.png">
+						<img class="no-deco fragment roll-in" src="./image/CSS3.png">
+						<p>
+							<i class="fragment roll-in" >and so on</i>
+						</p>
+					</section>
+
+					<section>
+						<h3>Large set of technologies</h3>
+						<h4>allows more powerful Web sites and applications</h4>
+						<img src="./image/chromewebstore.png">
+					</section>
+
+					<section>
+						<h4>http://www.unrealengine.com/html5</h4>
+						<iframe width="640" height="390" src="http://www.youtube.com/embed/BV32Cs_CMqo" frameborder="0" allowfullscreen></iframe>
+					</section>
+
+					<section>
+						<h4>http://creativesandbox.com/guidebook</h4>
+						<a href="http://www.creativesandbox.com/guidebook" target="_new">
+							<img src="./image/googlepopupbook.png">
+						</a>
+					</section>
+				</section>
+
+				<section data-state="alert">
+
+					<section>
+						<h2>Project Summary</h2>
+					</section>
+
+					<section>
+						<h3>Development of a</h3>
+						<ul>
+							<li class="fragment roll-in">
+								HTML5
+							</li>
+							<li class="fragment roll-in">
+								Mashup
+							</li>
+							<li class="fragment roll-in">
+								Application
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<q>
+							like Opensource project
+						</q>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h1>Required Skills</h1>
+					</section>
+
+					<section>
+						<h2>DOM</h2>
+					</section>
+					
+					<section>
+						<h2>CSS<span class="fragment roll-in">3</span></h2>
+					</section>
+
+					<section>
+						<h2>JavaScript</h2>
+					</section>
+
+					<section>
+						<h2>Web Service</h2>
+					</section>
+					
+					<section>
+						<h2>RESTful API</h2>
+					</section>
+					
+					<section>
+						<h2>OPEN API</h2>
+					</section>
+
+					<section>
+						<h2>OAuth</h2>
+					</section>
+
+					<section>
+						<h2>Ajax</h2>
+					</section>
+
+					<section>
+						<h2>Client tools</h2>
+						<ul>
+							<li>
+								Libraries
+							</li>
+							<li>
+								Frameworks
+							</li>
+						<ul>
+					</section>
+
+					<section>
+						<h2>Server tools</h2>
+						<ul>
+							<li>
+								PHP, Ruby, Python or Java
+							</li>
+							<li>
+								or JavaScript(Node.js)
+							</li>
+						<ul>
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h2>Mashup</h2>
+						<q>In web development, is a web page, or web application, that uses content from <span class="fragment highlight-red">more than one source to create a single new service</span> displayed <span class="fragment highlight-green">in a single graphical interface</span>.</q>
+						<p>- wikipedia</p>
+					</section>
+
+					<section>
+						<h2>HTML5 Mashup Application</h2>
+						<ul>
+							<li>
+								Contents<span class="fragment roll-in"> - Open APIs</span>
+							</li>
+							<li>
+								Graphical Interface<span class="fragment roll-in"> - HTML5</span>
+							</li>
+						<ul>
+
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h2>References</h2>
+					</section>
+
+					<section>
+						<h3>Open APIs</h3>
+						Mashup APIs, <a href="http://www.mashup.or.kr">mashup.or.kr</a>
+					</section>
+
+					<section>
+						<h3>Documents & Specifications</h3>
+						<ul>
+							<li>
+								World Wide Web Consortium, <a href="http://w3c.org">w3c.org</a>
+							</li>
+							<li>
+								Mozilla Developer Network, <a href="http://developer.mozilla.org">developer.mozilla.org</a>
+							</li>
+							<li>
+								Compatibility tables, <a href="http://caniuse.com">caniuse.com</a>
+							</li>
+							<li>
+								Cross-Browser CSS3 Rule Generator, <a href="http://css3please.com/">css3please.com</a>
+							</li>
+							<li>
+								Helpful information & resources, <a href="http://html5please.com/">html5please.com</a>
+							</li>
+					</section>
+
+					<section>
+						<h3>libraries</h3>
+						<ul>
+							<li>
+								jQuery, <a href="http://jquery.com">jquery.com</a>
+							</li>
+							<li>
+								jQuery UI, <a href="http://jqueryui.com">jqueryui.com</a>
+							</li>
+					</section>
+
+					<section>
+						<h3>UI Framework</h3>
+						<ul>
+							<li>
+								jQuery Mobile, <a href="http://jquerymobile.com">jquerymobile.com</a>
+							</li>
+							<li>
+								BootStrap, <a href="http://getbootstrap.com/">getbootstrap.com</a>
+							</li>
+					</section>
+
+					<section>
+						<h3>MV* Framework</h3>
+						<ul>
+							<li>
+								Backbone.js, <a href="http://backbonejs.org/">backbonejs.org</a>
+							</li>
+							<li>
+								Knockout.js, <a href="http://jquery.com">Knockout.js</a>
+							</li>
+							<li>
+								Angular.js, <a href="http://angularjs.org/">angularjs.org</a>
+							</li>
+						</ul>
+					</section>
+
+				</section>
+
+
+				<section>
+
+					<section>
+						<h2>Helper tools</h2>
+					</section>
+
+					<section>
+						<h3>Git</h3>
+						
+						<ul>
+							<li>
+								GitHub
+								<ul>
+									<li>
+										<a href="http://www.github.io" target="_new">http://www.github.io</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								git - the simple guide
+								<ul>
+									<li>
+										<a href="http://rogerdudler.github.io/git-guide/index.ko.html" target="_new">http://rogerdudler.github.io/git-guide/index.ko.html</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								Git Tutorial
+								<ul>
+									<li>
+										<a href="https://www.atlassian.com/git/tutorial/" target="_new">https://www.atlassian.com/git/tutorial/</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								learn Git Branching
+								<ul>
+									<li>
+										<a href="http://learnbranch.urigit.com/" target="_new">http://learnbranch.urigit.com/</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Trello</h3>
+						<a href="http://www.trello.com" target="_new">http://trello.com</a>
+					</section>
+
+					<section>
+						<h3>Node.js</h3>
+						<ul>
+							<li>
+								Node.js, <a href="http://nodejs.org/">nodejs.org</a>
+							</li>
+							<li>
+								NPM, <a href="http://npm.org/">npm.org</a>
+							</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h3>Build, Task & Package Managing</h3>
+						<ul>
+							<li>
+								Grunt, <a href="http://gruntjs.com/">gruntjs.com</a>
+							</li>
+							<li>
+								Bower, <a href="http://bower.io/">bower.io</a>
+							</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<section data-state="cobaltblue">
+						<q>Wake up, heros.<br/>You're our only hope!</q>
+				</section>
+
+				<section>
+					<h1>Thank you</h1>
+					<h3>& Any questions?</h3>
+					<h4><a href="http://www.davincisdk.com">www.DaVinciSDK.com</a></h3>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.min.js"></script>
+
+		<script>
+			$(document).ready( function() {
+				var settings = {
+				    width: 1024,
+				    height: 768,
+					controls: true,
+					progress: true,
+					history: true,
+					center: true,
+
+					theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+					transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+					leap: {
+					        naturalSwipe   : false,    // Invert swipe gestures
+					        pointerOpacity : 0.1,      // Set pointer opacity to 0.1
+					        pointerColor   : 'red' // Red pointer
+					},
+
+					multiplex:{
+						secret:"13790339309907224890",
+						socketId:"90832fe91facab7a",
+						url: "http://revealjs.jit.ui:80"
+					},
+
+					// Optional libraries used to extend on reveal.js
+					dependencies: [
+				        { src: 'plugin/leap/leap.js', async: true },
+
+						{ src: 'http://revealjs.jit.su/socket.io/socket.io.js', async: true }, 
+						{ src: 'plugin/multiplex/master.js', async: true },
+						{ src: 'plugin/multiplex/client.js', async: true },
+
+						{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+						{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+						{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+						{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+						{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+						{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					]
+				};
+
+				function getParameterByName(name) {
+				    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+				    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+				        results = regex.exec(location.search);
+				    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+				}
+
+				if ( getParameterByName("mode") === "master" ) {
+				}
+				else {
+				}
+
+				Reveal.initialize( settings );
+			});
+		</script>
+
+	</body>
+</html>

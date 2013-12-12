@@ -1,4 +1,4 @@
-## Perfomance!
+## Performance!
 
 * Rendering <small class="fragment">Blink!, WebKit</small>
 * Logic <small class="fragment">JavaScript, V8</small>

@@ -1,0 +1,7 @@
+{
+  "name": "Introduction of HTML5Rocks/KO",
+  "version": "0.3.0",
+  "dependencies": {
+    "reveal.js": "master"
+  }
+}

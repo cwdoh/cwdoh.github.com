@@ -1,0 +1,188 @@
+[
+    {
+        "filename": "cover.md",
+        "attr": {
+            "data-background": "black"
+        }
+    },
+    {
+        "filename": "speaker.md",
+        "attr": {
+            "data-background": "black"
+        }
+    },
+    {
+        "filename": "html5rocks.md",
+        "attr": {
+            "data-background": "black"
+        }
+    },
+    [
+        {
+            "filename": "why.md",
+            "attr": {
+                "data-background": "red"
+            }
+        },
+        {
+            "filename": "yeahi-know.md",
+            "attr": {
+                "data-background": "#880000"
+            }
+        },
+        {
+            "filename": "for-me.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "for-public.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "many-people-said.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "also-people-said.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "so-i-did-start.md",
+            "attr": {
+                "data-background": "black"
+            }
+        }
+    ],
+    [
+        {
+            "filename": "then-what-do-you-get.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "i-believe-articles-flow-alongside-a-trend-as-stream.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "html5rocks-timeline-might-represents-their-focus.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "which-things-they-focused-on.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "first-devtools.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "second-performance.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "third-mobile.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "last-new-technologies.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "wrap-up-all-these-trends.md",
+            "attr": {
+                "data-background": "black"
+            }
+        }
+    ],
+    [
+        {
+            "filename": "html5rocksko-map.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "html5rocksko.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "html5rocksko-blog.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "html5rocksko-trello.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "html5rocksko-groups.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "html5rocksko-promotion.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "github.md",
+            "attr": {
+                "data-background": "black"
+            }
+        },
+        {
+            "filename": "how-translators-works.md",
+            "attr": {
+                "data-background": "black"
+            }
+        }
+    ],
+    {
+        "filename": "hope.md",
+        "attr": {
+            "data-background": "black"
+        }
+    },
+    {
+        "filename": "keep-our-works.md",
+        "attr": {
+            "data-background": "#007777"
+        }
+    },
+    {
+        "filename": "thank-you.md",
+        "attr": {
+            "data-background": "black"
+        }
+    }
+]

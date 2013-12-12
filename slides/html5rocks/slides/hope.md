@@ -2,7 +2,7 @@
 
 <ul>
 	<li class="fragment roll-in">
-		HTML5Rocks Maintenance <small class="fragment">for i18n, improvement</small>
+		HTML5Rocks Maintenance <small class="fragment">of i18n, improvement</small>
 	</li>
 	<li class="fragment roll-in">
 		Tutorial Proposal <small class="fragment">by Collecting requirements</small>

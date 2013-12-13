@@ -1,0 +1,440 @@
+[
+    {
+        "filename": "iu.md",
+        "attr": {
+            "data-background": "black"
+        }
+    },
+    {
+        "===================================================": "Don't expect",
+        "filename": "dont-expect.md",
+        "attr": {
+            "data-background": "#770000"
+        }
+    },
+    [
+        {
+            "===================================================": "Overview",
+            "filename": "quick-overview.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "before-html5.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "animations-before-html5.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "and-now.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "html5.md",
+            "attr": {
+                "data-background": ""
+            }
+        },
+        {
+            "filename": "after-html5.md",
+            "attr": {
+                "data-background": ""
+            }
+        }
+    ],
+    {
+        "===================================================": "애니메이션의 구현 방법 비교",
+        "filename": "create-animation-from-what.md",
+        "attr": {
+            "data-background": "#333377"
+        }
+    },
+    [
+        {
+            "filename": "ltcanvas.md",
+            "attr": {
+                "data-background": "#333377"
+            }
+        },
+        {
+            "filename": "canvas-2d-apis.md",
+            "attr": {
+                "data-background": "#333377"
+            }
+        },
+        {
+            "filename": "canvas-sample-code.md",
+            "attr": {
+                "data-background": "#333377"
+            }
+        },
+        {
+            "filename": "webgl.md",
+            "attr": {
+                "data-background": "#333377"
+            }
+        },
+        {
+            "filename": "threejs.md",
+            "attr": {
+                "data-background": "#333377"
+            }
+        },
+        {
+            "filename": "canvas-wrap-up.md",
+            "attr": {
+                "data-background": "#333377"
+            }
+        }
+    ],
+    [
+        {
+            "===================================================": "기초",
+            "filename": "basics.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "keyframe-intro.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "keyframe.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "interpolation.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "timing-function.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "wrapup-keyframes-and-interpolation.md",
+            "attr": {
+                "data-background": "#333377"
+            }
+        }
+    ],
+    [
+        {
+            "filename": "imperative-vs-declarative.md",
+            "attr": {
+                "data-background": "#880000"
+            }
+        },
+        {
+            "filename": "inline-style-with-javascript.md",
+            "attr": {
+                "data-background": "#333377"
+            }
+        },
+        {
+            "filename": "jquery-animate.md",
+            "attr": {
+                "data-background": "#333377"
+            }
+        },
+        {
+            "filename": "inline-js-issues.md",
+            "attr": {
+                "data-background": "#333377"
+            }
+        },
+        {
+            "filename": "css3-animation.md",
+            "attr": {
+                "data-background": "#333377"
+            }
+        },
+        {
+            "filename": "css-animation-arch.md",
+            "attr": {
+                "data-background": "#333377"
+            }
+        },
+        {
+            "filename": "browser-do-everything.md",
+            "attr": {
+                "data-background": "#ff0000"
+            }
+        },
+        {
+            "filename": "css-wrap-up.md",
+            "attr": {
+                "data-background": "#333377"
+            }
+        }
+    ],
+    [
+        {
+            "filename": "codingcoding.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        }
+    ],
+    [
+        {
+            "filename": "transition-vs-animation.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "transition.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "whats-transitable.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "but-transition.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "why.md",
+            "attr": {
+                "data-background": "#ff0000"
+            }
+        },
+        {
+            "filename": "animation.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "whats-animatable.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "but-animation.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "why.md",
+            "attr": {
+                "data-background": "#ff0000"
+            }
+        }
+    ],
+    [
+        {
+            "===================================================": "성능 최적화",
+            "filename": "performance-optimization.md",
+            "attr": {
+                "data-background": "purple"
+            }
+        },
+        {
+            "filename": "fast-is-smooth.md",
+            "attr": {
+                "data-background": "purple"
+            }
+        }
+    ],
+    [
+        {
+            "filename": "few-3d-graphics-knowledge.md",
+            "attr": {
+                "data-background": "normal"
+            }
+        },
+        {
+            "filename": "vertex-polygon.md",
+            "attr": {
+                "data-background": "normal"
+            }
+        },
+        {
+            "filename": "texture.md",
+            "attr": {
+                "data-background": "normal"
+            }
+        },
+        {
+            "filename": "rasterization.md",
+            "attr": {
+                "data-background": "normal"
+            }
+        },
+        {
+            "filename": "composition.md",
+            "attr": {
+                "data-background": "normal"
+            }
+        },
+        {
+            "filename": "whats-hw-acc.md",
+            "attr": {
+                "data-background": "normal"
+            }
+        },
+        {
+            "filename": "graphics-pipeline.md",
+            "attr": {
+                "data-background": "normal"
+            }
+        }
+    ],
+    [
+        {
+            "filename": "dom-tree.md",
+            "attr": {
+                "data-background": "normal"
+            }
+        },
+        {
+            "filename": "render-tree.md",
+            "attr": {
+                "data-background": "normal"
+            }
+        },
+        {
+            "filename": "layer.md",
+            "attr": {
+                "data-background": "normal"
+            }
+        }
+    ],
+    [
+        {
+            "filename": "advices-from-html5rocks.md",
+            "attr": {
+                "data-background": "purple"
+            }
+        },
+        {
+            "filename": "instead-of-left-top.md",
+            "attr": {
+                "data-background": "purple"
+            }
+        },
+        {
+            "filename": "use-translate.md",
+            "attr": {
+                "data-background": "purple"
+            }
+        },
+        {
+            "filename": "hide-things-at-out-of-screen.md",
+            "attr": {
+                "data-background": "purple"
+            }
+        },
+        {
+            "filename": "hinding-offscreens.md",
+            "attr": {
+                "data-background": "purple"
+            }
+        },
+        {
+            "filename": "minimize-layers.md",
+            "attr": {
+                "data-background": "purple",
+                "data-transition": "zoom"
+            }
+        },
+        {
+            "filename": "layer-bottleneck.md",
+            "attr": {
+                "data-background": "purple"
+            }
+        },
+        {
+            "filename": "dont-promote-layers.md",
+            "attr": {
+                "data-background": "purple"
+            }
+        },
+        {
+            "filename": "what-should-we-do.md",
+            "attr": {
+                "data-background": "#ff0000"
+            }
+        },
+        {
+            "filename": "useful-resources.md",
+            "attr": {
+                "data-background": "purple"
+            }
+        }
+    ],
+    {
+        "filename": "web-animation.md",
+        "attr": {
+            "data-background": "black"
+        }
+    },
+    {
+        "filename": "wrap-up.md",
+        "attr": {
+            "data-background": "#007777"
+        }
+    },
+    [
+        {
+            "===================================================": "다음 세션 홍보",
+            "filename": "one-more-thing.md",
+            "attr": {
+                "data-background": "slategray"
+            }
+        },
+        {
+            "filename": "hey-bring-it-till-monday-morning.md",
+            "attr": {
+                "data-background": "#770000"
+            }
+        },
+        {
+            "filename": "publisher-diary.md",
+            "attr": {
+                "data-background": "#bb0000"
+            }
+        },
+        {
+            "filename": "next-session-is.md",
+            "attr": {
+                "data-background": "#770000"
+            }
+        }
+    ],
+    {
+        "===================================================": "마무리",
+        "filename": "thank-you.md",
+        "attr": {
+            "data-background": ""
+        }
+    }
+]

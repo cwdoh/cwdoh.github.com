@@ -1,0 +1,1 @@
+## <a href="http://api.jquery.com/animate/" target="_new" class="fragment grow">jQuery.animate()</a>

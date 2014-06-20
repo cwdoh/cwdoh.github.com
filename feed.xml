@@ -20,6 +20,11 @@
 
 &lt;p&gt;이 문서는 프론트엔드 개발자를 대상으로 하므로 최신의 그래픽 아키텍쳐 등의 기술을 다루기보다는 보다 이해하기 쉬운 초기의 렌더링 파이프라인을 비교하여 설명하고 있습니다. 이미지와 각종 설명에 대한 내용은 지속적으로 업데이트를 할 예정입니다. 오탈자, 잘못된 설명이나 기타 오류 사항 및 추가로 설명할 내용이 있다면 이를 전달해주시면 감사하겠습니다. :)&lt;/p&gt;
 
+&lt;p&gt;&amp;lt;iframe src=”http://www.slideshare.net/slideshow/embed_code/36071824” width=”600” height=”400” frameborder=”0” marginwidth=”0” marginheight=”0” scrolling=”no” style=”border: 1px solid black;”allowfullscreen&amp;gt; &amp;lt;/iframe&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/cwdoh/gdg-webtech-1&quot;&gt;슬라이드&lt;/a&gt; from &lt;a href=&quot;http://www.slideshare.net/cwdoh&quot;&gt;Chang W. Doh&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
 &lt;h2 id=&quot;section-1&quot;&gt;프론트엔드 개발자를 위한 크롬 렌더링 성능 인자 이해하기&lt;/h2&gt;
 
 &lt;p&gt;디바이스는 항상 발전합니다. 30여년 전 거대한 머신에서나 가능했던 그래픽스 처리를 위한 하드웨어 가속은 이제 모바일 디바이스에서조차 가장 기본적인 기능 중의 하나가 되었습니다. 때로는 (혹은 자주) 소프트웨어 개발자들에게 하드웨어는 상당히 귀찮은 기술입니다만 컴퓨팅 월드에서 빠르다는 것은 그 무엇보다 우선되어지는 미덕이기도 합니다. 이는 사용자에게 좋은 UX와 성능을 제공하기 위해 반드시 이해하여야 하는 항목 중의 하나입니다.&lt;/p&gt;

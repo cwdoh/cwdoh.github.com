@@ -21,7 +21,7 @@
 &lt;p&gt;이 문서는 프론트엔드 개발자를 대상으로 하므로 최신의 그래픽 아키텍쳐 등의 기술 대신 보다 이해하기 쉬운 초기의 렌더링 파이프라인을 비교하여 설명하고 있습니다. 현재 버전에서는 설명하고자 하는 개념과 유사한 이미지들을 사용하고 있으며 이는 각 설명에 대한 내용과 함께 지속적으로 업데이트를 할 예정입니다. 오탈자, 잘못된 설명이나 기타 오류 사항 및 추가로 설명할 내용이 있다면 이를 전달해주시면 감사하겠습니다. :)&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.slideshare.net/cwdoh/gdg-webtech-1&quot;&gt;GDG WebTech 뜻밖의 워크샵 #1 슬라이드&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;http://goo.gl/slqRfI&quot;&gt;GDG WebTech 뜻밖의 워크샵 #1 슬라이드&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;section-1&quot;&gt;프론트엔드 개발자를 위한 크롬 렌더링 성능 인자 이해하기&lt;/h2&gt;

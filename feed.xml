@@ -7,126 +7,1058 @@
     <atom:link href="http://cwdoh.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Chrome Enchanted: 2014년 주목할만한 HTML5 규격 4종</title>
+        <description>&lt;p&gt;시간은 화살처럼 흐른다더니 어느덧 2014년의 절반이 훌쩍 넘어가고 있습니다. 이 포스트는 사실 5월 무렵 초안을 작성을 시작했는데 이제야 정리를 하게 되네요. 이 글은 Natively Web Application에 대한 리소스들을 다루기 위해 만든 &lt;a href=&quot;http://webapplications.kr&quot;&gt;WebApplications.kr&lt;/a&gt;에도 함께 업데이트됩니다. :)&lt;/p&gt;
+
+&lt;h2 id=&quot;html5-&quot;&gt;2014년에 주목할만한 HTML5 규격들&lt;/h2&gt;
+
+&lt;p&gt;아시다시피 2014년도에도 다양한 HTML5 규격이 작성되고 있거나 구현 단계에 있습니다. &lt;a href=&quot;http://dev.w3.org/html5/decision-policy/html5-2014-plan.html#plan&quot; title=&quot;W3C Plan 2014&quot;&gt;W3C는 올해 말 HTML 5.0 표준안을 확정할 예정&lt;/a&gt;입니다만 살아있는 표준(Living Standard)로써의 HTML5의 혁신은 지속되고 있습니다. 이번 포스트에서는 현재 시점에서 크롬에 코드가 일부 혹은 전체가 탑재되고 있는 HTML5 규격 중 기존 웹 개발의 패러다임에 변화를 가져올 수 있어 보이는 주목할만한 4가지 규격들에 대해 정리해보았습니다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;주요 HTML5 규격&lt;/th&gt;
+      &lt;th&gt;설명&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Web Components&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;웹을 위한 컴포넌트 시스템&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Web Animations&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;통합된 애니메이션 제어 모델을 제공하기 위한 자바스크립트 API&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;WebRTC&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;실시간 통신(RealTime Communication)을 지원하기 위한 P2P 통신&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Service Worker&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;웹 페이지와 독립적으로 오프라인/시스템 기능을 제공하는 이벤트 기반 Worker&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;web-components&quot;&gt;1. Web Components&lt;/h2&gt;
+
+&lt;p&gt;Web Components는 (HTML, CSS, JavaScript을 통해) 통상적으로 구성된 웹 페이지 일부 혹은 그 자체를 컴포넌트화하여 다른 웹 페이지 내에서 재사용할 수 있도록 하는 기술입니다. 개인적으로 &lt;code&gt;Web Components&lt;/code&gt;를 규격이 아니라 기술이라고 하는 이유는 통상적인 웹 기능과는 달리 4가지의 독립적인 규격의 집합으로 구현할 수 있는 기술이기 때문입니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;개괄적인 내용은 ‘&lt;a href=&quot;http://html5rocksko.blogspot.kr/2014/02/mashup-web-component-evolution-of-web-development.html&quot;&gt;웹 컴포넌트: 차세대 프론트엔드 웹 개발로 가는 관문&lt;/a&gt;‘이라는 거창한 제목의 포스트에서 다룬 바가 있기 때문에 여기서 이를 복잡하게 다루지는 않을 것입니다. :)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;웹에서 컴포넌트가 왜 필요할까?&lt;/h3&gt;
+
+&lt;p&gt;‘컴포넌트(Component)’라는 개념은 개발자에게 있어 이미 충분히 친숙한 개념입니다. 소프트웨어 개발에서는 이러한 요소들을 ‘컴포넌트(Component)’라는 개념으로 오랜동안 사용해 왔으며 이미 이미 다양한 형태의 컴포넌트가 각 플랫폼에 적합한 형태로 오랜동안 배포되고 사용되어 왔습니다.&lt;/p&gt;
+
+&lt;p&gt;10여년전과 다를 바 없이 우리는 여전히 다른 프로젝트에서 사용했던 리스트 아이템들을 새로운 프로젝트에서도 적용하기 위해 &lt;em&gt;마크업을 복사해서 수정하고 스타일링을 위한 새로운 CSS를 작성하거나 기존 스타일과의 충돌을 제거하고, 자바스크립트를 최대한 모듈화하여 작성&lt;/em&gt;하고 있습니다. 이러한 과정으로 인해 웹 개발자는 개발 프로세스 내에서 언제던지 태그의 바다(Tag Soup)에 빠질 수 있는 가능성을 안고 있습니다. 이제 우리는 조금 더 나아가서 컴포넌트를 웹에서 (특히 프론트엔드 개발에서) 사용할 방법이 필요하며 가능하다면 도구적인 지원을 받을 수 있으면 더 좋을 것입니다.&lt;/p&gt;
+
+&lt;p&gt;다행스럽게도 W3C에서는 이러한 컴포넌트 기술을 웹에서 적용할 수 있도록 새로운 규격의 집합을 만들었으며 이 규격들을 묶어 &lt;code&gt;웹 컴포넌트(Web Component)&lt;/code&gt;라고 부르며 이를 지원하는 도구와 라이브러리들의 작업이 여러 곳에서 매우 빠르게 진행되고 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;웹 컴포넌트를 지탱하는 4개의 기둥&lt;/h3&gt;
+
+&lt;p&gt;웹 컴포넌트는 다음과 같은 4가지의 규격으로 구성되어 있습니다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;규격&lt;/th&gt;
+      &lt;th&gt;설명&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Shadow DOM&lt;/td&gt;
+      &lt;td&gt;컴포넌트의 DOM, CSS, JS의 캡슐화(encapsulation)와 스코프(Scope)의 분리를 제공&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;HTML Template&lt;/td&gt;
+      &lt;td&gt;로딩 시간에는 비활성화되는 마크업을 정의하고 이를 실행 시간에 복제할 수 있는 기능을 제공&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Custom Element&lt;/td&gt;
+      &lt;td&gt;웹 문서에서 사용할 엘리먼트의 동적인 등록을 통해 컴포넌트의 명시적인 alias를 선언&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;HTML Imports&lt;/td&gt;
+      &lt;td&gt;웹 문서 내에 외부 리소스를 포함(Import)하기 위한 기능을 제공&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;이를 웹 컴포넌트의 사용 관점에서 좀 더 단순하게 설명하자면 다음과 같습니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;HTML Imports&lt;/strong&gt;를 이용하여 외부에 존재하는 웹 컴포넌트를 로딩하고,&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Custom Element&lt;/strong&gt;로 이를 사용자 태그(Tag)로 지정하여 웹 페이지 내에서 태그가 사용될 떄&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Template&lt;/strong&gt;를 통해 웹 컴포넌트의 인스턴스를 생성(Clone)하고,&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Shadow DOM&lt;/strong&gt;을 이용하여 생성된 컴포넌트 인스턴스를 웹 페이지 내에서 독립적인 형태로 사용합니다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;가장 손쉽게 설명할 수 있는 장점은 역시 재사용성&lt;/h4&gt;
+
+&lt;p&gt;웹 컴포넌트에서 로딩, 등록 등의 신규 규격으로 제공되는 부분을 제거하면 컴포넌트 자체는 순수한 자바스크립트, 마크업, CSS의 덩어리입니다. 즉, &lt;code&gt;웹 페이지&lt;/code&gt;의 &lt;strong&gt;일부&lt;/strong&gt; 혹은 &lt;strong&gt;그 자체&lt;/strong&gt;라고 할 수 있습니다. 필요하다면 우리는 어떠한 페이지를 컴포넌트화해서 사용할 수도 있고, 지금까지 그랬던 것처럼 특정한 컴포넌트를 만들거나 재사용할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;물론 최신의 규격을 기반으로 하고 있기 때문에 당장 여러분의 브라우저에서 사용하는데는 무리가 될 수 있습니다만, 필요하다면 &lt;a href=&quot;http://www.polymer-project.org/&quot;&gt;폴리머(Polymer)&lt;/a&gt;나 &lt;a href=&quot;https://developer.mozilla.org/en-US/Apps/Tools_and_frameworks/Web_components&quot;&gt;Bricks&lt;/a&gt;를 사용하여 현재 네이티브로 기능이 지원되지 않는 브라우저에서도 웹 컴포넌트를 사용할 수 있습니다. 현재는 &lt;a href=&quot;http://developer.telerik.com/featured/web-components-arent-ready-production-yet/&quot;&gt;성능에 대한 논란&lt;/a&gt;도 존재합니다만 어쨌든 &lt;a href=&quot;http://caniuse.com/#search=web component&quot;&gt;크롬 브라우저에서는 완전한 네이티브 구현이 진행되었고, 여타의 브라우저에서도 기능이 일부 지원&lt;/a&gt;이 되고 있으므로 참고하시기 바랍니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;참고 링크&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;규격 관련&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3.org/TR/components-intro/&quot;&gt;Introduction to Web Components&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dvcs.w3.org/hg/webcomponents/raw-file/ccd579693e46/explainer/index.html&quot;&gt;Web Components Explainer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3.org/TR/shadow-dom/&quot;&gt;Shadow DOM&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3.org/TR/custom-elements/&quot;&gt;Custom Element&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3.org/TR/html-imports/&quot;&gt;HTML Imports&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3.org/TR/html-templates/&quot;&gt;HTML Template&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;polyfill-&quot;&gt;Polyfill 라이브러리&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.polymer-project.org/&quot;&gt;Polymer Project&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/Apps/Tools_and_frameworks/Web_components&quot;&gt;Mozilla Bricks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;튜토리얼 및 기타 글&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/webcomponents/shadowdom/&quot;&gt;Shadow DOM 101&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/webcomponents/shadowdom-201/&quot;&gt;Shadow DOM 201&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/webcomponents/shadowdom-301/&quot;&gt;Shadow DOM 301&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/webcomponents/customelements/&quot;&gt;Custom Elements&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/webcomponents/imports/&quot;&gt;HTML Imports&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/webcomponents/template/&quot;&gt;Template&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/webcomponents/yeoman/&quot;&gt;Building Web Apps With Yeoman And Polymer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://html5rocksko.blogspot.kr/2014/02/mashup-web-component-evolution-of-web-development.html&quot;&gt;웹 컴포넌트: 차세대 프론트엔드 웹 개발로 가는 관문&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;web-animations&quot;&gt;Web Animations&lt;/h2&gt;
+
+&lt;p&gt;오랜동안 웹에서의 애니메이션은 플래시 플레이어가 차지하고 있었습니다만, HTML5 이전에도 SVG(Scalable Vector Graphics)는 자체적인 애니메이션을 구현할 수 있는 방법이 존재하였고 HTML5에 이르러서는 CSS3 Animation과 Transition이 추가되었습니다. 하지만 왜 또 새로운 애니메이션 규격이 제안되었을까요?&lt;/p&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;지금까지의 애니메이션 기능들&lt;/h3&gt;
+
+&lt;p&gt;다들 아시다시피 애니메이션에 관련해서 이미 4종의 규격이 존재하고 있습니다. Web Animations의 목적을 확인하기 전에 잠시 기존 애니메이션 규격들의 단점에 대해 간단하게 확인해보도록 하겠습니다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;규격&lt;/th&gt;
+      &lt;th&gt;이슈&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;CSS Animation&lt;br /&gt;CSS Transition&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;조합, 시퀀싱, 병렬 처리 상의 문제점&lt;br /&gt;제한적인 스크립트 조작성&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;SVG Animation&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;고성능 요구 &amp;amp; 복잡성, HTML 컨텐츠에 범용적으로 적용 불가&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;requestAnimationFrame()&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;JavaScript 기반이므로 애니메이션 업데이트에 메인 스레드 점유&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;특히 동적인 애니메이션 제어를 자바스크립트에 위임하는 모델은 확실히 자유도가 높지만 메인 스레드를 점유한다는 선천적인 문제점 그리고 애초에 제어가 불가능한 애니메이션 요소들이 존재하고, CSS 스타일(특히 inline style)에 의한 Recalculation, Layouting, Repaint 등의 이슈를 근본적으로 해결할 수 있는 방법은 아니라는 문제가 있으므로 기존의 규격으로 좋은 성능을 가지는 애니메이션을 개발하는 것은 무척 어렵습니다. 더불어 가장 큰 문제점은 이러한 여러가지 애니메이션 모델을 쉽게 제어할 수 있도록 설계된 단일화된 모델이 존재하지 않는다는 것입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;web-animations-1&quot;&gt;Web Animations&lt;/h3&gt;
+
+&lt;p&gt;Web Animations는 복잡한 애니메이션을 스크립트로 처리 가능하도록 기존 애니메이션 모델들에 대해 동기화된 API들을 제공하며 기존 4가지 애니메이션 규격에서 처리하기 어려운 부분들을 보완하고 근본적인 구현 사항들을 대체 방안을 제공하는 것이 주요 목적입니다. 이러한 규격을 기초로 얻을 수 있는 가장 큰 장점은 애니메이션 구현에 대한 실행 비용을 브라우저의 구현에 의해 절감할 수 있는 방법이 생긴다는 점 그리고 다양한 애니메이션 기술을 제어하는 공용 API입니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;section-7&quot;&gt;웹 애니메이션 규격의 범주&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://wiki.mozilla.org/images/f/f6/CSS-SVG-Web-Animations.png&quot; alt=&quot;Web Animations의 범주&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 그림에서 보시다시피 웹 애니메이션의 규격이 포함하는 범주는 매우 넓어보입니다만, 실제로 웹 애니메이션이 추가하고 있는 부분은 어두운 녹색으로 표시되어 있는 애니메이션의 &lt;code&gt;제어&lt;/code&gt; 부분이며 애니메이션 방식 자체에 대한 기능은 기존의 CSS3 Animation/Transition, SVG 애니메이션을 그대로 차용합니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;api&quot;&gt;애니메이션에 대한 동적인 제어를 가능하게 하는 API들&lt;/h4&gt;
+
+&lt;p&gt;개발자들의 관점에서 볼 때 웹 애니메이션은 자바스크립트 기반의 애니메이션 제어 API 세트에 해당하며 웹 애니메이션의 규격을 통해 애니메이션을 처리하는 가장 단순한 예제는 아래와 같습니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&quot;pulse&quot; style=&quot;width:150px;&quot;&amp;gt;Hello world!&amp;lt;/div&amp;gt;
+&amp;lt;script&amp;gt;
+  var elem = document.querySelector(&#39;.pulse&#39;);
+  var player = document.timeline.play(new Animation(elem, [
+      {opacity: &quot;0.5&quot;, transform: &quot;scale(0.5)&quot;}, 
+      {opacity: &quot;1.0&quot;, transform: &quot;scale(1)&quot;}
+    ],
+    {
+      direction: &quot;alternate&quot;, duration: 500, iterations: Infinity
+    }));
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;위 코드에서 보다시피 API들은 기존 CSS3 Animation 및 Transition, SVG Animation에 기반하여 애니메이션의 속성을 설정할 수 있습니다. &lt;/p&gt;
+
+&lt;h4 id=&quot;section-8&quot;&gt;애니메이션 모델 기반의 논리적인 제어&lt;/h4&gt;
+
+&lt;p&gt;웹 애니메이션 규격은 애니메이션과 타이밍 제어를 위한 2가지 모델을 추가하고 있습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;타이밍 모델 - 애니메이션의 재생 시간, 반복, 재생 속도 등의 속성을 기반으로 한 타임 라인 제어&lt;/li&gt;
+  &lt;li&gt;애니메이션 모델 - 타이밍 모델에서 처리된 시간값을 기반으로 정의된 애니메이션의 처리&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://dev.w3.org/fxtf/web-animations/img/timing-and-animation-models.svg&quot; alt=&quot;Web Animations - Timing Model &amp;amp; Animation Model&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;웹 애니메이션에서 타이밍 모델을 전반적으로 애니메이션을 위한 시간 값을 처리하며, 처리된 시간 값은 정의된 애니메이션에서 재생을 위한 위치 값으로 활용됩니다. 예를 들자면 left 값이 0px에서 100px로 변경되는 애니메이션이 존재할 때 타이밍 모델에서 처리된 시간값이 애니메이션 모델에 입력으로 들어와서 50%에 해당하는 위치 값을 가진다면 애니메이션 모델의 출력값은 &lt;code&gt;left: 50px;&lt;/code&gt;이 될 것입니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;section-9&quot;&gt;선언적인 애니메이션 구조에서의 탈피가 가장 큰 의미&lt;/h4&gt;
+
+&lt;p&gt;얼핏 보자면 API화 되어 있다는 점 외에는 기존의 기능과 크게 틀린 부분이 보이지는 않을 것이라고 생각되지만, 애니메이션의 대상이 되는 DOM 요소를 논리적인 트리 형태로 포함할 수 있는 기능을 가지고 있습니다. 또한, 타이밍 모델은 기본적인 타이밍의 제어룰 제공합니다만, 타이밍 그룹(Timing Group)을 통해 계층적인 제어가 가능하며 동적으로 애니메이션의 재생 속성을 변경할 수 있으며, 재생시간 등의 속성이 미리 선언되어야 하는 기존 방식과는 다른 편리함을 가지고 있습니다. 이에 대한 자세한 내용은 이후의 다른 포스트에서 다뤄보도록 하겠습니다. :)&lt;/p&gt;
+
+&lt;h4 id=&quot;section-10&quot;&gt;초기 단계지만 구현 상황에 대한 지속적인 관심이 필요&lt;/h4&gt;
+
+&lt;p&gt;크롬을 기준으로 보자면 Blink의 Animation 및 Transition 엔진이 작년 말에 웹 애니메이션을 지원하기 위한 구조로 이미 변경되었으며 현재 &lt;a href=&quot;http://updates.html5rocks.com/2014/05/Web-Animations---element-animate-is-now-in-Chrome-36&quot;&gt;36 버전에서 &lt;code&gt;Element.animate()&lt;/code&gt;가 구현된 상태&lt;/a&gt;이며 나머지 기능들이 계속 구현 진행 중입니다. &lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=875219&quot;&gt;모질라&lt;/a&gt;와 &lt;a href=&quot;https://lists.webkit.org/pipermail/webkit-dev/2013-October/025758.html&quot;&gt;사파리&lt;/a&gt;는 네이티브 구현은 진행 단계에 있으며 &lt;a href=&quot;http://status.modern.ie/webanimationsjavascriptapi&quot;&gt;IE의 경우 구현에 대해 고려 중&lt;/a&gt;입니다. 그 외에도 &lt;a href=&quot;https://github.com/web-animations/web-animations-js&quot;&gt;웹 애니메이션 폴리필 라이브러리&lt;/a&gt;를 이용하여 웹 애니메이션을 다른 HTML5 기반의 브라우저에서 실행할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;물론 전반적인 규격과 폴리필, 크롬에서의 구현을 포함하여 아직은 초기 단계이기 때문에 당장 사용하기에는 일부 어려운 점이 있습니다. 다만, 웹 애니메이션이 &lt;a href=&quot;http://www.polymer-project.org/platform/web-animations.html&quot;&gt;폴리머에 포함&lt;/a&gt;된 상태이며 그간 플래시가 차지하고 있었던 웹에서의 애니메이션 기능을 위한 대체 기술로써 고안되었으므로 이에 대한 관심은 지속적으로 가질 필요가 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;section-11&quot;&gt;참고 링크&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-12&quot;&gt;규격 관련&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://dev.w3.org/fxtf/web-animations/&quot;&gt;W3C Web Animations Specification&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;polyfill--1&quot;&gt;Polyfill 라이브러리&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/web-animations/web-animations-js&quot;&gt;Web Animations.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-13&quot;&gt;튜토리얼 및 기타 글&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.polymer-project.org/platform/web-animations.html&quot;&gt;Polymer - Web Animations&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://web-animations.github.io/web-animations-demos/&quot;&gt;Web Animations Demo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://updates.html5rocks.com/2014/05/Web-Animations---element-animate-is-now-in-Chrome-36&quot;&gt;Web Animations - element.animate() is now in Chrome 36&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;webrtc&quot;&gt;WebRTC&lt;/h2&gt;
+
+&lt;p&gt;Ajax를 비롯한 HTTP(S) 기반의 통신은 오랜동안 요청/응답(Request and Response) 기반의 모델을 취해왔습니다. 물론 네트워크 데이터의 대부분은 요청에 의한 응답으로 충분히 처리가 가능합니다만, 보다 고성능의 네트워크를 필요로 하는 현대적 서비스들은 이러한 부분에서 어려움을 겪어왔습니다. 이를 해결하기 위한 첫번째 움직임은 2012년 제정된 &lt;a href=&quot;http://www.w3.org/TR/websockets/&quot;&gt;Web Socket&lt;/a&gt;이었습니다. 그리고 웹 소켓이 해결하지 못하는 P2P 기반의 네트워크를 위한 규격이 바로 WebRTC입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;p2p--&quot;&gt;웹을 위한 P2P 통신 규격&lt;/h3&gt;
+
+&lt;p&gt;WebRTC는 웹을 위한 실시간 통신 규격으로 오디오나 비디오 스트림을 P2P로 송수신하는 것뿐만이 아니라 데이터 전달을 위한 메커니즘을 포함하고 있습니다. &lt;/p&gt;
+
+&lt;p&gt;대다수의 서비스들은 클라언트-서버 간의 데이터 통신을 통해 기능을 제공하고 있지만 어떤 경우는 클라이언트 간의 빠른 데이터 교환이 주요 기능 구현 사항이 되기도 합니다. 바로 이러한 경우 WebRTC는 중요한 기반 기능을 제공합니다. 뒤집어 얘기하자면 서버를 중계할 이유가 없으며 클라이언트 간의 데이터를 빠르게 송수신하고자 한다면 WebRTC는 좋은 선택이 될 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.html5rocks.com/ko/tutorials/webrtc/basics/apprtcArchitecture.png&quot; alt=&quot;Architecture of WebRTC application&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section-14&quot;&gt;단지 성능이 아닌 신뢰성과 보안을 포함하는 규격&lt;/h4&gt;
+
+&lt;p&gt;WebRTC는 문자열, Blob, ArrayBuffer 그리고 자바스크립트 바이너리 타입을 지원하며 UDP와 유사한 ‘신뢰성 없는 모드’와 TCP과 유사한 ‘신뢰성 있는 모드’ 둘 중 하나로 동작할 수 있습니다. 신뢰성 있는 방식(Trusted Mode)은 메시지 전송과 메시지가 전달되는 순서를 보장하지만 추가적인 오버헤드가 있으며 신뢰성 없는 방식(Untrusted Mode)은 모든 메시지가 상대편에 도달하는지와 어떤 순서로 도달하는지를 보장하지 않는 대신 오버헤드를 제거합니다. &lt;/p&gt;
+
+&lt;p&gt;또한, &lt;strong&gt;암호화(Encryption)는 WebRTC 요소의 기본 사항&lt;/strong&gt;입니다. 모든 데이터가 데이터그램 전송 계층 보안 (Datagram Transport Layer Security, DTLS)을 사용하도록 정의되어 있으므로 WebRTC를 지원하는 모든 브라우저가 DTLS를 내장하고 있으므로 추가적인 구현없이도 안전한 데이터 송수신이 가능합니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;section-15&quot;&gt;가장 대표적인 사례는 비디오 채팅&lt;/h4&gt;
+
+&lt;p&gt;지난 세월동안 오디오와 비디오 캡쳐는 외부 플러그인들을 사용할 수 밖에 없었으나 HTML5는 다양한 하드웨어에 대한 접근을 표준 규격으로 정의하고 있으며 오디오와 비디오의 캡쳐 역시 그렇습니다. 이와 관련해서 그동안 다양한 규격들이 W3C에서 시도되어 왔지만 현재 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/NavigatorUserMedia.getUserMedia&quot;&gt;getUserMedia()&lt;/a&gt;를 통해 대다수의 작업을 할 수 있도록 정리되었습니다. WebRTC의 가장 대표적인 사례는 바로 이 getUserMedia()를 결합하여 별도의 플러그인 없이 구현할 수 있는 P2P 기반의 비디오 채팅입니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;section-16&quot;&gt;게임 등에도 응용이 가능한 범용 규격&lt;/h4&gt;
+
+&lt;p&gt;이러한 대표적인 사례로 인해 WebRTC는 종종 화상 회의와 같은 미디어 통신을 위한 규격처럼 인식되는 경우가 있으나 그렇지 않습니다. 화상회의와 같은 것은 WebRTC의 P2P 통신과 mediaCapture()이 결합된 좋은 사례 중 하나일 뿐입니다. 물론 커뮤니케이션, 게임, 혹은 파일 전송을 위한 두 브라우저 간의 데이터 전송은 상당히 복잡한 과정일 수 있습니다. 우리에게는 WebSocket, AJAX, 그리고 Server Sent Events가 있지만 이는 근본적으로 서버를 통한 통신 모델로써의 디자인입니다.&lt;/p&gt;
+
+&lt;p&gt;WebRTC는 근본적으로 P2P를 기반으로 하는 데이터 전송 메커니즘입니다. 이는 파일 전송뿐만이 아니라 P2P를 기반으로하는 멀티플레이어 게임에도 유용합니다. 이를 위한 RTCDataChannel은 파일 공유, 멀티플레이어 게임, 콘텐츠 전송을 위한 앱을 만드는 새로운 방식을 제공합니다. 이를 사용하여 낮은 지연 시간을 가지는 고성능 네트워크 어플리케이션을 제공할 수 있으며, 한 피어(peer)에서 다른 곳으로 직접 데이터를 전달하기 위해 P2P(peer-to-peer) 연결을 가능하게 하여 중개 서버가 없고 ‘홉(hops)’이 적어 지연 시간을 더 줄일 수 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;section-17&quot;&gt;참고 링크&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-18&quot;&gt;규격&lt;/h4&gt;
+
+&lt;h4 id=&quot;section-19&quot;&gt;튜토리얼 및 기타 글&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/Guide/API/WebRTC/WebRTC_basics&quot;&gt;MDN - WebRTC Basics&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/webrtc/basics/&quot;&gt;Getting Started with WebRTC&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/webrtc/infrastructure/&quot;&gt;WebRTC in the real world: STUN, TURN and signaling&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/webrtc/datachannels/&quot;&gt;WebRTC data channels: WebRTC data channels: for high performance data exchange
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;service-worker&quot;&gt;Service Worker&lt;/h2&gt;
+
+&lt;p&gt;현재의 네이티브 앱들의 기능과 유사한 형태의 웹 어플리케이션을 구현할 때 가장 난해한 부분은 어떤 것일까요? 아마 그래픽스, 성능, 네트워크 등 다양한 의견이 나올 거이라고 생각됩니다만, 최소한 이들 기능은 현재 HTML5에서의 기능들에 의한 대체제가 존재합니다. 단연컨데 현재 가장 어려운 부분 중의 하나는 &lt;code&gt;오프라인&lt;/code&gt;입니다. Service Worker는 1차적으로는 이러한 오프라인의 문제를 해결하기 위한 시작점입니다. 물론 Service Worker가 커버하는 범위는 이보다 더 넓습니다만, 요약하자면 &lt;strong&gt;네이티브 어플리케이션의 동작 흐름을 웹으로 가져오기 위한 가장 중요한 기능&lt;/strong&gt;이라고 할 수 있겠습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;section-20&quot;&gt;오프라인을 지원하기 위한 두번째 규격&lt;/h3&gt;
+
+&lt;p&gt;서비스 워커 이전의 가장 대표적인 문제점은 역시 오프라인 리소스에 대한 관리입니다. 이전에도 &lt;a href=&quot;http://www.whatwg.org/specs/web-apps/current-work/#applicationcache&quot;&gt;Application Cache&lt;/a&gt;를 이용하여 일종의 Packaged App을 지원하고 오프라인 기반의 웹 어플리케이션을 지속적으로 시도해왔습니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;section-21&quot;&gt;로직 기반의 오프라인 리소스 관리&lt;/h4&gt;
+
+&lt;p&gt;Application Cache의 경우 캐싱 처리를 정적인 분기 로직을 기반으로 동작시켜야 했으며, 대체적으로 개발자가 원하던 방식보다는 &lt;strong&gt;브라우저의 정책에 따라 리소스가 관리&lt;/strong&gt;되는 문제가 존재하였습니다. 대표적인 문제점들은 다음과 같이 &lt;a href=&quot;http://alistapart.com/article/application-cache-is-a-douchebag&quot;&gt;Application Cache is a douchebag&lt;/a&gt;에서 지적된 내용들입니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ol&gt;
+    &lt;li&gt;온라인에 있을 때에도 파일들이 언제나 어플리케이션 캐시로부터 전달된다.&lt;/li&gt;
+    &lt;li&gt;어플리케이션 캐시는 Manifest 자체가 변경될 때만 업데이트된다.&lt;/li&gt;
+    &lt;li&gt;어플리케이션 캐시는 선택적이지 않은 추가적이 캐시(동작)이다.&lt;/li&gt;
+    &lt;li&gt;절대로 한참 후의 manifest를 캐시하지 않는다.&lt;/li&gt;
+    &lt;li&gt;캐싱되지 않은 리소스는 캐시된 페이지에서 로딩되지 않는다.&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/notable-specs-2014/OMG.appcache.png&quot; alt=&quot;Offline&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;서비스 워커는 이를 해결하기 위해 프로그램 가능(Programmable)한 오프라인 리소스의 근본적인 처리 방법을 제시합니다. 브라우저에서 일어나는 요청(Request)들을 조건에 따라 인터럽트하여 직접 응답(Custom response)할 수 있는 기능을 통해 사용자가 직접 리소스를 관리할 수 있습니다. 따라서 캐시 로직은 사용자가 직접 작성이 가능하며 언제든지 업데이트할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/notable-specs-2014/serviceworker_cache_flow.png&quot; alt=&quot;Service Worker - Controlling fetch flow&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section-22&quot;&gt;페이지 기반이 아닌 백그라운드 기반의 프로세싱 지원&lt;/h4&gt;
+
+&lt;p&gt;익히 아시다시피 웹 어플리케이션은 브라우저 상에서 페이지 단위로 동작합니다. 이를 뒤집어 보자면 페이지가 로딩되지 않은 상황에서의 처리들이 불가능하다는 말과도 같습니다. 아마 기획 과정에서 요구되는 네이티브 어플리케이션 형태의 동작들, 예를 들어 Remote Push Notification과 같은 항목들 이로 인해 구현이 불가능하였습니다. 서비스워커는 시스템 이벤트에 대한 콜백 시스템을 제공하여 이러한 부분을 해결하고자 하고 있습니다. 물론 세부적인 기능들은 서비스 워커 자체에서 지원하는 것은 아닙니다만, 앞으로 백그라운드 프로세싱을 사용하는 대다수의 기능은 서비스 워커를 기반으로 동작할 것입니다. 현재 디자인되고 있는 규격들은 다음과 같이 원격 푸시, 스케쥴 기반의 로컬 알람, 백그라운드 동기화입니다.&lt;/p&gt;
+
+&lt;p&gt;원격 푸시 알림의 경우 네이티브에서도 익히 아실 듯하고, 태스크 스케쥴러는 웹 페이지가 로딩되지 않은 상태에서도 스케쥴링된 알람에 의해 특정한 동작을 수행할 수 있으며, 백그라운드 동기화를 통해 오프라인 상태에서의 업데이트된 데이터를 다음 온라인 시에 동기화할 수 있는 기능들을 제공합니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dvcs.w3.org/hg/push/raw-file/tip/index.html&quot;&gt;Push API&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3.org/2012/sysapps/web-alarms/&quot;&gt;Task Schedular API(a.k.a. Local alarm)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/slightlyoff/BackgroundSync&quot;&gt;Background Synchronization&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;section-23&quot;&gt;가장 큰 패러다임 변화가 예상&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;서비스 워커&lt;/code&gt;는 &lt;code&gt;웹 컴포넌트&lt;/code&gt;와 마찬가지로 네이티브 어플리케이션 개발자 입장에서는 익숙한 개념들을 가지고 있습니다. 다만, &lt;code&gt;웹 컴포넌트&lt;/code&gt;가 컴포넌트의 재사용성을 추구하는 개념이라면 &lt;code&gt;서비스 워커&lt;/code&gt;는 웹 어플리케이션의 근본적인 한계를 탈출하기 위한 내용을 담고 있습니다. 반대로 보자면 웹 어플리케이션 개발자 관점에서는 다소 익숙하지 않은 형태의 많은 개발 형태를 예고하고 있습니다. 하지만, 웹 어플리케이션의 오프라인 기능 지원이 일반화되고 있는 지금 반드시 익숙해져야 하는 대표적인 기능이기도 합니다.&lt;/p&gt;
+
+&lt;p&gt;서비스 워커는 그 특성상 폴리필 라이브러리를 제공할 수 없습니다만, 현재 크롬이 서비스워커의 첫번째 네이티브 구현을 포함하고 있습니다. 아직 캐시 API는 폴리필 형태로 제공하고 있습니다만, 대체적인 기능은 현재도 사용이 가능합니다. Google I/O 2014에서 폴리머 데모로 소개된 &lt;a href=&quot;http://www.polymer-project.org/apps/topeka/&quot;&gt;Topeka&lt;/a&gt;는 로딩 타임의 제거를 위해 &lt;a href=&quot;http://www.polymer-project.org/apps/topeka/sw.js&quot;&gt;모든 리소스를 초기에 로딩하는 기능을 서비스 워커로 구현&lt;/a&gt;하고 있습니다. 코드를 참조하시는 것만으로도 충분하게 기능을 확인해 볼 수 있을 것입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;section-24&quot;&gt;참고 링크&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-25&quot;&gt;규격 관련&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3.org/TR/service-workers/&quot;&gt;Service Worker - W3C repository&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://slightlyoff.github.io/ServiceWorker/spec/service_worker/&quot;&gt;Service Worker - Working repository&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/slightlyoff/ServiceWorker/blob/master/explainer.md&quot;&gt;Explainer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/slightlyoff/ServiceWorker/blob/master/implementation_considerations.md&quot;&gt;Implementation Considerations&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-26&quot;&gt;튜토리얼 및 기타 글&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://jakearchibald.com/2014/service-worker-first-draft/&quot;&gt;ServiceWorker first draft is published&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jakearchibald.github.io/isserviceworkerready/&quot;&gt;Is ServiceWorker ready?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.slideshare.net/jungkees/service-workers&quot;&gt;Service Worker: Bring your own magic! (Slide)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.slideshare.net/cwdoh/serviceworker-new-game-changer-is-coming&quot;&gt;ServiceWorker: New Game Changer is coming! (Slide)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- References --&gt;
+
+</description>
+        <pubDate>Mon, 18 Aug 2014 22:00:00 +0900</pubDate>
+        <link>http://cwdoh.com/html5/2014/08/18/chrome-enchanted-notable-html5-specs-in-2014/</link>
+        <guid isPermaLink="true">http://cwdoh.com/html5/2014/08/18/chrome-enchanted-notable-html5-specs-in-2014/</guid>
+      </item>
+    
+      <item>
+        <title>testharness.js 튜토리얼</title>
+        <description>&lt;p&gt;이 문서는 Test The Web Forward 2014 Seoul을 위해 &lt;a href=&quot;http://testthewebforward.org/docs/testharness-tutorial.html&quot;&gt;Test The Web Forward의 TestHarness.js 튜토리얼&lt;/a&gt;을 번역한 문서입니다. 웹 규격에 대한 테스트 케이스를 작성하는데 관심있으신 분들에게 도움이 되었으면 합니다. 좀 더 보기 좋은 문서는 &lt;a href=&quot;http://cwdoh.com/ttwf-docs/&quot;&gt;이 곳&lt;/a&gt;에서 참조하실 수 있습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Updated: 11 Apr. 2014, 16:32&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;들어가며&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이 문서는 여러분이 &lt;a href=&quot;http://testthewebforward.org/docs/github-101.html#clone-the-submodules&quot; title=&quot;Clone the submodules&quot;&gt;GitHub Repository&lt;/a&gt;에서 클론(Clone)할 수 있는 W3C의 테스트 프레임워크 &lt;code&gt;testharness.js&lt;/code&gt;에 대한 튜토리얼을 제공합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이 튜토리얼에서 여러분이 다른 테스트 프레임워크에 대해 반드시 친숙하다고 가정하고 있지는 않습니다만 자바스크립트 API를 사용하여 테스트를 작성하므로 이에 어느 정도 능숙하시기를 기대합니다.&lt;/p&gt;
+
+&lt;p&gt;만약 &lt;a href=&quot;http://docs.jquery.com/QUnit&quot; title=&quot;QUnit&quot;&gt;QUnit&lt;/a&gt;, &lt;a href=&quot;http://visionmedia.github.com/mocha/&quot; title=&quot;Mocha&quot;&gt;Mocha&lt;/a&gt;나 &lt;a href=&quot;http://pivotal.github.com/jasmine/&quot; title=&quot;Jasmine&quot;&gt;Jasmine&lt;/a&gt;와 같은 다른 테스트 프레임워크에 친숙하다면 이 튜토리얼에서 상대적으로 쉽게 방법을 찾을 수 있을 것입니다. 사실&lt;code&gt;testharness.js&lt;/code&gt;도 이들과 크게 다르지 않습니다만 브라우저의 API 구현에 대한 테스트를 모두 구현하는 방식보다는 _자바스크립트로 표현_하는데 훨씬 더 적합하게 개발된 많은 기능을 가지고 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;시작하기&lt;/h2&gt;
+
+&lt;!--
+  TODO This should describe how to include testharness.js as a submodule in 
+  web-platform-tests.
+--&gt;
+
+&lt;p&gt;다음 코드와 함께 시작해보도록 하죠! 여러분이 &lt;code&gt;testharness.js&lt;/code&gt;를 로딩하기 위해 가장 먼저 해야하는 것은 일반적인 방식대로 &lt;code&gt;script&lt;/code&gt; 엘리먼트로 이를 포함하는 것입니다. 여러분은 &lt;a href=&quot;http://testthewebforward.org/docs/github-101.html#clone-the-submodules&quot; title=&quot;Clone the submodules&quot;&gt;자체적으로 복사본을 다운로드&lt;/a&gt;하여 원하는 곳에 로컬로 설치를 하거나 만약 W3C 서비스를 위한 테스트를 작성하고 있다면 다음과 같이 W3C 복사본을 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&quot;/resources/testharness.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script src=&quot;/resources/testharnessreport.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이쯤에서 자연스럽게 왜 2개의 파일이 존재하는지를 궁금할 것입니다. 이유는 단순합니다. 첫번째 것은 &lt;code&gt;testharness.js&lt;/code&gt;의 실제 구현 파일이고 두번째 것은 비어있는 파일입니다. 왜 비어있는 파일을 포함할까요? 특정한 업체가 여러분의 테스트 스윗을 사용할 때 &lt;code&gt;testharnessreport.js&lt;/code&gt; 파일에 해당 내용을 덮어씌울 수 있도록 하는 것이 바로 그 목적입니다. 이를 통해 테스트 스윗 실행과 그들이 내부적인 테스트 리포팅 도구와 통합할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;만약 결과를 자체적인 형식으로 렌더링하고 싶다면 여러분의 테스트에서 결과의 표시 위치에 ID &lt;code&gt;log&lt;/code&gt;를 가지는 HTML 엘리먼트를 포함해야 합니다. 이에 대한 예제는 이 문서의 마지막에 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;기본적인 테스트 방법&lt;/h2&gt;
+
+&lt;p&gt;대다수의 기본적인 사용 방법은 실행하고자 하는  테스트를 위한 함수, 이름 및 추가적인 선택 사항으로 몇가지 옵션을 표현하는 상수 객체를 인자로 받는 &lt;code&gt;test()&lt;/code&gt; 함수를 사용합니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test(function () {
+    assert_true(true);
+}, &quot;True really is true&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;주어진 함수는 &lt;em&gt;반드시&lt;/em&gt; 하나 이상의 assertion을 포함하여야 합니다. 반대로 assertion들은 테스트 함수의 문맥에서 한번만 나타납니다. 완전하게 단일한 시험으로 고려된 경우라면 단일 테스트에서 여러개의 assertion을 포함할 수 있습니다. 즉, 실패에 대한 한개의 assertion은 테스트에 대한 실패를 뜻하고 반대로 모든 테스트에 대한 통과가 테스트의 성공의 필요조건이라고 얘기할 수 있습니다. 문서에는 원하는 만큼 많은 테스트들을 포함할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;아래 예제는 2개의 assertion을 포함하고 있고 둘 다 통과할 것입니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test(function () {
+    assert_true(true);
+    assert_false(false);
+}, &quot;Truth is what you believe it to be&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;그러나 아래 예제에서는 하나가 통과하였음에도 불구하고 다른 하나가 실패하였으므로 테스트 전체가 실패로 보고될 것입니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test(function () {
+    assert_true(true);
+    assert_false(true);
+}, &quot;All opinions are equally valid.&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;함수 및 이름 외에도&lt;code&gt;test()&lt;/code&gt;는 또한 옵션들을 설정하기 위한 세번째 매개변수를 받을 수 있습니다. 이 옵션에 대한 대부분이 문서화되어 있는 &lt;a href=&quot;#including-metadata&quot; title=&quot;Including Meta-data&quot;&gt;메타데이터 소개&lt;/a&gt;을 참조하시기 바랍니다.&lt;/p&gt;
+
+&lt;p&gt;옵션을 사용하는 가장 일반적인 사례는 &lt;code&gt;timeout&lt;/code&gt;입니다. 이는 밀리초 값(기본값 1000이며 1초와 동일합니다.)를 인자로 받습니다. 만약 테스트 내용이 실행하는데 &lt;code&gt;timeout&lt;/code&gt;보다 더 오랜 시간이 걸린다면 테스트는 중단되고 실패로 카운팅됩니다. 어떤 처리들은 실행에 많은 시간이 걸릴 수 있으므로 만약 (초기 모바일 폰과 같은) 낮은 환경에서 복잡한 테스트를 실행할 때는 예시와 같이 타임아웃의 제한을 늘려두는 것이 유용할 것입니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test(function () {
+    /* 뭔가 더 오래걸리고 느린 것을 여기에서 수행합니다. */
+    assert_true(true);
+}, &quot;Long operation is successful&quot;, { timeout: 5000 });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;다만 비동기 동작의 경우 이를 사용하지 말아야 한다는 것을 주의하여야 합니다. (이 기능은 비동기와는 무관하므로 동작하지 않습니다.)
+자세한 사항은 아래 섹션에서 관련 주제에 대한 설명을 보시기 바랍니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;assertion&quot;&gt;포함된 Assertion들&lt;/h2&gt;
+
+&lt;p&gt;테스트를 위해 기본적으로 제공되는 훌륭한 assertion들을 사용할 수 있습니다. 대부분은 &lt;code&gt;assert_something(actual, expected, description)&lt;/code&gt;의 형식을 취하고 있습니다만 일부는 다른 형태를 취하고 있습니다. 형식 중 일부가 &lt;code&gt;description&lt;/code&gt;를 가지고 있다면 이 인자는 선택 사항이며 assertion이 실패에 대한 자세한 설명을 제공하기 위해 사람이 읽기 좋도록 정의된 문자열입니다. 만약 이를 설정하지 않는다면 대신 기본 에러 메시지를 보게 될 것입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;asserttrueactual-description&quot;&gt;assert_true(actual, description)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;actual&lt;/code&gt;이 &lt;code&gt;1&lt;/code&gt;이나 &lt;code&gt;&quot;문자열&quot;&lt;/code&gt;와 같은 “truthy”로써 처리되는 것이 아니라 &lt;em&gt;반드시&lt;/em&gt; 자바스크립트의 &lt;code&gt;true&lt;/code&gt;인지를 &lt;em&gt;엄격하게&lt;/em&gt; 확인합니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;역주&lt;/strong&gt;: &lt;em&gt;truthy는 1, NOT null, true와 같이 조건식에서 참(True)의 의미로써 처리될 수 있는 값을 통칭하는 용어입니다.&lt;/em&gt;&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+     assert_true(true, “Truth is true”);
+     assert_true(1 === 1, “One is really one”);
+ }, “Simple checks on truth”);&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assertfalseactual-description&quot;&gt;assert_false(actual, description)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;assert_true&lt;/code&gt;와 동일하지만 반대로 동작합니다.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;actual&lt;/code&gt;이 (0이나 null과 같은) “falsy”로써가 아닌 자바스크립트의 &lt;code&gt;false&lt;/code&gt;가 되어야 한다는 엄격함을 가지고 있습니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;역주&lt;/strong&gt;: &lt;em&gt;truthy와는 반대로 falsy는  0, null, undefined, false와 같이 조건식에서 거짓(False)의 의미로써 처리될 수 있는 값을 통칭하는 용어입니다.&lt;/em&gt;&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+     assert_false(false, “Falsity is false”);
+     assert_false(1 === 0, “One is not zero”);
+ }, “Simple checks on falsity”);&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assertequalsactual-expected-description&quot;&gt;assert_equals(actual, expected, description)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;actual&lt;/code&gt;과 &lt;code&gt;expected&lt;/code&gt;가 동일한 값, 좀 더 정확히는 동일 객체인지를 확인합니다.&lt;/li&gt;
+  &lt;li&gt;이를 사용할 때는 아래 사항들을 주의하여야 합니다.&lt;/li&gt;
+  &lt;li&gt;이러한 비교는 엄격하게 동작합니다.&lt;/li&gt;
+  &lt;li&gt;자바스크립트에서 제공되는 자동 형변환에는 의존하지 않아야 합니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;em&gt;역주&lt;/em&gt;: 이는 자동 형변환에서 발생할 수 있는 정밀도 상실이나 브라우저간의 차이 등에 의해 테스트의 결과값이 달라질 수 있기 때문입니다.&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+    assert_equals(“dahut”, “da” %2B “hut”, “String concatenation”);
+    assert_equals(42, 6 * 7, “The ultimate answer”);
+}, “Simple checks on equality”);&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assertnotequalsactual-expected-description&quot;&gt;assert_not_equals(actual, expected, description)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;assert_equals&lt;/code&gt;과 동일하지만 반대로 동작합니다.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;actual&lt;/code&gt;과 &lt;code&gt;expected&lt;/code&gt;가 같지 않아야함을 확인합니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;비교의 엄격함에 대하여 동일한 규칙이 적용되므로 값이 유사해보여도 여전히 동일하지는 않습니다.&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+      assert_not_equals(“dahut”, “myth”, “String comparison”);
+      assert_not_equals(42, “42”, “The ultimate answer”);
+  }, “Simple checks on unequality”);&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assertinarrayactual-expected-description&quot;&gt;assert_in_array(actual, expected, description)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;actual&lt;/code&gt;이 &lt;code&gt;expected&lt;/code&gt;에서 전달된 배열인지를 확인합니다.&lt;/li&gt;
+  &lt;li&gt;어떠한 특이한 형태의 배열 멤버도 처리됩니다.&lt;/li&gt;
+  &lt;li&gt;주의사항&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;다중 배열인 경우 배열 내에서 재귀적으로 처리되지 않습니다. 즉, 1차원 배열만 지원됩니다.&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+     assert_in_array(“dahut”,
+                     “chupacabra dahut unicorn”.split(“ “),
+                     “Dahut hunting”);
+     assert_in_array(2017, [42, 47, 62, 2017] , “Lottery”);
+ }, “Simple checks on membership”);&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assertarrayequalsactual-expected-description&quot;&gt;assert_array_equals(actual, expected, description)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;actual&lt;/code&gt;과 &lt;code&gt;expected&lt;/code&gt; 모두에 대해 배열을 취합니다.&lt;/li&gt;
+  &lt;li&gt;같은 길이인지와 배열 내의 각 아이템이 다른 배열 내에서 해당되는 멤버와 &lt;code&gt;assert_equals&lt;/code&gt;인지를 확인합니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이전의 assertion과 동일하게 1차원 배열이어야 합니다.&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+      assert_array_equals([“chupacabra”, “dahut”, “unicorn”],
+                          “chupacabra dahut unicorn”.split(“ “),
+                          “Dahut hunting”);
+      assert_array_equals([4, 9, 16],
+                          [2, 3, 4].map(function (x) { return x * x; }),
+                          “Square”);
+  }, “Checks on identical membership”);&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assertapproxequalsactual-expected-epsilon-description&quot;&gt;assert_approx_equals(actual, expected, epsilon, description)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;숫자인 &lt;code&gt;actual&lt;/code&gt; 값을 받아 이것이 &lt;code&gt;expected&lt;/code&gt;의 &lt;code&gt;epsilon&lt;/code&gt;인지를 확인합니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이는 여러분이 일어날 수 있는 추이들을 어느정도 알고 있을 경우의  실수 연산들에서 특히 유용하며 결과가 주어진 대략적인 범주에 있는지를 확인하고자 할 때 필요하지만 다른 경우에도 사용이 가능합니다.&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+      assert_approx_equals(Math.PI, 3.14, 0.01, “Roughly circular”);
+      assert_approx_equals(42, 47, 5, “47 is almost 42”);
+  }, “Checks on epsilon equality”);&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assertregexpmatchactual-expected-description&quot;&gt;assert_regexp_match(actual, expected, description)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;actual&lt;/code&gt;이 &lt;code&gt;expected&lt;/code&gt;의 정규 표현에 정합하는지를 확인합니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;여러분이 만들고자 하는대로 끝을 간단하거나 복잡하게 할 수 있으며 플래그에 의해 이를 생성할 수 있습니다.&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+      assert_regexp_match(document.title,
+                          /^\w{5}-\w{10,12}.js$/,
+                          “That’s my title”);
+      assert_regexp_match(“A”, /a/i, “Matching lowercase”);
+  }, “Checks using regular expressions”);&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assertownpropertyobject-propertyname-description&quot;&gt;assert_own_property(object, property_name, description)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;속성을 가진&lt;code&gt;object&lt;/code&gt;가 (프로토타입 체인을 상속받았는지가 아니라) 정말로 이를 가지고 있는지를 확인합니다.&lt;/li&gt;
+  &lt;li&gt;자바스크립트 개발자는 이를 &lt;code&gt;hasOwnProperty&lt;/code&gt;가 체크하는 것으로 이해할 것 입니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;만약 이러한 중요한 메소드에 대해 알고 있지 않으시다면 &lt;a href=&quot;https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/hasOwnProperty&quot; title=&quot;hasOwnProperty()&quot;&gt;MDN에서 이에 대해 읽어보시기 바랍니다&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+      var gollum = { ring: “MIIIIINE!!!!” };
+      assert_own_property(gollum, “ring”, “Tricksy hobbitses!”);
+      /* &lt;code&gt;gollum&lt;/code&gt;이 &lt;code&gt;toString&lt;/code&gt;을 가지고 있음에도 불구하고 이는 실패할 것입니다. */
+      assert_own_property(gollum,
+                          “toString”,
+                          “I have that property, but it’ssss not mine.”);
+  }, “Checks for property ownership”);&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assertinheritsobject-propertyname-description&quot;&gt;assert_inherits(object, property_name, description)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;객체 상에서 속성이 유효한지를 확인하는 것은 &lt;code&gt;assert_own_property&lt;/code&gt;와 유사하지만 이를 보완할 수 있도록 상속된 프로토타입 체인 여부가 아니라 객체 자체의 속성이 &lt;em&gt;아닌 경우에&lt;/em&gt; assert가 발생합니다.&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+      var gollum = { ring: “MIIIIINE!!!!” };
+      /* this will succeed here */
+      assert_inherits(gollum,
+                      “toString”,
+                      “I have that property, but it’ssss not mine.”);
+      assert_inherits(gollum,
+                      “hasOwnProperty”,
+                      “This one works too.”);
+  }, “Checks for property inheritance”);&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assertidlattributeobject-attributename-description&quot;&gt;assert_idl_attribute(object, attribute_name, description)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;assert_inherits&lt;/code&gt;와 동일하며 이를 단순화한 alias입니다. 분명함을 위해 먼저 것을 유지하는 것이 더 나을 것입니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assertreadonlyobject-propertyname-description&quot;&gt;assert_readonly(object, property_name, description)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;주어진 &lt;code&gt;object&lt;/code&gt; 상의&lt;code&gt;property_name&lt;/code&gt;이 실제로 읽기-전용이고 설정할 수 없는지를 확인합니다.&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+      assert_readonly(document, “nodeType”, “You cannot change nodeType.”);
+  }, “Checks for attribute readonlyness”);&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assertthrowscode-func-description&quot;&gt;assert_throws(code, func, description)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;func&lt;/code&gt; 내의 코드가 어떤 예외를 꼭 발생하는지를 알고 있고 여러분이 기대하는 시간과 방식으로 코드가 (예외를) 발생하는지 확인하는 강력한 방법입니다.&lt;/li&gt;
+  &lt;li&gt;이 assertion은 여러분이 &lt;code&gt;code&lt;/code&gt;에 무엇을 전달하는지에 따라 다르게 동작합니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;만약 &lt;code&gt;code&lt;/code&gt;가 &lt;code&gt;null&lt;/code&gt;이라면 모든 기존 예외가 동작할 것입니다. (다른 것들이 더 유용하므로 이는 특별히 확인할 필요는 없습니다.)&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+      assert_throws(null,
+                    function () { document.appendChild(document); },
+                    “Any exception.”);
+  }, “Checks for exceptions (null)”);&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;만약 &lt;code&gt;code&lt;/code&gt;가 객체 종류라면 이의 &lt;code&gt;name&lt;/code&gt; 속성을 확인합니다. 이 속성은 반드시 발생한 예외의 &lt;code&gt;name&lt;/code&gt; 속성과 맞아야 합니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;즉, 여러분이 특정한 &lt;code&gt;DOException&lt;/code&gt; 객체를 여기에 전달할 수 있으며 만약 발생된 예외라면 이와 맞는 객체를 가져야 한다는 것을 의미합니다.&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+      assert_throws({ name: “Bad Kitten!” },
+                    function () { throw { name: “Bad Kitten!”}; },
+                    “Any exception with the right name.”);
+  }, “Checks for exceptions (object)”);&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;code&lt;/code&gt;가 문자열이라면 이는 일반적으로 &lt;code&gt;DOMException&lt;/code&gt; 명칭으로 인식될 수 있는 것 중의 하나여야 하며 &lt;code&gt;func&lt;/code&gt;가 만든 연관된 &lt;code&gt;DOMExpception&lt;/code&gt;인지가 확인됩니다.&lt;/li&gt;
+  &lt;li&gt;기존 브라우저들과의 호환성을 위해 기존 예외와의 접촉이 지원되며 새로운 명칭으로 매핑됩니다.&lt;/li&gt;
+  &lt;li&gt;따라서 예를들어 여러분이 &lt;code&gt;WrongDocumentError&lt;/code&gt;를 의미하는 &lt;code&gt;WRONG_DOCUMENT_ERR&lt;/code&gt;을 사용할 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;그렇지만 &lt;code&gt;WrongDocumentError&lt;/code&gt; 스타일이 더 적합합니다.&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+      assert_throws(“HierarchyRequestError”,
+                    function () { document.appendChild(document); },
+                    “Specific DOM exception.”);
+  }, “Checks for exceptions (string)”);&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assertunreacheddescription&quot;&gt;assert_unreached(description)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;어떠한 코드가 정말 도달할 수 없는지를 확인하기 위한 역할을 하는 아주 단순한 assertion입니다.&lt;/li&gt;
+  &lt;li&gt;이는 설명(description)만을 인자로 받으며 단순하게 말하자면 이것이 호출될 때마다 항상 짜증스럽게 손을 들어야 하는 일을 집어치울 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;반대로 말하면 여기에서 여러분은 (건드리지도 않았으므로) 성공했다는 경우를 볼 수 있을 것입니다.&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+      if (true) return “where you came from”;
+      assert_unreached(“Can’t Touch This”);
+  }, “Simple check on unreachability”);&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;반면에 이는 코드가 이에 닿을 수 있기 때문에 실패할 것입니다.&lt;/p&gt;
+
+    &lt;p&gt;test(function () {
+      assert_unreached(“Reaching where no coder has reached before”);
+  }, “Failed check on unreachability”);&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;비동기 테스트하기&lt;/h2&gt;
+
+&lt;p&gt;전체가 동기적으로 처리되는 Web API는 점점 드물어지고 있습니다. 많은 수의 최근 API들이 동작에 약간의 시간이 걸리고 메인 스레드에서 멈추게 할 때마다 이를 비동기적으로 만드는데 많은 주의를 기울이고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;고맙게도 &lt;code&gt;testharness.js&lt;/code&gt;는 비동기 API를 테스트하는 것은 거의 동기 테스트만큼이나 쉬우며 모든 assertion들을 동일하게 하고 단지 어떻게 테스트를 설정하는지에 대한 몇가지 세밀한 부분들만이 다릅니다. 예제로 setTimeout 동작을 테스트하는 것으로 시작해보겠습니다.&lt;/p&gt;
+
+&lt;p&gt;먼저, &lt;code&gt;test(func, name, options)&lt;/code&gt;를 호출하는 것 대신에 &lt;code&gt;async_test(name, options)&lt;/code&gt;를 호출하며 나중에 우리가 비동기 테스트의 흐름을 제어하기 위해 인터랙션할 객체인 이 함수의 반환값을 유지할 것입니다. 여러분이 보다시피 &lt;code&gt;async_test()&lt;/code&gt;가 받는&lt;code&gt;name&lt;/code&gt;과 &lt;code&gt;options&lt;/code&gt; 인자는 &lt;code&gt;test()&lt;/code&gt;에서 사용되었던 인자였던 것과 &lt;code&gt;options&lt;/code&gt;는 단지 선택값이라는 것까지 완전히 똑같습니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var stTest = async_test(&quot;Testing setTimeout()&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;우리는 assertion을 발생하기 위해 setTimeout 호출와 테스트가 끝났다는 flag를 사용할 것입니다. 이는 타임아웃을 취소하고 만약 assertion이 성공
+한다면 (이 케이스는 평범합니다만) 테스트는 통과할 것입니다. 이는 다음과 같은 2가지 동작으로 수행됩니다. 첫번째는 (&lt;code&gt;test()&lt;/code&gt;에서 사용된 첫번째 인자와 똑같이) 실행을 위해 개별적인 테스트를 정의하기 위해 사용되는&lt;code&gt;step()&lt;/code&gt; 메소드입니다. 두번째는 전체 테스트가 실행되었음을 &lt;code&gt;testharness.js&lt;/code&gt;에 알려주기 위해 호출되는 &lt;code&gt;done()&lt;/code&gt; 메소드입니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;setTimeout(function () {
+    stTest.step(function () {
+        assert_true(true, &quot;Truth is asynchronously true.&quot;);
+    });
+    stTest.done();
+}, 10);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이는 가끔 객체의 특정한 &lt;code&gt;onfoo&lt;/code&gt; 필드들에 이벤트 핸들러를 지정하는 것이 필요한 비동기 코드의 테스트에서의 경우입니다. 이는 &lt;code&gt;step()&lt;/code&gt;으로 완료될 수 있습니다만 &lt;code&gt;step()&lt;/code&gt; 호출은 그 자체를 함수 내로 감싸는 것이 필요하기 때문에 다루기가 좀 귀찮습니다. 다음과 같이 정확하고 손쉬운 사용례가 있습니다. &lt;code&gt;step_func&lt;/code&gt;. &lt;code&gt;step()&lt;/code&gt;과 같은 함수를 받지만 이벤트 핸들러로 바로 사용될 수 있는 함수를 반환합니다. 아래 XHR 예제는 상대적으로 이 편의성을 사용하도록 할 것입니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var xhrTest = async_test(&quot;Testing XHR access&quot;)
+,   xhr
+;
+/* this in a step because it could throw */
+xhrTest.step(function () {
+    xhr = new XMLHttpRequest();
+    xhr.open(&quot;GET&quot;, &quot;using-testharness.html&quot;);
+    xhr.onreadystatechange = xhrTest.step_func(function (ev) {
+        assert_true(ev.isTrusted, &quot;readystatechange is a trusted event&quot;);
+        assert_false(ev.bubbles, &quot;readystatechange is does not bubble&quot;);
+        xhrTest.done();
+    });
+    xhr.send();
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;vendor-prefixed---&quot;&gt;브라우저 접두사(vendor-prefixed)가 있는 기능의 테스트&lt;/h2&gt;
+
+&lt;p&gt;새로운 기능이 더 이상 브라우저 접두사를 사용한 채로 배포되지 않기를 바라고 있는데도 여전히 테스트가 필요한 기능들이 브라우저 접두사가 있는 채로 존재합니다.&lt;/p&gt;
+
+&lt;p&gt;이러한 브라우저 접두사의 충격을 최소화하고 이러한 접두사 없이 테스트 스윗이 쉽게 실행되도록 만들기 위해 접두사가 있는 기능들의 사용과 요구사항을 선언할 수 있는 헌신적인 스크립트를 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;브라우저 접두사가 있는 기능을 위한 테스트 케이스를 작성하기 위해 다음과 같이 &lt;code&gt;testharness.js&lt;/code&gt; 스크립트 &lt;strong&gt;뒤에&lt;/strong&gt; 있을 스크립트를 추가해봅시다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&quot;/common/vendor-prefix.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이제 여러분은 브라우저 접두사를 사용하는 것이 필요한 기능들을 정의할 필요가 있습니다. 이는 저 스크립트 엘리먼트의 &lt;code&gt;data-prefixed-objects&lt;/code&gt;와 &lt;code&gt;data-prefixed-prototypes&lt;/code&gt; 속성을 설정하는 것으로 이를 처리할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;이 두가지 속성은 접두사가 적용될 곳이 어딘지를 기술한 객체들의 배열을 JSON으로 인코딩된 상태로 받아들입니다. 이러한 객체 각각은 다음과 같이 &lt;code&gt;ancestors&lt;/code&gt;와 &lt;code&gt;name&lt;/code&gt; 속성을 가지고 있습니다. &lt;code&gt;ancestors&lt;/code&gt;는 접두사를 가진 기능들이 존재하는 계층을 기술하는 객체 명칭들의 리스트를 포함하고 있으며 접두사가 없는 상태의 이름입니다.&lt;/p&gt;
+
+&lt;p&gt;만약 브라우저 접두사가 전역 네임스페이스에서 잘 알고 있는 객체에 적용되었을 경우 &lt;code&gt;data-prefixed-objects&lt;/code&gt; 속성을 통해 이를 선언할 수 있습니다. 만약 브라우저 접두사가 잘 알고 있는 인터페이스로부터 초기화된 객체들에 적용되었다면 &lt;code&gt;data-prefixed-prototypes&lt;/code&gt; 속성을 통해 이를 선언할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어, &lt;a href=&quot;http://dev.w3.org/2011/webrtc/editor/getusermedia.html&quot; title=&quot;getUserMedia()&quot;&gt;Media Capture and Streams API&lt;/a&gt; 테스트는 다음과 같이 접두사를 필요로 합니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;navigator.getUserMedia&lt;/code&gt; 메소드는 브라우저 접두사를 가진 상태로 배포되었습니다. (&lt;code&gt;navigator.mozGetUserMedia&lt;/code&gt; 와 &lt;code&gt;navigator.webkitGetUserMedia&lt;/code&gt;가 그 예시입니다.)&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;HTMLMediaElement&lt;/code&gt;의 &lt;code&gt;srcObject&lt;/code&gt; 속성도 브라우저 접두사를 가진 상태로 배포되었습니다. (&lt;code&gt;vid.mozSrcObject&lt;/code&gt;와 같은 것이 예시입니다.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;만약 이러한 기능들이 접두사를 가지고 있지 않고 있는 것처럼 테스트를 작성하는 것을 가능하도록 하기 위해 다음과 같이 아래 스크립트 선언에 한가지를 추가하여야 합니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&quot;vendor-prefix.js&quot;
+  data-prefixed-objects =  &#39;[{&quot;ancestors&quot;:[&quot;navigator&quot;],
+                              &quot;name&quot;:&quot;getUserMedia&quot;}]&#39;
+  data-prefixed-prototypes=&#39;[{&quot;ancestors&quot;:[&quot;HTMLMediaElement&quot;],
+                              &quot;name&quot;:&quot;srcObject&quot;}]&#39;&amp;gt;
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;메타데이터 포함하기&lt;/h2&gt;
+
+&lt;p&gt;만약 여러분이 &lt;a href=&quot;http://w3c-test.org/tools/runner/index.html&quot; title=&quot;Test Runner&quot;&gt;W3C Testing Framework&lt;/a&gt;내에 포함되기 위한 테스트를 작성 중이라면 (그리고 만약 여러분이 W3C 그룹을 위한 테스트들을 작성하고 있다면 반드시) 이 섹션이 흥미가 있으실 겁니다. 그렇지 않다면 그냥 넘어가셔도 됩니다.&lt;/p&gt;
+
+&lt;p&gt;Testing Framework로 통합하는 가장 훌륭한 방법은 여러분의 테스트가 메타데이터를 가지게 하는 것입니다. 만약 HTML 파일 당 단 하나의 테스트를 가진다면 여러분의 테스트 메타데이터는 문서 내의 섹션에  포함되어야 하고 다시 말씀드리지만 여러분은 이 섹션을 넘겨도 괜찮습니다. 그러나 만약 하나의 문서 내에 여러분의 테스트 스윗 전체를 포함하고자 한다면 (물론 이러한 방식으로 테스트 스윗을 구성할 수 있습니다.) 이는 모든 &lt;code&gt;test()&lt;/code&gt; 호출마다 테스트 메타데이터를 지정하는 것이 유용합니다.&lt;/p&gt;
+
+&lt;p&gt;이는 여러분이 이전에 보았던 &lt;code&gt;test()&lt;/code&gt;의 세번째 인자으로써 메타데이터를 제공하는 것으로 매우 쉽게 이를 처리할 수 있습니다. 여기에는 다음과 같이 3가지 필드를 사용할 수 있습니다. &lt;code&gt;help&lt;/code&gt;는 이 테스트가 시험되는 규격의 섹션을 지정하며 &lt;code&gt;assert&lt;/code&gt;는 여러분의 테스트가 포함하고 있는 assertion 설명들에 대한 배열입니다. 그리고 &lt;code&gt;author&lt;/code&gt;는 그냥 테스트의 저작자입니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;test(function () {
+        assert_true(true, &quot;The spec says it&#39;s true.&quot;);
+    },
+    &quot;True is true as per spec&quot;,
+    {
+        help:   &quot;http://w3.org/TR/some-specification#truth-and-beauty&quot;,
+        assert: [&quot;Truth is true, you know.&quot;],
+        author: &quot;Robin Berjon &quot;
+    }
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;더 나은 사용 예제&lt;/h2&gt;
+
+&lt;p&gt;대부분의 사용자는 이 섹션을 필요로 하지 않을 것입니다. 만약 동작하지 않는 복잡한 무언가를 처리하고자 하거나 궁금하지만 이것이 자주 필요하지 않을 것이므로 이해가 되지 않는 것처럼 보이더라도 걱정할 필요가 없다면 읽어보시기 바랍니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;복잡한 설정&lt;/h3&gt;
+
+&lt;p&gt;때로는 테스트가 실행되기 위한 복잡한 설정 동작을 수행하거나 테스트 실행의 전체 동작을 수정하는 것 모두가 중요할 수 있습니다. 이는 &lt;code&gt;setup(func, properties)&lt;/code&gt;를 사용하여 처리할 수 있습니다. 인자들은 선택적일 수도 아닐 수도 있으므로 &lt;code&gt;setup(func)&lt;/code&gt;나 &lt;code&gt;setup(properties)&lt;/code&gt;로 호출될 수도 있습니다.&lt;/p&gt;
+
+&lt;p&gt;일단 첫번째 테스트가 실행되고 나면 &lt;code&gt;setup()&lt;/code&gt;으로의 모든 호출은 즉시 제거될 것입니다. 따라서 이 섹션의 예제 중의 그 어떤 것도 실제로는 아무것도 하지 않지만 여전히 실제의 값을 보여주는데 유용할 것입니다.&lt;/p&gt;
+
+&lt;p&gt;근본적으로 &lt;code&gt;setup()&lt;/code&gt;의 함수 내에서 발생하는 모든 것은 (사용되었을 때) &lt;code&gt;setup()&lt;/code&gt;의 함수 내에 남아있습니다. 이는 여기서 실패가 대량으로 일어나더라도 테스트가 여전히 실행을 시도하는 것을 가능하게 합니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;setup(function () {
+    throw new Error(&quot;BOOM!&quot;);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;properties-&quot;&gt;properties 인자&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;properties&lt;/code&gt; 인자는 4개의 필드를 받을 수 있는 딕셔너리입니다.&lt;/p&gt;
+
+&lt;h5 id=&quot;timeout-ms&quot;&gt;timeout: ms&lt;/h5&gt;
+
+&lt;p&gt;이는 단일 테스트보다는 페이지 내의 전체 테스트 셋을 위한 타임아웃값을 설정합니다. 개별 테스트들이 자체적인 타임아웃듯 발생하지 않을 지라도 전체 테스트가 느려지는 것을 우려한다면 이를 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/* time out after 20 seconds */
+setup({ timeout: 20000 });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;explicitdone-true--false&quot;&gt;explicit_done: true | false&lt;/h5&gt;
+
+&lt;p&gt;일반적으로 테스트 실행은 document가 load 이벤트를 발생하거나 모든 동기적인 테스트들의 결과값(혹은 타임아웃)을 리포팅하고 만약 비동기 테스트가 있다면 그들이 잘 실행되었는지 혹은 타임아웃이 발생하였을 때 결과값을 리포팅하였을 때 완료되도록 고려되어야 합니다. (그리고 리포트를 생성하는 등) 다시 말해서 일반적인 동작 하에서 시스템은 테스트가 완전하게 실행되고 이를 전달해줄 필요가 없을 때를 어떻게 추정할 수 있는지를 알고 있어야 합니다. 여러분은 예를 들어 비동기적인 로딩이나 새로운 테스트의 생성과 같이 시스템을 혼란시킬 수 있는 무언가를 하고자 할 때 이 동작을 오버라이딩하고자 할 수 있습니다. 이 경우에 해당한다면 &lt;code&gt;explicit_done&lt;/code&gt;을 &lt;code&gt;true&lt;/code&gt;로 설정하고 실행하고자 하는 모든 테스트가 끝난 것을 인지하였을 때 여러분이 직접 글로벌 함수인 &lt;code&gt;done()&lt;/code&gt;을 호출합니다.&lt;/p&gt;
+
+&lt;h5 id=&quot;explicitdone&quot;&gt;explicit_done&lt;/h5&gt;
+
+&lt;p&gt;사용하고자 할 때 이를 이벤트 트리거들을 로딩하기 _전_에 true로 설정하는 것에 주의하는 것이 중요합니다. 아니면 여러분이 원하는대로 동작하는 것이 왜 아무것도 없는지를 확인하는데 놀라울 정도로 많은 시간을 소요하게 될 것입니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;setup({ explicit_done: true });
+/* ... at some point later... */
+done();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;outputdocument-document&quot;&gt;output_document: Document&lt;/h5&gt;
+
+&lt;p&gt;기본적으로 러너(runner)는 테스트 결과를 테스트가 실행 중인 동일 문서 내에 &lt;code&gt;log&lt;/code&gt; ID를 가진 엘리먼트 내에 기록할 것입니다. 이는 대부분의 경우에 잘 동작합니다만 몇몇 상황에서는 여러분은 다른 방식으로 실행되기를 원할 수 있습니다. 테스트가 실행되는 문서는 아마 여러분이 테스트의 표시를 보기 위한 커다란 문서를 포함하고 있거나 새로운 팝업이나 새로운 탭을 열고 결과를 그곳에 출력하기를 원할 수 있습니다. 보다 일반적으로는 SVG 문서 내에서 테스트를 실행하고 있을 때 HTML로써 렌더링되지않는 &lt;code&gt;log&lt;/code&gt; 엘리먼트의 제공은 약간 괜찮을 수 있습니다. 이 경우 출력을 HTML 문서로 리다이렉션(redirection)하는 것을 원할 것입니다. 이 모든 경우, Document 객체를 &lt;code&gt;output_document&lt;/code&gt;로 전달하기만 하면 됩니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;setup({ output_document: window.parent.contentDocument });
+setup({ output_document: document.getElementById
+                         (&quot;someIFrame&quot;).contentDocument });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;explicittimeout-true--false&quot;&gt;explicit_timeout: true | false&lt;/h5&gt;
+
+&lt;p&gt;몇몇 경우에 모든 타임아웃을 여러분이 직접 다루고 싶지 않습니다. (일반적으로는 여러분의 테스트가 더 큰 테스트 러너의 컨텍스트에서 실행되고 있는 것은 여러분을 대신하여 타임아웃들을 제어하는 것입니다.) 이 경우 간단하게 &lt;code&gt;explicist_timeout&lt;/code&gt;을 &lt;code&gt;true&lt;/code&gt;로 설정하고 글로벌 함수 &lt;code&gt;timeout()&lt;/code&gt;을 직접 호출하여 타임아웃들을 조절할 수도 있습니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;setup({ explicit_timeout: true });
+/* ... at some point later if there really is a time out... */
+timeout();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;포맷 설정하기&lt;/h3&gt;
+
+&lt;p&gt;여러분이 테스트 스윗에서 이슈들을 리포탕하고 싶거나 단순히 개발 도중 무엇을 기록하고 싶을 때마다 &lt;code&gt;toString()&lt;/code&gt;이 제공하는 것보다 더 인간-지향적인 결과를 생성하는 것은 매우 가치있는 것일 수 있다는 것은 대부분의 것들에서 제공되는 것과 마찬가지입니다. (여기에는 여러분이 &lt;code&gt;[object Object]&lt;/code&gt;에서 추론할 수 있는 것 정도만 있을 뿐입니다.) 이러한 때는 단순하게 전역 함수인 &lt;code&gt;format_value(value)&lt;/code&gt;를 사용합니다. 이는 어떻게 (재귀적인 탐색을 통해) 포맷 배열들, 제어 문자들을 가진 문자열들, 음수 0 그리고 이들보다 좀 더 중요한 DOM 노드 타입들을 포함하는 자바스크립트의 핵심 타입들을 알고 있습니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;format_value(document);
+format_value(&quot;foo bar&quot;);
+format_value([-0, Infinity]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-8&quot;&gt;테스트 설정하기&lt;/h2&gt;
+
+&lt;p&gt;테스트를 작성하는 것은 매우 반복적인 노력일 수 있습니다. 가끔 실제적이고 기대하는 값들의 긴 리스트 상에서 그리고 어떻게 가볍게 만들 수 있을지가 고려되지 않은 테스팅 보일러플레이트의 부하가 뒤덮을 듯 발생했을 때도 여러분은 단순하게 동일한 assertion을 호출할 필요가 있습니다.&lt;/p&gt;
+
+&lt;p&gt;여러분이 더 편리하도록 하기 위해, &lt;code&gt;testhharness.js&lt;/code&gt;는 동일한 이름으로 각각이 기술되어 있는 실제값 및 기대값의 리스트 상에서 반복적으로 호출할 수 있는 아주 단순한 함수을 제공합니다. 이 함수의 형식은 &lt;code&gt;generate_tests(assert_something, [ [name, actual, expected], ...])&lt;/code&gt;입니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;generate_tests(assert_equals, [
+                                [ &quot;Square of 2&quot;, 2 * 2, 4 ],
+                                [ &quot;Square of 3&quot;, 3 * 3, 9 ],
+                                [ &quot;Square of 4&quot;, 4 * 4, 16 ],
+                                [ &quot;Square of 5&quot;, 5 * 5, 25 ],
+                                [ &quot;Square of 6&quot;, 6 * 6, 36 ]
+                              ]
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-9&quot;&gt;콜백들&lt;/h2&gt;
+
+&lt;p&gt;가끔 내부 동작에 반응하고 여러분만의 동작을 구축할 수 있도록  test harness 내에서 무엇이 어떻게 되고 있는지를 알 수 있다면 유용할 것입니다. (여러분만의 리포트 생성 혹은 여러분이 사용 중인 더 커다란 테스트 시스템과의 통합이 그 예입니다.)&lt;/p&gt;
+
+&lt;p&gt;이를 위해 &lt;code&gt;testharness.js&lt;/code&gt;는 여러분이 원한다면 알림을 설정할 수 있는 이벤트의 셋(Set)을 제공합니다. 만약 동일한 컨텍스트 내에서 테스트가 실행되고 있으며 이들이 시작 되기 전에 코드를 실행할 수 있다면 단순하게 몇가지 콜백들을 등록하는 것이 이러한 이벤트들을 인지할 수 있는 첫번째 방법입니다.
+만약 테스트가 그 자체의 iframe (혹은 object 엘리먼트) 내에서 실행 중이라면 불려질 특정한 이름을 가진 함수의 생성에 의한 (어떠한 수준이던지) 여러분의 컨텍스트인 문서 안에 포함하는 것이 2번째 방법입니다. (후자의 접근 방법은 origin boundary 간에는 호출이 발생하지 않는다는 것을 주의하시기 바랍니다.)&lt;/p&gt;
+
+&lt;h3 id=&quot;start&quot;&gt;start&lt;/h3&gt;
+
+&lt;p&gt;설정이 이루어지고 첫번째 테스트가 생성되었을 때. 이는 여러분만의 설정을 수행할 수 있는 래퍼(wrapper)의 위치입니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/* in same context */
+add_start_callback(function () {
+    console.log(&quot;The tests have started running.&quot;);
+});
+/* in enclosing context */
+function start_callback () {
+    console.log(&quot;The tests have started running.&quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;result&quot;&gt;result&lt;/h3&gt;
+
+&lt;p&gt;결과가 생성되었을 때마다 발생합니다. 이는 동일 객체 상에서 존재하는 &lt;code&gt;PASS&lt;/code&gt;, &lt;code&gt;FAIL&lt;/code&gt;, &lt;code&gt;TIMEOUT&lt;/code&gt; 혹은 &lt;code&gt;NOTRUN&lt;/code&gt; 필드들(이들은 테스트가 성공, 실패, 타임 아웃 혹은 아예 실행되지 않았는지를 의미합니다.)과 비교할 수 있는&lt;code&gt;status&lt;/code&gt; 필드와 어떠한 에러라도 발생하면 이에 대한 에러 메세지를 제공하는 &lt;code&gt;message&lt;/code&gt; 필드를 가진 &lt;code&gt;Test&lt;/code&gt; 객체를 받습니다. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/* in same context */
+add_result_callback(function (res) {
+    console.log(&quot;Result received&quot;, res);
+});
+/* in enclosing context */
+function result_callback (res) {
+    console.log(&quot;Result received&quot;, res);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;complete&quot;&gt;complete&lt;/h3&gt;
+
+&lt;p&gt;테스트가 종료되었을 때 발생합니다. (성공이던 실패던). 이는 모든 결과들과 관련되어 있는 &lt;code&gt;result&lt;/code&gt;에 전달된 것과 같은 &lt;code&gt;Test&lt;/code&gt; 객체들의 배열과 전체 실행의 상태를 기술하며 동일 객체 상에 존재하는 &lt;code&gt;OK&lt;/code&gt;, &lt;code&gt;ERROR&lt;/code&gt; 그리고 &lt;code&gt;TIMEOUT&lt;/code&gt; 필드들(스윗이 완전하게 성공했는지 실패했는지 아니면 타임아웃이 발생했는지를 의미합니다.)과 비교할 수 있는 &lt;code&gt;status&lt;/code&gt; 필드를 가진 상태 객체를 받습니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/* in same context */
+add_completion_callback(function (allRes, status) {
+    console.log(&quot;Test run completed&quot;, allRes, status);
+});
+/* in enclosing context */
+function completion_callback (allRes, status) {
+    console.log(&quot;Test run completed&quot;, allRes, status);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+</description>
+        <pubDate>Tue, 12 Aug 2014 21:00:00 +0900</pubDate>
+        <link>http://cwdoh.com/translation/2014/08/12/testharness.js-tutorial-ko/</link>
+        <guid isPermaLink="true">http://cwdoh.com/translation/2014/08/12/testharness.js-tutorial-ko/</guid>
+      </item>
+    
+      <item>
         <title>프론트엔드 개발자를 위한 크롬 렌더링 성능 인자 이해하기</title>
         <description>&lt;p&gt;&lt;strong&gt;문서 이력&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;2014년 6월 17일&lt;/strong&gt; - 초안 작성&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;2014년 6월 21일&lt;/strong&gt; - 참조 이미지 초안 작업&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;2014년 6월 17일&lt;/strong&gt; - 초안 작성&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;2014년 6월 21일&lt;/strong&gt; - 참조 이미지 초안 작업&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;들어가며&lt;/h2&gt;
+&lt;h2 id=&quot;section&quot;&gt;들어가며&lt;/h2&gt;
 
-&lt;p&gt;이 포스트는 GDG WebTech의 연속 워크숍 기획의 첫번째 주제로 &amp;quot;프론트엔드 개발자를 위한 크롬의 렌더링 성능 인자 이해하기(Understanding Rendering Performance Matters in Chrome for Front-end Developers)&amp;quot;를 위해 작성한 자료입니다.&lt;/p&gt;
+&lt;p&gt;이 포스트는 &lt;a href=&quot;https://plus.google.com/communities/109067040035659120428&quot;&gt;GDG WebTech&lt;/a&gt;의 연속 워크숍 기획의 첫번째 주제였던 &lt;a href=&quot;https://plus.google.com/events/c3t1jurehen3cc5oo1856ufjbjo&quot;&gt;“프론트엔드 개발자를 위한 크롬의 렌더링 성능 인자 이해하기(Understanding Rendering Performance Matters in Chrome for Front-end Developers)”&lt;/a&gt;를 위해 작성한 자료입니다.&lt;/p&gt;
 
-&lt;p&gt;이 문서는 프론트엔드 개발자를 대상으로 하므로 최신의 그래픽 아키텍쳐 등의 기술 대신 보다 이해하기 쉬운 초기의 렌더링 파이프라인을 비교하여 설명하고 있습니다. 현재 버전에서는 설명하고자 하는 개념과 유사한 이미지들을 사용하고 있으며 이는 각 설명에 대한 내용과 함께 지속적으로 업데이트를 할 예정입니다. 오탈자, 잘못된 설명이나 기타 오류 사항 및 추가로 설명할 내용이 있다면 이를 전달해주시면 감사하겠습니다. :)&lt;/p&gt;
+&lt;p&gt;이 문서는 프론트엔드 개발자를 대상으로 하므로 최신의 그래픽 아키텍쳐 등의 기술 대신 보다 이해하기 쉬운 초기의 렌더링 파이프라인을 비교하여 설명하고 있습니다. 현재 버전에서는 설명하고자 하는 개념과 유사한 이미지들을 사용하고 있으며 이는 각 설명에 대한 내용과 함께 지속적으로 업데이트를 할 예정입니다.&lt;/p&gt;
+
+&lt;p&gt;완전한 설명보다는 쉬운 설명을 추구했습니다만 아주 깊은 지식을 기반으로 쓴 글은 아니기 때문에 내용에 &lt;strong&gt;충분히&lt;/strong&gt; 오류가 있을 수 있습니다. :) 오탈자, 잘못된 설명이나 기타 오류 사항 및 추가로 설명할 내용이 있다면 전달해주시면 감사히 받겠습니다. :)&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;http://goo.gl/slqRfI&quot;&gt;GDG WebTech 뜻밖의 워크샵 #1 슬라이드&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;http://goo.gl/slqRfI&quot;&gt;GDG WebTech 뜻밖의 워크샵 #1 슬라이드&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;프론트엔드 개발자를 위한 크롬 렌더링 성능 인자 이해하기&lt;/h2&gt;
+&lt;h2 id=&quot;section-1&quot;&gt;프론트엔드 개발자를 위한 크롬 렌더링 성능 인자 이해하기&lt;/h2&gt;
 
 &lt;p&gt;디바이스는 항상 발전합니다. 30여년 전 워크스테이션과 같이 거대한 머신에서나 가능했던 그래픽스 처리를 위한 하드웨어 가속은 이제 모바일 디바이스에서조차 가장 기본적인 기능 중의 하나가 되었습니다. 하드웨어는 때로는 (혹은 자주) 소프트웨어 개발자들에게 상당히 귀찮은 기술입니다만 컴퓨팅 월드에서 빠르다는 것은 그 무엇보다 우선되어지는 미덕이기도 합니다. 이는 사용자에게 좋은 UX와 성능을 제공하기 위해 반드시 이해하여야 하는 항목 중의 하나입니다.&lt;/p&gt;
 
 &lt;p&gt;이 포스트는 HTML5 프론트엔드 개발자의 관점에서 렌더링 성능을 최적화하기 위한 가장 기본적인 개념들을 크롬 브라우저의 렌더링 메커니즘과 함께 다루는 글입니다. 언제나처럼 피드백은 환영합니다.&lt;/p&gt;
 
-&lt;h3&gt;하드웨어 가속의 기본 개념&lt;/h3&gt;
+&lt;h3 id=&quot;section-2&quot;&gt;하드웨어 가속의 기본 개념&lt;/h3&gt;
 
 &lt;p&gt;모든 컴퓨팅 장치들은 저마다의 목적을 가지고 설계됩니다. 예를 들어보겠습니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;(지금은 사용되지 않지만) 플로피 디스크는 이동이 용이한 데이터의 저장 장치로써 개발되었고, 하드디스크는 대용량의 자료를 빠르게 액세스하기 위하여 개발되었습니다. 비교적 최근에 메모리 기술의 발달과 함께 등장한 SSD(Solid-Stage Drive)는 물리적인 헤드와 디스크의 움직임을 제거하였고 이를 통해 괄목할만한 I/O 성능 상의 이점을 얻을 수 있었으며 보다 대용량의 데이터를 보다 빠른 속도로 액세스할 수 있게 되었습니다.
-&lt;img src=&quot;/images/render-perf-matters/harddisk_vs_ssd.png&quot; alt=&quot;하드디스크와 SSD의 예&quot;&gt;&lt;/p&gt;
+  &lt;p&gt;(지금은 사용되지 않지만) 플로피 디스크는 이동이 용이한 데이터의 저장 장치로써 개발되었고, 하드디스크는 대용량의 자료를 빠르게 액세스하기 위하여 개발되었습니다. 비교적 최근에 메모리 기술의 발달과 함께 등장한 SSD(Solid-Stage Drive)는 물리적인 헤드와 디스크의 움직임을 제거하였고 이를 통해 괄목할만한 I/O 성능 상의 이점을 얻을 수 있었으며 보다 대용량의 데이터를 보다 빠른 속도로 액세스할 수 있게 되었습니다.
+&lt;img src=&quot;/images/render-perf-matters/harddisk_vs_ssd.png&quot; alt=&quot;하드디스크와 SSD의 예&quot; /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;바로 이것이 하드웨어 가속(Hardware Acceleration)의 다른 사례 중의 하나입니다. &lt;strong&gt;그렇다면 그래픽스에서의 하드웨어 가속은 어떤 것일까요?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h4&gt;초기의 렌더링: S/W Rendering&lt;/h4&gt;
+&lt;h4 id=&quot;sw-rendering&quot;&gt;초기의 렌더링: S/W Rendering&lt;/h4&gt;
 
 &lt;p&gt;초기의 컴퓨터는 디스플레이 장치로 연결되는 부분을 제외하고는 그래픽 출력을 위한 모든 부분을 CPU에 의존했습니다. 메모리에 디스플레이와 1:1로 대응하는 특정한 공간을 할당하고 여기에 각자의 로직에 따라 표현할 이미지를 그린 뒤 이를 디스플레이 장치와 연결된 메모리 공간으로 이동했습니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;S/W 렌더링이 디스플레이되는 개괄적 흐름
-&lt;img src=&quot;/images/render-perf-matters/sw_rendering_architecture.png&quot; alt=&quot;S/W 렌더링이 디스플레이되는 개괄적 흐름&quot;&gt;&lt;/p&gt;
+  &lt;p&gt;S/W 렌더링이 디스플레이되는 개괄적 흐름
+&lt;img src=&quot;/images/render-perf-matters/sw_rendering_architecture.png&quot; alt=&quot;S/W 렌더링이 디스플레이되는 개괄적 흐름&quot; /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;이 시점에서 대다수의 작업은 CPU 상에서 동작하는 특정한 모듈들이 담당하고 하드웨어는 단지 특정한 메모리 주소로부터 비트맵 이미지를 액세스하여 디스플레이 장치에 출력하는 일만을 수행했습니다. 이를 뒤집어 얘기하자면 응용 프로그램이 수행하는 주요한 기능이 수행되는 시간 외에도 디스플레이될 그래픽스의 처리를 위한 소프트웨어적인 처리들이 응용 프로그램에서 커다란 부분을 차지하고 있었습니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;예: 안드로이드의 ListView의 S/W 및 H/W 가속 렌더링 비용 비교
-&lt;img src=&quot;http://images.anandtech.com/doci/5310/Screen%20Shot%202012-01-10%20at%2011.39.12%20PM_575px.png&quot; alt=&quot;S/W 렌더링이 어플리케이션에서 차지하는 추가 비용&quot;&gt;&lt;br/&gt;
-Source: &lt;a href=&quot;http://www.curious-creature.org/2011/05/12/android-presentations-at-google-io-2011/&quot;&gt;Romain Guy&amp;#39;s Android Accelerated Rendering Google I/O 2011&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;예: 안드로이드의 ListView의 S/W 및 H/W 가속 렌더링 비용 비교
+&lt;img src=&quot;http://images.anandtech.com/doci/5310/Screen%20Shot%202012-01-10%20at%2011.39.12%20PM_575px.png&quot; alt=&quot;S/W 렌더링이 어플리케이션에서 차지하는 추가 비용&quot; /&gt;&lt;br /&gt;
+Source: &lt;a href=&quot;http://www.curious-creature.org/2011/05/12/android-presentations-at-google-io-2011/&quot;&gt;Romain Guy’s Android Accelerated Rendering Google I/O 2011&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;모든 것이 소프트웨어에 의해 처리되므로 성능 상의 최적화를 위해 굉장히 많고 다양한 트릭들이 렌더링을 위한 모듈에서 사용되었으며 초기로 갈수록 하드웨어에 맞춤형으로 개발하는 경우가 많았습니다. 순수한 개발 관점에서 보자면 트릭을 사용하는데는 특별한 제한도 범위도 없었고 단지 데이터를 빠르게 처리하고 이를 출력하는 모듈이 미덕이었습니다.&lt;/p&gt;
 
 &lt;p&gt;당연히 느린 것을 싫어하는 많은 컴퓨터 공학자들은 이를 해결하기 위한 여러가지 방법을 고민하게 되고 (결론적으로는 다른 선택 사항이 없이) 하드웨어로써 이를 보완하는 방법을 고안하기에 이릅니다.&lt;/p&gt;
 
-&lt;h4&gt;하드웨어 가속의 등장&lt;/h4&gt;
+&lt;h4 id=&quot;section-3&quot;&gt;하드웨어 가속의 등장&lt;/h4&gt;
 
 &lt;p&gt;초기의 그래픽스 하드웨어를 촉발한 것은 학술적인 목적이 가장 컸습니다. 3D와 같은 그래픽스 작업들은 대량의 연산이 필요하고 이는 S/W 렌더링으로 처리할 경우 프로그램의 전체 실행에서 그래픽스 연산을 위한 소모 시간의 비율이 비약적으로 커짐을 뜻했기 때문입니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;H/W 가속에 의한 렌더링 성능 개선의 예
-&lt;img src=&quot;http://images.anandtech.com/doci/5310/HardwareSoftware.png&quot; alt=&quot;H/W 가속에 의한 S/W 성능 개선의 예&quot;&gt;&lt;br/&gt;
-Source: &lt;a href=&quot;http://www.curious-creature.org/2011/05/12/android-presentations-at-google-io-2011/&quot;&gt;Romain Guy&amp;#39;s Android Accelerated Rendering Google I/O 2011&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;H/W 가속에 의한 렌더링 성능 개선의 예
+&lt;img src=&quot;http://images.anandtech.com/doci/5310/HardwareSoftware.png&quot; alt=&quot;H/W 가속에 의한 S/W 성능 개선의 예&quot; /&gt;&lt;br /&gt;
+Source: &lt;a href=&quot;http://www.curious-creature.org/2011/05/12/android-presentations-at-google-io-2011/&quot;&gt;Romain Guy’s Android Accelerated Rendering Google I/O 2011&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;그리고 곧 게임에서 3D의 바람이 불기 시작하면서 하드웨어 가속은 학술적인 목적을 떠나 보다 넓은 사용자에게 필요해졌으며 전반적으로 그래픽스 성능에 의존적인 소프트웨어들은 거의 모두가 하드웨어 가속을 제공하게 되었습니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;물론 여기에는 GUI를 기본으로 제공하는 윈도우즈 같은 O/S들의 역할도 무척 컸습니다. :)&lt;/p&gt;
+  &lt;p&gt;물론 여기에는 GUI를 기본으로 제공하는 윈도우즈 같은 O/S들의 역할도 무척 컸습니다. :)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4&gt;CPU vs CPU + GPU&lt;/h4&gt;
+&lt;h4 id=&quot;cpu-vs-cpu--gpu&quot;&gt;CPU vs CPU + GPU&lt;/h4&gt;
 
 &lt;p&gt;아시다시피 중앙 처리 장치(CPU: Central Processing Unit)라는 이름에 걸맞게 CPU는 프로그램이 실행되는 가장 주가 되는 무대입니다. 운영체제를 포함하여 여러분이 가진 모든 응용 프로그램은 이러한 CPU 상에서 동작합니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;물론 이 관점에서도 CPU의 실행 성능을 개선하기 위한 많은 발명과 개선들이 있었지만 이에 대해서는 언젠가 따로 다룰 기회가 있으리라 생각합니다.&lt;/p&gt;
+  &lt;p&gt;물론 이 관점에서도 CPU의 실행 성능을 개선하기 위한 많은 발명과 개선들이 있었지만 이에 대해서는 언젠가 따로 다룰 기회가 있으리라 생각합니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;하드웨어 가속은 단순화하자면 CPU에서 동작하던 일부의 기능을 보조 프로세서(Co Processor)와 같은 장치에서 대신 처리하는 모든 개념을 아우릅니다. 같은 관점에서 GPU(Graphics Processing Unit)는 그래픽스 처리에 필요한 대다수의 연산을 지원하는 일종의 보조 프로세서입니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;CPU와 GPU 시스템 구조의 예: nVidia GeForce 6 Series
-&lt;img src=&quot;http://http.developer.nvidia.com/GPUGems2/elementLinks/30_geforce6_02.jpg&quot; alt=&quot;CPU와 GPU의 전반적인 시스템 구조: nVidia GeForce 6 Series&quot;&gt;&lt;br/&gt;
+  &lt;p&gt;CPU와 GPU 시스템 구조의 예: nVidia GeForce 6 Series
+&lt;img src=&quot;http://http.developer.nvidia.com/GPUGems2/elementLinks/30_geforce6_02.jpg&quot; alt=&quot;CPU와 GPU의 전반적인 시스템 구조: nVidia GeForce 6 Series&quot; /&gt;&lt;br /&gt;
 Source: &lt;a href=&quot;http://http.developer.nvidia.com/GPUGems2/gpugems2_chapter30.html&quot;&gt;GPU Gems 2&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;이것저것 말이 길었지만 이제 본문에서 이 시점을 기준으로 CPU와 GPU의 역할을 설명하도록 하겠습니다.&lt;/p&gt;
 
-&lt;h5&gt;레스토랑의 예&lt;/h5&gt;
+&lt;h5 id=&quot;section-4&quot;&gt;레스토랑의 예&lt;/h5&gt;
 
 &lt;p&gt;그래픽스 연산을 처리하는 보조 프로세서인 GPU의 등장으로 CPU가 직접적인 그래픽스 연산을 수행할 필요는 대폭 줄어들었습니다. 하지만 이것이 GPU가 완전하게 독립적으로 동작한다는 뜻은 아닙니다.&lt;/p&gt;
 
 &lt;p&gt;이는 마치 레스토랑에서의 지배인과 웨이터의 관계와도 같습니다. 보다 쉽게 이해하기 위해 다음과 같이 우리의 대상과 주방에서의 대상을 정의하고 잠시 레스토랑의 주방으로 이동해보도록 하겠습니다.&lt;/p&gt;
 
-&lt;p&gt;| 우리의 대상 | 주방에서의 대상 |
-|---|---|
-| 처리해야 할 그래픽스 기능 | 손님의 주문 |
-| CPU | 지배인 |
-| GPU | 웨이터 |
-| 렌더링 결과 | 요리 |&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;우리의 대상&lt;/th&gt;
+      &lt;th&gt;주방에서의 대상&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;처리해야 할 그래픽스 기능&lt;/td&gt;
+      &lt;td&gt;손님의 주문&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CPU&lt;/td&gt;
+      &lt;td&gt;지배인&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GPU&lt;/td&gt;
+      &lt;td&gt;웨이터&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;렌더링 결과&lt;/td&gt;
+      &lt;td&gt;요리&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;p&gt;레스토랑의 홀에서 벌어지는 대부분의 일들은 손님에게 주문을 받고 이를 주방에 전달하고 완성된 요리를 받아서 손님에게 전달하고 빈 그릇을 치우는 일입니다.&lt;/p&gt;
 
-&lt;h6&gt;상황 1. 홀에 지배인 혼자 있을 때&lt;/h6&gt;
+&lt;h6 id=&quot;section-5&quot;&gt;상황 1. 홀에 지배인 혼자 있을 때&lt;/h6&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/render-perf-matters/sw_rendering_desc.png&quot; alt=&quot;소프트웨어 렌더링&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/render-perf-matters/sw_rendering_desc.png&quot; alt=&quot;소프트웨어 렌더링&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;이 상황이 앞에서 얘기한 CPU 단독의 S/W 렌더링 모델과도 같습니다. 이 경우 손님의 주문이 많아지면서 주방에 전달해야 할 내용도 늘어나고 끊임없이 나오는 요리를 전달하고 치우는 과정에서 이윽코 지배인은 금새 한계에 봉착하게 됩니다. 당연히 요리는 줄줄 밀리게 될 것이고 손님은 좋지 못한 사용자 경험(UX)를 경험하게 되겠죠.&lt;/p&gt;
 
-&lt;h6&gt;상황 2. 웨이터의 등장&lt;/h6&gt;
+&lt;h6 id=&quot;section-6&quot;&gt;상황 2. 웨이터의 등장&lt;/h6&gt;
 
 &lt;p&gt;이를 해결하기 위해 GPU라는 이름을 가진 웨이터를 투입해보도록 하겠습니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/render-perf-matters/hwacc_rendering_desc.png&quot; alt=&quot;하드웨어 가속&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/render-perf-matters/hwacc_rendering_desc.png&quot; alt=&quot;하드웨어 가속&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;이 상황은 별도의 프로세서가 렌더링을 처리할 수 있는 &amp;#39;하드웨어 가속&amp;#39; 기반의 렌더링과도 같습니다. 웨이터는 이전에 지배인이 처리하던 일 중 요리의 전달과 같은 몇 가지를 대신 처리합니다. 이로써 지배인은 홀에서 발생하는 상황을 컨트롤하는데 집중할 수 있는 시간을 더 많이 가지게 되고 빨라진 서비스로 인해 지배인과 손님 모두가 만족스러운 결과를 얻게 됩니다.&lt;/p&gt;
+&lt;p&gt;이 상황은 별도의 프로세서가 렌더링을 처리할 수 있는 ‘하드웨어 가속’ 기반의 렌더링과도 같습니다. 웨이터는 이전에 지배인이 처리하던 일 중 요리의 전달과 같은 몇 가지를 대신 처리합니다. 이로써 지배인은 홀에서 발생하는 상황을 컨트롤하는데 집중할 수 있는 시간을 더 많이 가지게 되고 빨라진 서비스로 인해 지배인과 손님 모두가 만족스러운 결과를 얻게 됩니다.&lt;/p&gt;
 
-&lt;h6&gt;웨이터의 업무에 대한 지시는 필요&lt;/h6&gt;
+&lt;h6 id=&quot;section-7&quot;&gt;웨이터의 업무에 대한 지시는 필요&lt;/h6&gt;
 
 &lt;p&gt;훌륭하게도 위와 같이 웨이터의 투입은 동일한 서비스를 보장하면서 지배인이 기존에 혼자 하던 많은 일들을 나누어 할 수 있도록 하였습니다. 물론 웨이터는 레스토랑을 어떻게 관리하는지에 대해 알고 있지 않기 때문에 &lt;strong&gt;레스토랑을 총괄하는 지배인이 이를 지시해주어야 한다는 사실&lt;/strong&gt; 역시 중요합니다.&lt;/p&gt;
 
@@ -137,17 +1069,17 @@ Source: &lt;a href=&quot;http://http.developer.nvidia.com/GPUGems2/gpugems2_chap
 &lt;p&gt;GPU가 할 일을 &lt;strong&gt;지시하고 관리하기 위한 일&lt;/strong&gt;은 CPU 상의 코드로부터 시작된다는 사실은 꼭 기억해두시기 바랍니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;최근에는 GPU에 직접적으로 관여할 수 있는 프로그램을 업로드하여 처리할 수 있는 쉐이더(Shader)가 존재합니다만 이는 여기에서 다루고자 하는 범위를 벗어나므로 언젠가 쉐이더에 대해 다룰 일이 있다면 공부(!!)해서 설명할 기회를 갖도록 하겠습니다.&lt;/p&gt;
+  &lt;p&gt;최근에는 GPU에 직접적으로 관여할 수 있는 프로그램을 업로드하여 처리할 수 있는 쉐이더(Shader)가 존재합니다만 이는 여기에서 다루고자 하는 범위를 벗어나므로 언젠가 쉐이더에 대해 다룰 일이 있다면 공부(!!)해서 설명할 기회를 갖도록 하겠습니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3&gt;CPU와 GPU 사이에 존재하는 이슈들&lt;/h3&gt;
+&lt;h3 id=&quot;cpu-gpu---&quot;&gt;CPU와 GPU 사이에 존재하는 이슈들&lt;/h3&gt;
 
 &lt;p&gt;CPU와 GPU가 협업하는 모델은 기본적으로는 CPU를 중심으로 돌아갑니다. 이를 자세하게 설명하자면 한도 끝도 없기 때문에 이 포스트에서는 아주 간단한 몇가지 개념만 짚고 넘어가도록 하겠습니다.&lt;/p&gt;
 
-&lt;h4&gt;이슈.1 GPU와 CPU는 메모리를 전혀 다른 공간에서 다룬다.&lt;/h4&gt;
+&lt;h4 id=&quot;gpu-cpu-----&quot;&gt;이슈.1 GPU와 CPU는 메모리를 전혀 다른 공간에서 다룬다.&lt;/h4&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;지배인은 웨이터에게 지시할 내용을 떠올리고 이를 말합니다.&lt;br/&gt;
+  &lt;p&gt;지배인은 웨이터에게 지시할 내용을 떠올리고 이를 말합니다.&lt;br /&gt;
 웨이터는 이를 듣고 기억한 다음 행동합니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -160,14 +1092,14 @@ Source: &lt;a href=&quot;http://http.developer.nvidia.com/GPUGems2/gpugems2_chap
 &lt;p&gt;무엇이 되었던 CPU가 데이터를 처리하기 위해서는 이를 주 기억공간(Main Memory) 상으로 가져와야 합니다. 하드디스크 혹은 네트워크 상에서 전달된 데이터 역시 일단 주 기억공간에 적재(Store)합니다. 그리고나서야 CPU는 필요한 데이터를 메모리에서 가져와 처리합니다. 즉, CPU는 메인 메모리만 쳐다보고 있습니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;레지스터나 DMA와 같은 개념은 일단 배제하도록 합시다. 이는 성능을 극대화하기 위한 메커니즘들입니다만 여기까지 이해하기에는 우리가 가야할 길이 너무 멀기 때문입니다.&lt;/p&gt;
+  &lt;p&gt;레지스터나 DMA와 같은 개념은 일단 배제하도록 합시다. 이는 성능을 극대화하기 위한 메커니즘들입니다만 여기까지 이해하기에는 우리가 가야할 길이 너무 멀기 때문입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;이를 다시 말하자면 여러분이 가지고 있는 웹 페이지 역시 CPU 입장에서는 처리해야 할 데이터일뿐이고 이는 어떠한 형태가 되었던지 주 기억공간에 적재된 뒤에 처리된다는 의미입니다. 이는 GPU 역시 마찬가지입니다. 메모리를 전혀 다른 공간에서 다룬다는 뜻을 생각해보면 어떤 것일까요?&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;주 기억공간과 비디오 메모리는 분리되어 있습니다.
-&lt;img src=&quot;/images/render-perf-matters/isolated_memory.png&quot; alt=&quot;주 기억공간과 비디오 램&quot;&gt;&lt;/p&gt;
+  &lt;p&gt;주 기억공간과 비디오 메모리는 분리되어 있습니다.
+&lt;img src=&quot;/images/render-perf-matters/isolated_memory.png&quot; alt=&quot;주 기억공간과 비디오 램&quot; /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;CPU와 GPU가 처리하기 위한 데이터나 프로그램은 분리되어 있다는 말은 GPU가 어떤 데이터를 처리하기 위해서 메인 메모리로부터 비디오 메모리로 데이터를 전달하는 과정이 필요하다는 뜻입니다. 하지만 아쉽게도 물리적으로 완전히 분리되어 있는 메모리 간에 데이터를 전달하는 것은 성능 상의 손실이 발생합니다.&lt;/p&gt;
@@ -177,143 +1109,143 @@ Source: &lt;a href=&quot;http://http.developer.nvidia.com/GPUGems2/gpugems2_chap
 &lt;p&gt;여기에서 우리가 염두에 두어야 할 첫번째 문제점을 도출해봅시다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&amp;quot;CPU가 GPU로 데이터를 전달하는데는 데이터의 크기가 그 시간을 결정한다.&amp;quot;&lt;/p&gt;
+  &lt;p&gt;“CPU가 GPU로 데이터를 전달하는데는 데이터의 크기가 그 시간을 결정한다.”&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;그렇다면 이를 해결하기 위해 충분한 로딩 시간을 가지고 모든 데이터를 전송한 뒤에 이를 처리하면 어떨까요?&lt;/p&gt;
 
-&lt;h4&gt;이슈.2 메모리는 한계가 있다.&lt;/h4&gt;
+&lt;h4 id=&quot;section-8&quot;&gt;이슈.2 메모리는 한계가 있다.&lt;/h4&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;겹쳐쌓을 수 없는 요리로 가득한 테이블 위에 다른 요리를 올려두려면 다른 요리를 내려두어야 할 것입니다.&lt;/p&gt;
+  &lt;p&gt;겹쳐쌓을 수 없는 요리로 가득한 테이블 위에 다른 요리를 올려두려면 다른 요리를 내려두어야 할 것입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;이미 요리로 가득찬 테이블 위에 새로운 요리를 올려두려면 어떻게 해야할 까요?&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;가득찬 메모리에 새로운 데이터 업로드
-&lt;img src=&quot;/images/render-perf-matters/memory_full.png&quot; alt=&quot;가득찬 메모리에 새로운 데이터 업로드&quot;&gt;&lt;/p&gt;
+  &lt;p&gt;가득찬 메모리에 새로운 데이터 업로드
+&lt;img src=&quot;/images/render-perf-matters/memory_full.png&quot; alt=&quot;가득찬 메모리에 새로운 데이터 업로드&quot; /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;아쉽지만 메모리는 한계가 있습니다. 즉, CPU나 GPU가 바라보는 각자의 기억 공간에 담을 수 있는 데이터의 크기가 결정되어 있기 때문에 이를 효율적으로 사용하는 방법이 필요합니다. 모든 데이터를 전송하려고 해도 이를 담을 공간이 충분하지 않다면 당장 필요하지 않은 데이터는 버리고 현재 시점에서 필요한 것을 적재해두어야 합니다. 없는 데이터를 다룰 수는 없으니까요.&lt;/p&gt;
 
-&lt;h4&gt;이슈.3 데이터는 자주 변경된다.&lt;/h4&gt;
+&lt;h4 id=&quot;section-9&quot;&gt;이슈.3 데이터는 자주 변경된다.&lt;/h4&gt;
 
-&lt;p&gt;메모리의 한계와 더불어 우리는 &amp;#39;데이터가 자주 변경된다.&amp;#39;라는 사실에도 주목해야 합니다. 즉, 이미지 A가 GPU에 적재되어 존재한다고 해도 만약 우리가 이 이미지를 아주 약간이라도 변경하여 A&amp;#39;로 사용할 필요가 있다면 이 시점에서 A는 무의미한 데이터가 되어버리고 새로 전송해야 할 것입니다.&lt;/p&gt;
+&lt;p&gt;메모리의 한계와 더불어 우리는 ‘데이터가 자주 변경된다.’라는 사실에도 주목해야 합니다. 즉, 이미지 A가 GPU에 적재되어 존재한다고 해도 만약 우리가 이 이미지를 아주 약간이라도 변경하여 A’로 사용할 필요가 있다면 이 시점에서 A는 무의미한 데이터가 되어버리고 새로 전송해야 할 것입니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/render-perf-matters/data_update.png&quot; alt=&quot;데이터의 업데이트와 불일치성&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/render-perf-matters/data_update.png&quot; alt=&quot;데이터의 업데이트와 불일치성&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;이 시나리오에서 가장 최악의 경우는 데이터가 계속 변경되는 것입니다. 데이터는 끊임없이 버려지고 끊임없이 새로 전달됩니다. 만약 A를 다시 사용한다고 해도 어떠한 이유로 인해 이미 버려진 상태라면 다시 비디오 메모리에 전송해야 합니다. 물론 우리가 비디오 메모리를 직접적으로 관리한다면 그나마 우선순위를 쉽게 결정하고 재활용할 수 있을 것입니다. 그렇지만 웹에서 비디오 메모리는 브라우저에 의해 관리됩니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;개발자들이 농담처럼 얘기하는 것 중에 &lt;strong&gt;&amp;quot;무한한 성능과 무한한 저장 공간이 있다면 효율적인 알고리즘은 중요하지 않다.&amp;quot;&lt;/strong&gt;라는 말이 있습니다. 정말 그렇습니다. 필요한 데이터는 일단 넣어두고 찾을 수 있는 방법만 있으면 O(logN)이던 O(N^2)이던 관계가 없겠죠. 이를 위한 많은 연구가 진행 중이지만 현재 시점에서 이는 아직 먼 미래의 얘기일 뿐입니다.&lt;/p&gt;
+  &lt;p&gt;개발자들이 농담처럼 얘기하는 것 중에 &lt;strong&gt;“무한한 성능과 무한한 저장 공간이 있다면 효율적인 알고리즘은 중요하지 않다.”&lt;/strong&gt;라는 말이 있습니다. 정말 그렇습니다. 필요한 데이터는 일단 넣어두고 찾을 수 있는 방법만 있으면 O(logN)이던 O(N^2)이던 관계가 없겠죠. 이를 위한 많은 연구가 진행 중이지만 현재 시점에서 이는 아직 먼 미래의 얘기일 뿐입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3&gt;GPU에서 일어나는 일들&lt;/h3&gt;
+&lt;h3 id=&quot;gpu--&quot;&gt;GPU에서 일어나는 일들&lt;/h3&gt;
 
 &lt;p&gt;GPU에서 어떤 일들이 어떻게 일어나는지를 이해하는 것은 매우 중요합니다만 이 글에서 목적으로 하는 것은 성능의 위험 인자를 피해 가는 것이므로 간단하게만 설명하도록 하겠습니다.&lt;/p&gt;
 
-&lt;h4&gt;GPU 동작 이해를 위한 최소 용어&lt;/h4&gt;
+&lt;h4 id=&quot;gpu-----&quot;&gt;GPU 동작 이해를 위한 최소 용어&lt;/h4&gt;
 
 &lt;p&gt;우리에게 필요한 내용을 설명하기 위해 자세한 그래픽스 이론까지는 갈 필요가 없습니다. 제게도 여러분에게도 참 다행스러운 일이라고 생각됩니다. :) 여기에서는 버텍스, 폴리곤, 텍스처, 변환에 대한 정말 간단한 개념만 알아보겠습니다.&lt;/p&gt;
 
-&lt;h5&gt;버텍스(Vertex)와 폴리곤(Polygon)&lt;/h5&gt;
+&lt;h5 id=&quot;vertex-polygon&quot;&gt;버텍스(Vertex)와 폴리곤(Polygon)&lt;/h5&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.loisterms.com/polydef.gif&quot;&gt;버텍스&lt;/a&gt;는 공간 상의 점을 나타내는 위치 정보이며 &lt;a href=&quot;http://www.loisterms.com/polydef.gif&quot;&gt;폴리곤&lt;/a&gt;은 이러한 버텍스가 모여 이루는 2D 표면을 가지는 일종의 도형 객체입니다. 2D 공간에서 다음과 같이 몇개의 버텍스를 사용하여 하나의 도형을 표현할 수 있습니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;버텍스와 폴리곤&lt;br/&gt;
-&lt;img src=&quot;http://www.loisterms.com/polyparts.gif&quot; alt=&quot;버텍스와 도형&quot;&gt;&lt;br/&gt;
+  &lt;p&gt;버텍스와 폴리곤&lt;br /&gt;
+&lt;img src=&quot;http://www.loisterms.com/polyparts.gif&quot; alt=&quot;버텍스와 도형&quot; /&gt;&lt;br /&gt;
 Source: &lt;a href=&quot;http://www.loisterms.com/polyarea.htm&quot;&gt;LOIS TERMS&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;위의 그림에서 보시다시피 어렵지 않습니다. :)&lt;/p&gt;
 
-&lt;h5&gt;텍스쳐(Texture)&lt;/h5&gt;
+&lt;h5 id=&quot;texture&quot;&gt;텍스쳐(Texture)&lt;/h5&gt;
 
-&lt;p&gt;텍스쳐(Texture)의 원론적인 뜻은 조금 더 복잡하기는 하지만 가장 간단하게 표현하자면 &amp;#39;이미지&amp;#39;입니다. 다만 매핑을 목적으로 하고 있는 이미지입니다.&lt;/p&gt;
+&lt;p&gt;텍스쳐(Texture)의 원론적인 뜻은 조금 더 복잡하기는 하지만 가장 간단하게 표현하자면 ‘이미지’입니다. 다만 매핑을 목적으로 하고 있는 이미지입니다.&lt;/p&gt;
 
 &lt;p&gt;우리는 이 텍스쳐 이미지를 위에서 설명한 폴리곤의 표면과 매핑하여 특정한 모양의 도형에 이미지를 입힐 수 있습니다. 간단하게 생각하자면 사각형의 도형을 만들어 놓고 여기에 이미지를 씌우는 경우를 생각해볼 수 있겠습니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;텍스쳐 매핑의 예&lt;br/&gt;
-&lt;img src=&quot;http://www.cs.berkeley.edu/%7Eug/slide/pipeline/assignments/as9/texture.gif&quot; alt=&quot;텍스쳐의 매핑&quot;&gt;&lt;br/&gt;
-Source: &lt;a href=&quot;http://www.cs.berkeley.edu/%7Eug/slide/pipeline/assignments/as9/&quot;&gt;UC Berkeley CS184&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;텍스쳐 매핑의 예&lt;br /&gt;
+&lt;img src=&quot;http://www.cs.berkeley.edu/~ug/slide/pipeline/assignments/as9/texture.gif&quot; alt=&quot;텍스쳐의 매핑&quot; /&gt;&lt;br /&gt;
+Source: &lt;a href=&quot;http://www.cs.berkeley.edu/~ug/slide/pipeline/assignments/as9/&quot;&gt;UC Berkeley CS184&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h5&gt;변환(Transformation)&lt;/h5&gt;
+&lt;h5 id=&quot;transformation&quot;&gt;변환(Transformation)&lt;/h5&gt;
 
 &lt;p&gt;변환은 행렬을 기반으로 하여 회전, 확대/축소, 기울임 등을 수학적 연산으로 처리하는 방법입니다. 이를 이용하여 여러가지 처리를 할 수 있지만 여기에서는 이 정도만 알아두도록 하겠습니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;CSS3 Transform으로 가능한 동작의 예
-&lt;img src=&quot;http://desandro.github.io/3dtransforms/img/transforms01.png&quot; alt=&quot;Skew&quot;&gt;&lt;br/&gt;
+  &lt;p&gt;CSS3 Transform으로 가능한 동작의 예
+&lt;img src=&quot;http://desandro.github.io/3dtransforms/img/transforms01.png&quot; alt=&quot;Skew&quot; /&gt;&lt;br /&gt;
 Source: &lt;a href=&quot;http://desandro.github.io/3dtransforms/docs/3d-transform-functions.html&quot;&gt;Intro to CSS 3D transforms - 3D transform functions&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4&gt;(20년 전의) 렌더링 동작&lt;/h4&gt;
+&lt;h4 id=&quot;section-10&quot;&gt;(20년 전의) 렌더링 동작&lt;/h4&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;최신의 렌더링 파이프라인은 꽤 유연하고 강력한 여러가지 기능을 가지고 있습니다만 이를 자세하게 이해하는 것은 실제 그래픽 모듈을 개발하는 사람들에게 훨씬 더 유용합니다.&lt;/p&gt;
+  &lt;p&gt;최신의 렌더링 파이프라인은 꽤 유연하고 강력한 여러가지 기능을 가지고 있습니다만 이를 자세하게 이해하는 것은 실제 그래픽 모듈을 개발하는 사람들에게 훨씬 더 유용합니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;프론트엔드 개발자로써 우리가 이해해야 하는 내용은 지금까지 설명한 내용을 바탕으로 어떠한 경우에 느려지는지를 파악하기 위한 추상적인 개념입니다. 이를 위해 20년 전의 일반적인 렌더링으로 돌아가 봅시다. :)&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;그래픽스 파이프라인 관점에서 본 GeForce 6 시리즈의 구조
-&lt;img src=&quot;http://http.developer.nvidia.com/GPUGems2/elementLinks/30_geforce6_06.jpg&quot; alt=&quot;&quot;&gt;&lt;br/&gt;
+  &lt;p&gt;그래픽스 파이프라인 관점에서 본 GeForce 6 시리즈의 구조
+&lt;img src=&quot;http://http.developer.nvidia.com/GPUGems2/elementLinks/30_geforce6_06.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
 Source: &lt;a href=&quot;http://http.developer.nvidia.com/GPUGems2/gpugems2_chapter30.html&quot;&gt;GPU Gems 2&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;이 모든 것을 살펴보는 것도 의미가 있겠지만 여기에서는 오래 전의 파이프라인에 대비해서 살펴보도록 하겠습니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/render-perf-matters/oldschool_pipeline.png&quot; alt=&quot;20년 전의 렌더링&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/render-perf-matters/oldschool_pipeline.png&quot; alt=&quot;20년 전의 렌더링&quot; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;사용할 텍스쳐 이미지를 전송합니다.&lt;/li&gt;
-&lt;li&gt;필요한 폴리곤을 전송합니다.&lt;/li&gt;
-&lt;li&gt;폴리곤에 변환이 필요하면 필요한 Transform Matrix를 설정합니다.&lt;/li&gt;
-&lt;li&gt;반투명 등의 처리가 필요하면 이에 대한 정보도 설정합니다.&lt;/li&gt;
-&lt;li&gt;2의 폴리곤에 1의 텍스처를 입혀 3, 4번의 설정대로 프레임버퍼에 출력합니다.&lt;/li&gt;
+  &lt;li&gt;사용할 텍스쳐 이미지를 전송합니다.&lt;/li&gt;
+  &lt;li&gt;필요한 폴리곤을 전송합니다.&lt;/li&gt;
+  &lt;li&gt;폴리곤에 변환이 필요하면 필요한 Transform Matrix를 설정합니다.&lt;/li&gt;
+  &lt;li&gt;반투명 등의 처리가 필요하면 이에 대한 정보도 설정합니다.&lt;/li&gt;
+  &lt;li&gt;2의 폴리곤에 1의 텍스처를 입혀 3, 4번의 설정대로 프레임버퍼에 출력합니다.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;와, 3D 개발자들이 보면 제게 버럭 소리를 지를 설명이지만 전 애초에 이 이상으로 들어갈 생각이 없었습니다.
+  &lt;p&gt;와, 3D 개발자들이 보면 제게 버럭 소리를 지를 설명이지만 전 애초에 이 이상으로 들어갈 생각이 없었습니다.
 자세한 내용이 필요하다면 WebGL 같은 것을 다루는 곳에서 다시 뵙도록 하겠습니다. :)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3&gt;성능 최적화를 위한 첫걸음&lt;/h3&gt;
+&lt;h3 id=&quot;section-11&quot;&gt;성능 최적화를 위한 첫걸음&lt;/h3&gt;
 
 &lt;p&gt;성능 최적화에 들어가기 전에 우리가 이용할 수 있는 좋은 것과 피해야 할 나쁜 것은 무엇인지 간단하게 살펴보겠습니다.&lt;/p&gt;
 
-&lt;h4&gt;GPU가 잘 하는 일&lt;/h4&gt;
+&lt;h4 id=&quot;gpu---&quot;&gt;GPU가 잘 하는 일&lt;/h4&gt;
 
 &lt;p&gt;먼저 우리가 가급적이면 취해야 할 부분, GPU가 잘하는 일들입니다. 물론 다양한 기능들이 존재하지만 간단하게 웹 페이지의 일반적 요소들을 그리는데 필요한 내용들만 논의해보겠습니다.&lt;/p&gt;
 
 &lt;p&gt;GPU는 우리가 전달해준 이미지-텍스쳐-를 이용하여 렌더링하는데 매우 적합합니다. 이를 좀 더 추상적으로 표현하자면 마치 슬라이드 필름(텍스쳐)을 영사기(GPU)를 통해 스크린에 표시하는 것(렌더링 결과)과도 유사합니다. 하지만 이는 추상적인 표현이므로 조금만 더 자세히 살펴보겠습니다.&lt;/p&gt;
 
-&lt;p&gt;[영사기와 GPU]()&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;&quot; alt=&quot;영사기와 GPU&quot; /&gt;&lt;/p&gt;
 
-&lt;h5&gt;GPU는 수신된 데이터로 무언가를 그리는데 적합&lt;/h5&gt;
+&lt;h5 id=&quot;gpu------1&quot;&gt;GPU는 수신된 데이터로 무언가를 그리는데 적합&lt;/h5&gt;
 
 &lt;ol&gt;
-&lt;li&gt;텍스쳐를 가지고 이미지를 빠르게 그릴 수 있습니다.&lt;/li&gt;
-&lt;li&gt;이미 수신된 텍스쳐는 다시 받을 필요없이 재활용할 수 있습니다.&lt;/li&gt;
-&lt;li&gt;이미지를 그릴 때 회전, 확대, 축소, 기울임, 반투명하게 표시할 수 있습니다.&lt;/li&gt;
-&lt;li&gt;물론 3에서 얘기하는 각 요소를 한번에 처리하는 것도 매우 빠릅니다.&lt;/li&gt;
+  &lt;li&gt;텍스쳐를 가지고 이미지를 빠르게 그릴 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;이미 수신된 텍스쳐는 다시 받을 필요없이 재활용할 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;이미지를 그릴 때 회전, 확대, 축소, 기울임, 반투명하게 표시할 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;물론 3에서 얘기하는 각 요소를 한번에 처리하는 것도 매우 빠릅니다.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;물론 현대적 GPU는 몇가지의 기능이 더 있습니다만  일단 여러분이 알아야 할 내용은 이정도면 아마 충분하리라 생각되기 때문에 더 이상 설명하지는 않도록 하겠습니다.&lt;/p&gt;
 
-&lt;h4&gt;GPU가 일을 잘하는데 방해되는 것들&lt;/h4&gt;
+&lt;h4 id=&quot;gpu----&quot;&gt;GPU가 일을 잘하는데 방해되는 것들&lt;/h4&gt;
 
 &lt;p&gt;그럼 반대로 GPU의 동작에서 약점으로 작용할 수 있는 것은 무엇이 있을까요?&lt;/p&gt;
 
-&lt;h5&gt;비디오 메모리로의 데이터 전송 속도&lt;/h5&gt;
+&lt;h5 id=&quot;section-12&quot;&gt;비디오 메모리로의 데이터 전송 속도&lt;/h5&gt;
 
 &lt;p&gt;앞에서 GPU는 비디오 램만을 바라본다고 말씀드린 바 있습니다. 그리고 비디오 램에 데이터를 전송하는 과정이 필요하다는 것도 말이죠. 여기서 가장 먼저 떠올릴 수 있는 것은 텍스쳐 등의 데이터 송수신에 의한 시간 손실입니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/render-perf-matters/slow_bus.png&quot; alt=&quot;GPU로의 데이터 전송에 의한 성능 손실&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/render-perf-matters/slow_bus.png&quot; alt=&quot;GPU로의 데이터 전송에 의한 성능 손실&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;이는 마치 영사기에 새로운 슬라이드 필름을 넣는 과정과도 유사합니다만 물론 단순히 이것이 매번 약점이 된다라고 얘기하기는 매우 어렵습니다. 최근의 경우 필름(텍스쳐)이 충분히 빠르게 전달되기 때문입니다. 하지만 데이터의 크기가 충분히 크다면 이는 문제가 될 수 있습니다.&lt;/p&gt;
 
@@ -321,43 +1253,43 @@ Source: &lt;a href=&quot;http://http.developer.nvidia.com/GPUGems2/gpugems2_chap
 
 &lt;p&gt;이미지는 일반적인 데이터에 비해 꽤 클 가능성이 높습니다. 폴리곤 역시 이를 구성하는 버텍스의 갯수에 따라 커질 수도 작을 수도 있겠지만 단순한 도형에 대해서 이미지보다는 작은 용량일 것입니다. 그렇다면 Transform이나 기타 설정 정보는 어떨까요? 아마도 이 역시 크기는 작을 것 같으므로 이러한 정보보다는 텍스쳐 이미지의 송수신이 많은 경우가 성능 상 좋지 않을 것 같습니다.&lt;/p&gt;
 
-&lt;h5&gt;더 큰 문제는 CPU의 처리 시간&lt;/h5&gt;
+&lt;h5 id=&quot;cpu--&quot;&gt;더 큰 문제는 CPU의 처리 시간&lt;/h5&gt;
 
 &lt;p&gt;그렇다면 진짜 심각한 문제는 어디에 있을까요? 우리가 앞에서 CPU와 GPU가 동작하는 프로세스에 대해서 살펴본 바가 있습니다. CPU는 GPU가 처리해야 할 일들을 전달해야 한다는 사실도 얘기한 바가 있습니다. 이제 가장 문제가 되는 부분을 말씀드리겠습니다. 바로 CPU입니다. GPU 얘기를 하다가 갑자기 무슨 소리일까 싶으시겠지만 사실이 그렇습니다.&lt;/p&gt;
 
 &lt;p&gt;조금 더 자세하게 말해보죠. 앞에서 일반적으로 응용 프로그램들의 코드는 CPU에서 실행된다고 말씀드린 바 있습니다. 그리고 CPU에서 동작하는 코드는 주 기억장치의 데이터를 액세스할 수 있습니다. 이 데이터에는 GPU에 전달될 텍스쳐 이미지 역시 포함됩니다. 일단 주 기억장치에 텍스쳐 메모리를 로드하거나 생성한 뒤에 이를 GPU가 바라보는 비디오 메모리로 전송합니다. 눈치가 빠르신 분은 아마 여기에서 문제점을 찾았을 것입니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/render-perf-matters/cpu_time.png&quot; alt=&quot;CPU로 인한 GPU의 대기&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/render-perf-matters/cpu_time.png&quot; alt=&quot;CPU로 인한 GPU의 대기&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;네, &lt;strong&gt;CPU가 GPU에서 사용할 데이터를 처리하는 시간&lt;/strong&gt; 자체가 문제가 됩니다. GPU는 전달받은 데이터를 받아 처리하는 일종의 보조 장치이기 때문에 CPU에서 렌더링에 필요한 데이터를 전달받을 때까지는 대체로 아무것도 할 수 없습니다. 갱신이 자주 이루어진다면 이러한 시간만큼 지속적으로 GPU가 렌더링을 시작하는데 필요한 시간이 늘어난다고 생각할 수 있을 것입니다.&lt;/p&gt;
 
-&lt;h4&gt;중간 점검: 렌더링 성능의 주요 요인&lt;/h4&gt;
+&lt;h4 id=&quot;section-13&quot;&gt;중간 점검: 렌더링 성능의 주요 요인&lt;/h4&gt;
 
 &lt;p&gt;지금까지 얘기한 내용을 간단하게 정리해서 보겠습니다.&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;GPU는 일단 수신된 텍스쳐를 회전, 확대/축소, 기울임, 반투명 처리를 빠르게 할 수 있습니다.&lt;/li&gt;
-&lt;li&gt;GPU에서 사용할 데이터를 준비하는 것은 CPU의 몫입니다.&lt;/li&gt;
-&lt;li&gt;CPU가 준비한 데이터는 GPU가 사용할 수 있도록 비디오 메모리에 전송되어야 합니다.&lt;/li&gt;
+  &lt;li&gt;GPU는 일단 수신된 텍스쳐를 회전, 확대/축소, 기울임, 반투명 처리를 빠르게 할 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;GPU에서 사용할 데이터를 준비하는 것은 CPU의 몫입니다.&lt;/li&gt;
+  &lt;li&gt;CPU가 준비한 데이터는 GPU가 사용할 수 있도록 비디오 메모리에 전송되어야 합니다.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;그러면 일단 GPU에 전달하는 새로운 데이터가 최소화되도록 하고 가급적이면 GPU에서 잘 동작하는 방식의 기능으로 렌더링을 제한할 수 있으면 꽤 빠를 것 같습니다. 어떻게 생각하시나요?&lt;/p&gt;
 
-&lt;h3&gt;크롬의 하드웨어 가속 렌더링 메커니즘&lt;/h3&gt;
+&lt;h3 id=&quot;section-14&quot;&gt;크롬의 하드웨어 가속 렌더링 메커니즘&lt;/h3&gt;
 
 &lt;p&gt;크롬의 렌더링이 하드웨어의 가속을 받는 과정을 이해하는 것은 성능의 최적화를 위해 매우 중요한 과정입니다. 물론 앞에 계속 말한 바와 같이 이 모든 것을 다 이해하지 않는다고 해서 치명적이지도 않습니다. 따라서 여기에서도 크롬의 렌더링과 관련된 몇가지 개념만 살펴보도록 하겠습니다.&lt;/p&gt;
 
-&lt;h4&gt;웹 페이지의 렌더링&lt;/h4&gt;
+&lt;h4 id=&quot;section-15&quot;&gt;웹 페이지의 렌더링&lt;/h4&gt;
 
 &lt;p&gt;앞에서 나온 내용을 웹 페이지의 렌더링에 적용하기 전에 웹 문서는 어떻게 렌더링이 되는 것일까요? 크롬의 렌더링 모델은 아래 그림(출처: &lt;a href=&quot;http://www.chromium.org/developers/design-documents/gpu-accelerated-compositing-in-chrome&quot;&gt;Design doc&lt;/a&gt;)과 같이 다소 복잡하게 보일 수 있습니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://lh5.googleusercontent.com/eLlgjXLQbW-c2JWxfK0VxXbmV2-D90ub4dXYMblpHdyVyM_6a12JdfQKiokPrTcB-2UOn284A3teHK4P0e9Xlmm5uSxA7utj6Pggf7T-J7uxwc8iBPopZ7vtcCRYGvtteQ&quot; alt=&quot;The Compositing Forest&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://lh5.googleusercontent.com/eLlgjXLQbW-c2JWxfK0VxXbmV2-D90ub4dXYMblpHdyVyM_6a12JdfQKiokPrTcB-2UOn284A3teHK4P0e9Xlmm5uSxA7utj6Pggf7T-J7uxwc8iBPopZ7vtcCRYGvtteQ&quot; alt=&quot;The Compositing Forest&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;간단한 개념으로 바꿔봅시다. 웹 페이지의 마크업 요소들은 브라우저 내에 내장된 파서를 통해 DOM 트리로 해석됩니다. 그리고 특별한 일이 없는 한 각각의 DOM 노드들은 우리가 화면에서 그래픽스 표현으로 볼 내용이 될 것입니다. 우리는 앞에서 슬라이드 필름을 영사하는 형태로 GPU가 잘하는 일을 살펴본 바가 있습니다. 그렇다면 여러개의 슬라이드를 잘 조합해서 페이지를 꾸민다고 생각해보면 어떨까요?&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;페이지 렌더링의 간략화된 모습
-&lt;img src=&quot;http://www.phpied.com/files/reflow/render.png&quot; alt=&quot;페이지 렌더링의 간략화된 모습&quot;&gt;
+  &lt;p&gt;페이지 렌더링의 간략화된 모습
+&lt;img src=&quot;http://www.phpied.com/files/reflow/render.png&quot; alt=&quot;페이지 렌더링의 간략화된 모습&quot; /&gt;
 Source: []&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -366,150 +1298,154 @@ Source: []&lt;/p&gt;
 &lt;p&gt;이렇게 각각의 DOM 노드들의 내용을 가지고 있는 슬라이드 필름을 잘 배치해서 한번에 스크린에 투영하게 되면 아마도 우리가 보는 웹페이지를 가지게 될 것입니다. 이 과정을 다시 한번 정리해 보도록 하겠습니다.&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;웹 페이지는 파싱을 통해 DOM 트리로 해석되어 메모리에 존재합니다.&lt;/li&gt;
-&lt;li&gt;브라우저 내의 렌더링 엔진은 노드들을 개별적인 이미지로 만들어 냅니다.&lt;/li&gt;
-&lt;li&gt;DOM 트리의 구조 및 스타일에 따라 화면에 이미지를 배치합니다.&lt;/li&gt;
+  &lt;li&gt;웹 페이지는 파싱을 통해 DOM 트리로 해석되어 메모리에 존재합니다.&lt;/li&gt;
+  &lt;li&gt;브라우저 내의 렌더링 엔진은 노드들을 개별적인 이미지로 만들어 냅니다.&lt;/li&gt;
+  &lt;li&gt;DOM 트리의 구조 및 스타일에 따라 화면에 이미지를 배치합니다.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;여기에서 렌더링에 관련된 부분은 &lt;strong&gt;노드들을 이미지로 만드는 과정&lt;/strong&gt;과 이들을 &lt;strong&gt;화면에 배치하여 그려내는 과정&lt;/strong&gt;입니다.&lt;/p&gt;
 
-&lt;h4&gt;레이어 모델(Layer Model)&lt;/h4&gt;
+&lt;h4 id=&quot;layer-model&quot;&gt;레이어 모델(Layer Model)&lt;/h4&gt;
 
 &lt;p&gt;크롬에서 레이어(Layer)는 쉽게 말하자면 하나의 노드(혹은 여러개의 노드로 이루어진 그룹)의 내용을 우리가 볼 수 있는 형태로 만들어진 이미지로 만들기 위한 단위입니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;크롬에서 레이어는 &lt;strong&gt;렌더 레이어(Render Layer)와 그래픽스 레이어(Graphics Layer)&lt;/strong&gt;로 나누어지고 지금까지 설명한 텍스쳐 이미지는 그래픽스 레이어에 해당합니다만 굳이 기억하실 필요는 없습니다.&lt;/p&gt;
+  &lt;p&gt;크롬에서 레이어는 &lt;strong&gt;렌더 레이어(Render Layer)와 그래픽스 레이어(Graphics Layer)&lt;/strong&gt;로 나누어지고 지금까지 설명한 텍스쳐 이미지는 그래픽스 레이어에 해당합니다만 굳이 기억하실 필요는 없습니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;각각의 레이어는 최종적으로 CPU가 표현될 이미지를 생성하는 단위가 되고 이것이 텍스쳐 이미지로써 GPU에 업로드되게 됩니다. 앞에서 설명드린 &lt;a href=&quot;&quot;&gt;GPU가 일을 하는데 방해되는 것들&lt;/a&gt;에서 설명한 것처럼 최종 실행 단계에서 대다수의 렌더링 성능 병목은 이 단계에서 많이 일어납니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;예: 4개의 레이어로 이루어진 웹 앱
-&lt;img src=&quot;http://www.html5rocks.com/ko/tutorials/speed/animated-gifs/layers.jpg&quot; alt=&quot;레이어의 예&quot;&gt;&lt;br/&gt;
+  &lt;p&gt;예: 4개의 레이어로 이루어진 웹 앱
+&lt;img src=&quot;http://www.html5rocks.com/ko/tutorials/speed/animated-gifs/layers.jpg&quot; alt=&quot;레이어의 예&quot; /&gt;&lt;br /&gt;
 Source: &lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/animated-gifs/&quot;&gt;HTML5Rocks - Avoiding Unnecessary Paints: Animated GIF Edition&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;하지만 원인이 레이어가 되는 것은 아닙니다. 미리 말씀드리자면 레이어 단계에서 이미지를 재생성하는 것은 결국 이를 위한 CPU 시간과 렌더링을 위해 GPU에 업로드하는 과정으로 인해 성능에 영향을 주지만 원인은 이 레이어에 해당하는 이미지를 다시 그리는(Repaint) 동작을 발생시키는 것이 문제입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4&gt;컴포지트(Composite)&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;하지만 원인이 레이어가 되는 것은 아닙니다. 미리 말씀드리자면 레이어 단계에서 이미지를 재생성하는 것은 결국 이를 위한 CPU 시간과 렌더링을 위해 GPU에 업로드하는 과정으로 인해 성능에 영향을 주지만 원인은 이 레이어에 해당하는 이미지를 다시 그리는(Repaint) 동작을 발생시키는 것이 문제입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;composite&quot;&gt;컴포지트(Composite)&lt;/h4&gt;
 
 &lt;p&gt;컴포지트(Composite)는 &lt;strong&gt;조합&lt;/strong&gt; 내지는 &lt;strong&gt;합성&lt;/strong&gt;이라는 뜻을 가지고 있습니다. 브라우저에서 웹페이지를 렌더링하는 과정에서 무엇을 조합할까요? 네, 앞에서 말한 바와 같이 레이어에서 생성된 이미지들을 화면에 표시하기 위해 적절한 위치에 맞추어 조합하여 최종 결과물을 만들어 냅니다. 이 부분은 &lt;strong&gt;GPU가 잘하는 일&lt;/strong&gt;이라고 설명드린 바가 있습니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;페이지 렌더링과 컴포지트: 예시는 IE9 경우입니다만 간략화된 형태에서는 유사합니다.
-&lt;img src=&quot;http://ie.microsoft.com/testdrive/ieblog/2010/Sep/10_TheArchitectureofFullHardwareAccelerationofAllWebPageContent_1.png&quot; alt=&quot;페이지 렌더링과 컴포지트&quot;&gt;
+  &lt;p&gt;페이지 렌더링과 컴포지트: 예시는 IE9 경우입니다만 간략화된 형태에서는 유사합니다.
+&lt;img src=&quot;http://ie.microsoft.com/testdrive/ieblog/2010/Sep/10_TheArchitectureofFullHardwareAccelerationofAllWebPageContent_1.png&quot; alt=&quot;페이지 렌더링과 컴포지트&quot; /&gt;
 Source: &lt;a href=&quot;http://blogs.msdn.com/b/ie/archive/2010/09/10/the-architecture-of-full-hardware-acceleration-of-all-web-page-content.aspx&quot;&gt;MSDN The Architecture of Full Hardware Acceleration of All Web Page Content&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;이는 우리가 주어진 슬라이드 필름들을 잘 배치하여 스크린에 이미지를 만들어 내는 작업에 해당합니다. 일반적인 경우 매우 빠르게 실행되는 단계이기도 합니다. :)&lt;/p&gt;
 
-&lt;h4&gt;집중해야 할 문제: 레이아웃의 재계산과 Repaint의 발생&lt;/h4&gt;
+&lt;h4 id=&quot;repaint-&quot;&gt;집중해야 할 문제: 레이아웃의 재계산과 Repaint의 발생&lt;/h4&gt;
 
-&lt;h5&gt;Reflow&lt;/h5&gt;
+&lt;h5 id=&quot;reflow&quot;&gt;Reflow&lt;/h5&gt;
 
 &lt;p&gt;Reflow, Layout 혹은 Layouting이라고 부릅니다. 물론 Relayout이라고 부르는 다양한 용어가 있지만 이 모두가 렌더 트리의 일부 혹은 전체가 다시 계산될 필요가 있어 DOM 노드의 넓이가 재계산되는 경우를 뜻합니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;물론 웹 페이지가 로딩되면 페이지 내의 요소들을 배치하기 위해 최초 한번은 무조건 실행됩니다.
-&lt;img src=&quot;/images/render-perf-matters/layouting.png&quot; alt=&quot;레이아웃이 재계산되는 경우&quot;&gt;&lt;/p&gt;
+  &lt;p&gt;물론 웹 페이지가 로딩되면 페이지 내의 요소들을 배치하기 위해 최초 한번은 무조건 실행됩니다.
+&lt;img src=&quot;/images/render-perf-matters/layouting.png&quot; alt=&quot;레이아웃이 재계산되는 경우&quot; /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Reflow의 경우에서 하나의 노드의 레이아웃 연산은 상위 혹은 형제 노드들에 대한 영향을 줄 수 있고 특히 변경 사항이 폭이나 높이, 위치에 관련된 경우는 전파가 일어날 수 있습니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/images/render-perf-matters/tree_traverse.png&quot; alt=&quot;레이아웃 재계산을 위한 DOM 트리의 순회&quot;&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/render-perf-matters/tree_traverse.png&quot; alt=&quot;레이아웃 재계산을 위한 DOM 트리의 순회&quot; /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h5&gt;Repaint&lt;/h5&gt;
+&lt;h5 id=&quot;repaint&quot;&gt;Repaint&lt;/h5&gt;
 
 &lt;p&gt;DOM 노드의 (left, width 등의) 기하 정보 변경이나 레이어 이미지에 직접적으로 영향을 주는 스타일의 속성의 변경과 같은 경우는 화면의 일부가 갱신되어야 합니다. 이러한 스크린 상의 일부 혹은 전체 갱신을 Repaint 혹은 Redraw라고 부릅니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;크롬에서는 repaint의 발생을 추적할 수 있는 기능을 아래와 같이 가지고 있습니다.
-&lt;img src=&quot;https://developer.chrome.com/devtools/docs/rendering-settings-files/rendering-settings.png&quot; alt=&quot;Rendering Settings in Chrome&quot;&gt;&lt;/p&gt;
+  &lt;p&gt;크롬에서는 repaint의 발생을 추적할 수 있는 기능을 아래와 같이 가지고 있습니다.
+&lt;img src=&quot;https://developer.chrome.com/devtools/docs/rendering-settings-files/rendering-settings.png&quot; alt=&quot;Rendering Settings in Chrome&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;위의 &lt;code&gt;Show paint rectangles&lt;/code&gt; 옵션을 선택한 뒤에 Hover 시 effect 효과로 인해 repaint가 발생하는 것을 붉은색 사각형에서 확인할 수 있습니다.
-&lt;img src=&quot;http://www.html5rocks.com/static/demos/unnecessary-paints/images/showpaintrects.jpg&quot; alt=&quot;&quot;&gt;&lt;br/&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;위의 &lt;code&gt;Show paint rectangles&lt;/code&gt; 옵션을 선택한 뒤에 Hover 시 effect 효과로 인해 repaint가 발생하는 것을 붉은색 사각형에서 확인할 수 있습니다.
+&lt;img src=&quot;http://www.html5rocks.com/static/demos/unnecessary-paints/images/showpaintrects.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
 Source: HTML5Rocks&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;만약 레이아웃과 Repaint를 비롯한 각종 성능 인자들을 추적하고 싶다면 아래와 같이 크롬 개발자도구의 타임라인 내 &amp;#39;Frame&amp;#39; 항목에서 확인할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;만약 레이아웃과 Repaint를 비롯한 각종 성능 인자들을 추적하고 싶다면 아래와 같이 크롬 개발자도구의 타임라인 내 ‘Frame’ 항목에서 확인할 수 있습니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://www.html5rocks.com/static/demos/unnecessary-paints/images/devtools.png&quot; alt=&quot;크롬 개발자 도구 - 프레임 렌더링의 성능 보기&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.html5rocks.com/static/demos/unnecessary-paints/images/devtools.png&quot; alt=&quot;크롬 개발자 도구 - 프레임 렌더링의 성능 보기&quot; /&gt;&lt;/p&gt;
 
-&lt;h4&gt;정리: 크롬 브라우저에서의 전반적인 렌더링 흐름&lt;/h4&gt;
+&lt;h4 id=&quot;section-16&quot;&gt;정리: 크롬 브라우저에서의 전반적인 렌더링 흐름&lt;/h4&gt;
 
 &lt;p&gt;지금까지 설명한 내용을 한번 더 정리합니다.&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;DOM으로부터 노드들을 개별적으로 혹은 그룹 지어 레이어 단위들로 분리합니다.&lt;/li&gt;
-&lt;li&gt;레이아웃을 계산하고 각 레이어들이 그려져야 할 영역의 크기 위치 등을 계산합니다.
-
-&lt;ul&gt;
-&lt;li&gt;레이아웃의 위치나 크기 정보 등을 계산하기 위한 &lt;strong&gt;CPU의 계산 오버헤드&lt;/strong&gt;가 발생할 것입니다.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;레이어들 각각은 렌더링을 위해 비트맵으로 출력합니다.
-
-&lt;ul&gt;
-&lt;li&gt; &lt;strong&gt;CPU에서 레이어 이미지를 생성하는 오버헤드&lt;/strong&gt;가 발생할 것입니다.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;생성된 비트맵을 GPU에 텍스쳐로 업로드합니다.
-
-&lt;ul&gt;
-&lt;li&gt;아주 심각하지는 않을 수 있습니다만 &lt;strong&gt;GPU의 비디오 메모리로 전송하는 오버헤드&lt;/strong&gt;는 발생합니다.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;계산된 레이아웃을 바탕으로 레이어의 텍스쳐 이미지들을 최종 스크린 이미지로 합성합니다&lt;/li&gt;
+  &lt;li&gt;DOM으로부터 노드들을 개별적으로 혹은 그룹 지어 레이어 단위들로 분리합니다.&lt;/li&gt;
+  &lt;li&gt;레이아웃을 계산하고 각 레이어들이 그려져야 할 영역의 크기 위치 등을 계산합니다.
+    &lt;ul&gt;
+      &lt;li&gt;레이아웃의 위치나 크기 정보 등을 계산하기 위한 &lt;strong&gt;CPU의 계산 오버헤드&lt;/strong&gt;가 발생할 것입니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;레이어들 각각은 렌더링을 위해 비트맵으로 출력합니다.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;CPU에서 레이어 이미지를 생성하는 오버헤드&lt;/strong&gt;가 발생할 것입니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;생성된 비트맵을 GPU에 텍스쳐로 업로드합니다.
+    &lt;ul&gt;
+      &lt;li&gt;아주 심각하지는 않을 수 있습니다만 &lt;strong&gt;GPU의 비디오 메모리로 전송하는 오버헤드&lt;/strong&gt;는 발생합니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;계산된 레이아웃을 바탕으로 레이어의 텍스쳐 이미지들을 최종 스크린 이미지로 합성합니다&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;만약 DOM 노드 내의 컨텐츠 변경은 아마 3번 과정부터 다시 처리되어야 할 것이며, 스타일의 변경은 2번 혹은 3번 과정부터 마지막으로 DOM 트리 자체가 변경된다면 1 혹은 2의 과정부터 다시 처리될 것입니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;물론 이것이 모든 경우에 해당하지는 않습니다. 대표적인 예외 상황인 Animated GIF는 실제 사례에서 살펴보겠습니다.&lt;/p&gt;
+  &lt;p&gt;물론 이것이 모든 경우에 해당하지는 않습니다. 대표적인 예외 상황인 Animated GIF는 실제 사례에서 살펴보겠습니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3&gt;렌더링 성능 최적화, 어떻게 접근하여야 하는가?&lt;/h3&gt;
+&lt;h3 id=&quot;section-17&quot;&gt;렌더링 성능 최적화, 어떻게 접근하여야 하는가?&lt;/h3&gt;
 
 &lt;p&gt;기나긴 여정이었습니다. 우리는 하드웨어 가속에 대한 간략한 개념부터 CPU와 GPU의 관계, GPU가 잘하는 일과 렌더링 파이프라인에서의 병목 구간(Bottleneck), 크롬에서의 웹 페이지 렌더링에 대한 개괄적인 모습을 보았습니다. 웹 페이지에 대한 렌더링 성능 최적화에 필요한 기본적인 개념은 거의 다 보았으니 최적화에 대한 접근 방법을 간략하게 살펴보고 몇가지 예제 속으로 들어가 보도록 하겠습니다. :)&lt;/p&gt;
 
-&lt;h4&gt;그래픽스 엔진/라이브러리와 웹 페이지 관점의 차이&lt;/h4&gt;
+&lt;h4 id=&quot;section-18&quot;&gt;그래픽스 엔진/라이브러리와 웹 페이지 관점의 차이&lt;/h4&gt;
 
 &lt;p&gt;우리는 이미 GPU가 잘하는 일을 알고 있고 CPU와 GPU에서 발생하는 병목의 원인에 대한 내용도 살펴보았습니다. 이제 웹 페이지의 성능 최적화에 대해 살펴봅시다.&lt;/p&gt;
 
 &lt;p&gt;우리가 앞에서 살펴본 내용을 봤을 때 웹이 아닌 네이티브 어플리케이션 관점에서의 그래픽스는 렌더링 프로세스를 최대한 가볍게 가져가기 위한 모듈을 어플리케이션의 형태에 따라 구성할 수 있을 것입니다. 다음의 예를 살펴볼까요?&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;여러분은 3D 혹은 2D 게임을 개발하고 있습니다. 이번 게임은 꽤나 그래픽 출력이 무겁기 때문에 CPU와 GPU 사이의 병목 구간을 최소화할 수 있도록 텍스쳐의 생성을 미리 처리하고 텍스쳐의 업로드와 캐싱 정책들을 어플리케이션의 모델에 따라 긴밀하게 관리하도록 모듈을 작성합니다. 또한 여러분의 어플리케이션에서 특별하게 발생하는 몇몇 경우에도 이러한 렌더링 모듈에 대한 추가 구현으로 이를 회피할 방법을 찾을 수 있을 것입니다.&lt;/p&gt;
+  &lt;p&gt;여러분은 3D 혹은 2D 게임을 개발하고 있습니다. 이번 게임은 꽤나 그래픽 출력이 무겁기 때문에 CPU와 GPU 사이의 병목 구간을 최소화할 수 있도록 텍스쳐의 생성을 미리 처리하고 텍스쳐의 업로드와 캐싱 정책들을 어플리케이션의 모델에 따라 긴밀하게 관리하도록 모듈을 작성합니다. 또한 여러분의 어플리케이션에서 특별하게 발생하는 몇몇 경우에도 이러한 렌더링 모듈에 대한 추가 구현으로 이를 회피할 방법을 찾을 수 있을 것입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;이는 적극적인 관점에서의 렌더링 최적화에 해당합니다. 많은 부분을 최적화할 수 있으며 많은 부분을 여러분의 요구 사항에 맞출 수 있습니다. &lt;strong&gt;그렇다면 웹페이지 관점에서는 어떨까요?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h4&gt;웹 성능 최적화는 가장 빠른 렌더링 패스를 구현하는 것이 아니다.&lt;/h4&gt;
+&lt;h4 id=&quot;section-19&quot;&gt;웹 성능 최적화는 가장 빠른 렌더링 패스를 구현하는 것이 아니다.&lt;/h4&gt;
 
 &lt;p&gt;웹 브라우저들은 빠른 출력을 위해 많은 부분들을 고민하고 처리해왔습니다만 이는 각각이 가지는 개념에서 일반화된 경우들을 처리하는데 최적화되어 있습니다. 좀 더 냉정하게 말하자면 웹 페이지는 단지 브라우저가 처리해야할 데이터에 지나지 않습니다. 웹의 많은 규격들은 대다수가 표현되어야 할 형태는 지정하고 있지만 이를 하드웨어 가속에 어떻게 적용할지에 대한 정보는 명시적으로 가지고 있지 않습니다. 이를 수행하는 것은 웹 브라우저에 내장된 렌더링 모듈에서 처리하는 일입니다.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;즉, 여러분은 렌더링 패스를 선택할 수 없으며 이는 철저하게 브라우저의 영역입니다.&lt;/strong&gt; 여기에서 여러분이 할 수 있는 유일한 방법은 렌더링 과정을 프로그래밍하는 것이 아니라 프로그래밍된 렌더링 프로세스에서 처리되는 데이터를 잘 설정해서 병목 구간을 피하도록 하는 것입니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;웹 페이지의 렌더링은 마치 단 한번만 목적지를 선택할 수 있는 네비게이션으로 자동 운전되는 자동차를 타는 것과도 같습니다. 여러분이 직접 차를 운전한다면 밀리는 구간 앞에서 핸들을 꺾으면 되겠지만 자동으로 운전되는 자동차는 중간 기착지를 잘 선택해서 복잡할 것으로 예상되는 구간을 피하는 것이 최선입니다.&lt;/p&gt;
+  &lt;p&gt;웹 페이지의 렌더링은 마치 단 한번만 목적지를 선택할 수 있는 네비게이션으로 자동 운전되는 자동차를 타는 것과도 같습니다. 여러분이 직접 차를 운전한다면 밀리는 구간 앞에서 핸들을 꺾으면 되겠지만 자동으로 운전되는 자동차는 중간 기착지를 잘 선택해서 복잡할 것으로 예상되는 구간을 피하는 것이 최선입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3&gt;성능의 위험 인자 피하기&lt;/h3&gt;
+&lt;h3 id=&quot;section-20&quot;&gt;성능의 위험 인자 피하기&lt;/h3&gt;
 
 &lt;p&gt;드디어 최종장입니다. 앞에서 웹에서의 렌더링 성능 최적화는 &lt;strong&gt;만드는 것&lt;/strong&gt;이 아니라 &lt;strong&gt;피하는 것&lt;/strong&gt;이라고 말씀드렸습니다. 우리가 피해야할 성능의 위험 인자는 CPU에서 텍스쳐 이미지를 생성하는 과정이 첫번째이며 가급적이면 레이아웃의 변경으로 인한 부분도 피하는 것이 좋습니다. 가장 손쉬운 방법은 우리가 자주 변경될 것으로 생각되는 DOM 노드를 단일 레이어로 변경하는 것입니다.&lt;/p&gt;
 
-&lt;h4&gt;레이어의 분리?&lt;/h4&gt;
+&lt;h4 id=&quot;section-21&quot;&gt;레이어의 분리?&lt;/h4&gt;
 
 &lt;p&gt;크롬에서 개별적인 DOM 노드가 레이어로 분리되는 조건은 다음과 같습니다.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;3D, 퍼스펙티브(perspective)를 표현하는 CSS transform 속성을 가진 경우&lt;/li&gt;
-&lt;li&gt;하드웨어 가속 디코딩을 사용하는 &lt;code&gt;&amp;lt;video&amp;gt;&lt;/code&gt; 엘리먼트&lt;/li&gt;
-&lt;li&gt;3D 컨텍스트(WebGL) 혹은 하드웨어 가속 2D 컨텍스트를 가지는 &lt;code&gt;&amp;lt;canvas&amp;gt;&lt;/code&gt; 엘리먼트&lt;/li&gt;
-&lt;li&gt;(플래시와 같은) 플러그인 영역&lt;/li&gt;
-&lt;li&gt;투명도(opacity) 속성 혹은 webkit transform의 애니메이션의 사용&lt;/li&gt;
-&lt;li&gt;가속 가능한 CSS 필터를 가진 경우&lt;/li&gt;
-&lt;li&gt;합성 레이어(Compositing Layer)를 하위 노드로 가진 경우&lt;/li&gt;
-&lt;li&gt;낮은 z-index를 가진 형제 노드(Sibling)가 합성 레이어(Compositing Layer)를 가진 경우&lt;/li&gt;
+  &lt;li&gt;3D, 퍼스펙티브(perspective)를 표현하는 CSS transform 속성을 가진 경우&lt;/li&gt;
+  &lt;li&gt;하드웨어 가속 디코딩을 사용하는 &lt;code&gt;&amp;lt;video&amp;gt;&lt;/code&gt; 엘리먼트&lt;/li&gt;
+  &lt;li&gt;3D 컨텍스트(WebGL) 혹은 하드웨어 가속 2D 컨텍스트를 가지는 &lt;code&gt;&amp;lt;canvas&amp;gt;&lt;/code&gt; 엘리먼트&lt;/li&gt;
+  &lt;li&gt;(플래시와 같은) 플러그인 영역&lt;/li&gt;
+  &lt;li&gt;투명도(opacity) 속성 혹은 webkit transform의 애니메이션의 사용&lt;/li&gt;
+  &lt;li&gt;가속 가능한 CSS 필터를 가진 경우&lt;/li&gt;
+  &lt;li&gt;합성 레이어(Compositing Layer)를 하위 노드로 가진 경우&lt;/li&gt;
+  &lt;li&gt;낮은 z-index를 가진 형제 노드(Sibling)가 합성 레이어(Compositing Layer)를 가진 경우&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;내용이 복잡합니다만, 이 모든 조건의 이유는 &lt;strong&gt;일반적으로 해당 DOM 노드가 주변의 노드와는 별도로 렌더링되어야 빠른 경우&lt;/strong&gt;입니다. 예를 들어 투명도(Opacity)의 경우 겹쳐진 다른 이미지와 픽셀 단위의 블렌딩(Blending)을 해야 하므로 다른 레이어의 이미지와 함께 한장의 이미지로 나타내는 것은 일반적으로도 매우 불합리합니다. 같은 이유로 매번 표시되는 이미지가 변경되는 &lt;code&gt;&amp;lt;video&amp;gt;&lt;/code&gt; 엘리먼트는 별도의 레이어로 분리해두는 것이 보다 효과적입니다.&lt;/p&gt;
@@ -519,51 +1455,51 @@ Source: HTML5Rocks&lt;/p&gt;
 &lt;p&gt;크롬에서는 이를 크롬 실험실 기능에서 &lt;code&gt;합성된 렌더 레이어 테두리&lt;/code&gt;를 &lt;code&gt;사용함&lt;/code&gt;으로 설정하여 아래 그림과 같이 확인해볼 수 있습니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;translateZ(0)의 포함으로 분리된 레이어 (주황색 테두리)
-&lt;img src=&quot;http://www.html5rocks.com/ko/tutorials/speed/layers/images/onelayer.png&quot; alt=&quot;크롬 개발자도구에서 살펴본 translateZ()의 레이어 분리 유무&quot;&gt;&lt;/p&gt;
+  &lt;p&gt;translateZ(0)의 포함으로 분리된 레이어 (주황색 테두리)
+&lt;img src=&quot;http://www.html5rocks.com/ko/tutorials/speed/layers/images/onelayer.png&quot; alt=&quot;크롬 개발자도구에서 살펴본 translateZ()의 레이어 분리 유무&quot; /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4&gt;강제적인 레이어 분리는 만능이 아니다.&lt;/h4&gt;
+&lt;h4 id=&quot;section-22&quot;&gt;강제적인 레이어 분리는 만능이 아니다.&lt;/h4&gt;
 
 &lt;p&gt;레이어의 분리는 필연적으로 텍스쳐 이미지의 분리를 뜻하고 이는 추가적인 메모리를 소모합니다. 앞에서 우리는 메모리가 유한하다는 사실을 주지한 바가 있습니다. 한정된 메모리를 넘어서는 데이터가 존재한다면 메모리 상에 없는 데이터를 사용하기 전에 이를 다시 적재해야 하는 과정이 발생하며 이는 레이어의 분리를 통한 성능의 이점을 송수신 오버헤드로 인해 잡아먹는 경우가 될 수 있습니다. 따라서 레이어 분리는 능사가 아니며 가능하다면 레이어 분리는 최소화해야 합니다.&lt;/p&gt;
 
-&lt;h3&gt;연습용 사례들&lt;/h3&gt;
+&lt;h3 id=&quot;section-23&quot;&gt;연습용 사례들&lt;/h3&gt;
 
-&lt;h4&gt;사례.1 left, top, width, height, padding, border, ...&lt;/h4&gt;
+&lt;h4 id=&quot;left-top-width-height-padding-border-&quot;&gt;사례.1 left, top, width, height, padding, border, …&lt;/h4&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bstyle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// cache&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; 
 &lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bstyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;padding&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;20px&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// reflow, repaint&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bstyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;border&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;10px solid red&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// another reflow and a repaint&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h4&gt;사례.2 Font&lt;/h4&gt;
+&lt;h4 id=&quot;font&quot;&gt;사례.2 Font&lt;/h4&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bstyle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// cache&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; 
 &lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bstyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fontSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2em&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// reflow, repaint&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h4&gt;사례.3 absolute vs relative vs ...&lt;/h4&gt;
+&lt;h4 id=&quot;absolute-vs-relative-vs-&quot;&gt;사례.3 absolute vs relative vs …&lt;/h4&gt;
 
-&lt;h4&gt;사례.4 DOM 노드의 삽입/삭제&lt;/h4&gt;
+&lt;h4 id=&quot;dom--&quot;&gt;사례.4 DOM 노드의 삽입/삭제&lt;/h4&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// new DOM element - reflow, repaint&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createTextNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;dude!&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h4&gt;사례.5 텍스트 색상은 문제일까? 아닐까?&lt;/h4&gt;
+&lt;h4 id=&quot;section-24&quot;&gt;사례.5 텍스트 색상은 문제일까? 아닐까?&lt;/h4&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bstyle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// cache&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; 
 &lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bstyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;blue&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// repaint only, no dimensions changed&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bstyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;backgroundColor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;#fad&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// repaint&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h4&gt;사례.6 스크롤과 효과&lt;/h4&gt;
+&lt;h4 id=&quot;section-25&quot;&gt;사례.6 스크롤과 효과&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/unnecessary-paints/&quot;&gt;참조 튜토리얼 - HTML5Rocks: Avoiding Unnecessary Paints&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://dl.dropboxusercontent.com/u/2272348/codez/expensivescroll/demo.html&quot;&gt;DEMO&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/unnecessary-paints/&quot;&gt;참조 튜토리얼 - HTML5Rocks: Avoiding Unnecessary Paints&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dl.dropboxusercontent.com/u/2272348/codez/expensivescroll/demo.html&quot;&gt;DEMO&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4&gt;사례.7 visibility: hidden; vs display: none;&lt;/h4&gt;
+&lt;h4 id=&quot;visibility-hidden-vs-display-none&quot;&gt;사례.7 visibility: hidden; vs display: none;&lt;/h4&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bstyle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// cache&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; 
@@ -573,19 +1509,19 @@ Source: HTML5Rocks&lt;/p&gt;
 &lt;span class=&quot;lineno&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bstyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;none&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// reflow&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;7&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bstyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;padding&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;20px&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// nothing&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h4&gt;사례.8 Animated GIFs, Video, Canvas, Flash&lt;/h4&gt;
+&lt;h4 id=&quot;animated-gifs-video-canvas-flash&quot;&gt;사례.8 Animated GIFs, Video, Canvas, Flash&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/animated-gifs/&quot;&gt;참조 튜토리얼 - HTML5Rocks: Avoiding Unnecessary Paints: Animated GIF Edition&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/animated-gifs/&quot;&gt;참조 튜토리얼 - HTML5Rocks: Avoiding Unnecessary Paints: Animated GIF Edition&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4&gt;사례.9 지나치게 많은 레이어들&lt;/h4&gt;
+&lt;h4 id=&quot;section-26&quot;&gt;사례.9 지나치게 많은 레이어들&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://aerotwist.com/blog/on-translate3d-and-layer-creation-hacks/&quot;&gt;참조 글 - Aerotwis: On translate3d and layer creation hacks&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://aerotwist.com/blog/on-translate3d-and-layer-creation-hacks/&quot;&gt;참조 글 - Aerotwis: On translate3d and layer creation hacks&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4&gt;사례.10 연산이 필요한 속성값의 액세스&lt;/h4&gt;
+&lt;h4 id=&quot;section-27&quot;&gt;사례.10 연산이 필요한 속성값의 액세스&lt;/h4&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;box&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;long&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -593,30 +1529,30 @@ Source: HTML5Rocks&lt;/p&gt;
 &lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// style recalculation&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;long&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;offsetLeft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scrollLeft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;px&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3&gt;결론&lt;/h3&gt;
+&lt;h3 id=&quot;section-28&quot;&gt;결론&lt;/h3&gt;
 
 &lt;p&gt;지금까지 살펴본 바와 같이 하드웨어의 가속은 절대로 공짜가 아닙니다. 따라서 렌더링 메커니즘을 이해하는 것은 효율적인 렌더링 파이프라인을 구현할 때도 중요하지만 이미 정의되어 있는 렌더링 모듈 상에서의 위험 인자(Pitfall)들을 피해가는데도 도움이 되며 바로 웹 브라우저가 그렇습니다. 웹 페이지에서 렌더링 성능을 최대한 끌어올리는 것은 성능 상에 가장 큰 영향을 주는 요소들을 피하거나 제거하면서 브라우저가 제공하는 본래의 성능 한계치에 도달하는 여행과도 같습니다.&lt;/p&gt;
 
 &lt;p&gt;이 포스트에서 예로 든 대부분의 경우는 독립적인 성능 인자로 보이겠지만 개별적으로 가장 빠른 성능을 나타내는 요소들도 때로는 합쳐지면서 가장 나쁜 성능을 보여주기도 합니다. 가장 중요한 것은 이러한 성능 저하 요소에서 최대한 멀리가거나 닿지 않도록 원인을 찾아 조정하는 것입니다. 개별적인 항목들에 대한 자세한 내용들은 아래 참고에 잘 나와있으므로 참고하시기 바랍니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;이 글에 대한 의견, 덧붙이고 싶은 내용은 언제나 기다리고 있겠습니다. :)&lt;/p&gt;
+  &lt;p&gt;이 글에 대한 의견, 덧붙이고 싶은 내용은 언제나 기다리고 있겠습니다. :)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3&gt;참고&amp;gt; 브라우저의 렌더링 동작 및 성능에 관련된 글들&lt;/h3&gt;
+&lt;h3 id=&quot;section-29&quot;&gt;참고&amp;gt; 브라우저의 렌더링 동작 및 성능에 관련된 글들&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://helloworld.naver.com/helloworld/59361&quot;&gt;브라우저는 어떻게 동작하는가.&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/layers/&quot;&gt;크롬의 렌더링 가속: 레이어 모델&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.chromium.org/developers/design-documents/gpu-accelerated-compositing-in-chrome&quot;&gt;GPU Accelarated Compositing in Chrome&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/scrolling/&quot;&gt;Scrolling Performance&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/rendering/&quot;&gt;Jank Busting for Better Rendering Performance&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/css-paint-times/&quot;&gt;CSS 페인트 타임과 페이지 렌더 가중치&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/unnecessary-paints/&quot;&gt;불필요한 페인팅 회피하기&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/animated-gifs/&quot;&gt;불필요한 페인팅 회피하기: Animated GIF 버전&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/high-performance-animations/&quot;&gt;고성능 애니메이션&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/&quot;&gt;Rendering: repaint, reflow/relayout, restyle&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html&quot;&gt;How (not) to trigger a layout in WebKit&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://helloworld.naver.com/helloworld/59361&quot;&gt;브라우저는 어떻게 동작하는가.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/layers/&quot;&gt;크롬의 렌더링 가속: 레이어 모델&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.chromium.org/developers/design-documents/gpu-accelerated-compositing-in-chrome&quot;&gt;GPU Accelarated Compositing in Chrome&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/scrolling/&quot;&gt;Scrolling Performance&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/rendering/&quot;&gt;Jank Busting for Better Rendering Performance&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/css-paint-times/&quot;&gt;CSS 페인트 타임과 페이지 렌더 가중치&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/unnecessary-paints/&quot;&gt;불필요한 페인팅 회피하기&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/animated-gifs/&quot;&gt;불필요한 페인팅 회피하기: Animated GIF 버전&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/ko/tutorials/speed/high-performance-animations/&quot;&gt;고성능 애니메이션&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/&quot;&gt;Rendering: repaint, reflow/relayout, restyle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html&quot;&gt;How (not) to trigger a layout in WebKit&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 14 Jun 2014 09:00:00 +0900</pubDate>
@@ -628,156 +1564,156 @@ Source: HTML5Rocks&lt;/p&gt;
         <title>GDG Korea DevFest 2014 후기</title>
         <description>&lt;p&gt;GDG DevFest가 며칠 지나지도 않았는데 벌써 몇달은 간 것 같네요. 행사를 위해 많은 분들이 애써주셨습니다. 신청자만 800명이 넘었고 이런 저런 약속이 많을 토요일 오임에도 불구하고 행사장을 가득 채워주실 정도로 많은 분들이 와주셨습니다. :)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F4.bp.blogspot.com%2F-UYMkogOnviA%2FU41TOc0MUVI%2FAAAAAAAAAm8%2Fls_mBduABMU%2Fs1600%2Fstickers.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: DevFest 스티커들. HTML5Rocks 스티커도 보이네요. :)&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F4.bp.blogspot.com%2F-UYMkogOnviA%2FU41TOc0MUVI%2FAAAAAAAAAm8%2Fls_mBduABMU%2Fs1600%2Fstickers.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: DevFest 스티커들. HTML5Rocks 스티커도 보이네요. :)&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F3.bp.blogspot.com%2F-gapEGFCXOVE%2FU41VAZC5XlI%2FAAAAAAAAAno%2F7aArKLMsfJ0%2Fs1600%2Faudience.JPG&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 많은 참석자들이 세션에 집중하시는 중 :)&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F3.bp.blogspot.com%2F-gapEGFCXOVE%2FU41VAZC5XlI%2FAAAAAAAAAno%2F7aArKLMsfJ0%2Fs1600%2Faudience.JPG&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 많은 참석자들이 세션에 집중하시는 중 :)&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;금번 DevFest는 Web, Android, Dart, Cloud, Git 그리고 오픈소스 등 다양한 주제에 대한 경험을 15분의 세션 발표자들이 함께 나누는 자리로 마련했습니다. 부디 많은 것을 얻어가셨다면 좋겠습니다. :)&lt;/p&gt;
 
 &lt;p&gt;각 세션에 대한 현장 스케치와 자료 링크는 아래를 참조하시기 바랍니다. (일부 자료는 자료의 형태 등이 게시에 적합하지 않아 공유되지 못함을 이해해주시기 바랍니다.)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F2.bp.blogspot.com%2F-LsAihVi-Udw%2FU40tSG9dmRI%2FAAAAAAAAAmE%2FKvHjTALLUic%2Fs1600%2F%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA%2B2014-06-03%2B%25E1%2584%258B%25E1%2585%25A9%25E1%2584%258C%25E1%2585%25A5%25E1%2586%25AB%2B11.04.33.png&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: GDG Korea DevFest 2014 Logo&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F2.bp.blogspot.com%2F-LsAihVi-Udw%2FU40tSG9dmRI%2FAAAAAAAAAmE%2FKvHjTALLUic%2Fs1600%2F%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA%2B2014-06-03%2B%25E1%2584%258B%25E1%2585%25A9%25E1%2584%258C%25E1%2585%25A5%25E1%2586%25AB%2B11.04.33.png&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: GDG Korea DevFest 2014 Logo&quot; /&gt;&lt;/p&gt;
 
-&lt;h3&gt;HTML5/Web Technology&lt;/h3&gt;
+&lt;h3 id=&quot;html5web-technology&quot;&gt;HTML5/Web Technology&lt;/h3&gt;
 
-&lt;h4&gt;&amp;gt; AngularJs 기반 웹북 클라이언트 개발 - 강민수님&lt;/h4&gt;
+&lt;h4 id=&quot;angularjs-------&quot;&gt;&amp;gt; AngularJs 기반 웹북 클라이언트 개발 - 강민수님&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F3.bp.blogspot.com%2F-JKinNeUw4_A%2FU41UTHf23SI%2FAAAAAAAAAnU%2FRhrKTisk6j0%2Fs1600%2Fminsookang.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: AngularJs 기반 웹북 클라이언트 개발 - 강민수님&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F3.bp.blogspot.com%2F-JKinNeUw4_A%2FU41UTHf23SI%2FAAAAAAAAAnU%2FRhrKTisk6j0%2Fs1600%2Fminsookang.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: AngularJs 기반 웹북 클라이언트 개발 - 강민수님&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;이 세션에서는 강민수님이 AngularJS가 콘텐츠 중심의 웹서비스에 어떻게 활용될 수 있고, 왜 효과적인 프레임워크인지에 대한 웹북 뷰어 구현 사례를 기반으로 발표해주셨습니다.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://goo.gl/tbRRpQ&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://goo.gl/tbRRpQ&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4&gt;&amp;gt; 크롬을 이용한 데스크탑 어플리케이션 개발 - 양용성님&lt;/h4&gt;
+&lt;h4 id=&quot;section&quot;&gt;&amp;gt; 크롬을 이용한 데스크탑 어플리케이션 개발 - 양용성님&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F2.bp.blogspot.com%2F-5Ppxl3hFtJQ%2FU41TO8tEK9I%2FAAAAAAAAAmw%2FgZNjKbnxn8g%2Fs1600%2Fyongsungyang.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 크롬을 이용한 데스크탑 어플리케이션 개발 - 양용성님&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F2.bp.blogspot.com%2F-5Ppxl3hFtJQ%2FU41TO8tEK9I%2FAAAAAAAAAmw%2FgZNjKbnxn8g%2Fs1600%2Fyongsungyang.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 크롬을 이용한 데스크탑 어플리케이션 개발 - 양용성님&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;양용성님은 Chromium Embedded Framework, Node-webkit을 활용하여 크로스 플랫폼용 데스크탑 어플리케이션을 개발하는 방법과 경험에 대해 공유해주셨습니다.&lt;/p&gt;
 
-&lt;h4&gt;&amp;gt; 센차 프레임워크로 HTML5 게임 만들기 - 김태중님&lt;/h4&gt;
+&lt;h4 id=&quot;html5-----&quot;&gt;&amp;gt; 센차 프레임워크로 HTML5 게임 만들기 - 김태중님&lt;/h4&gt;
 
 &lt;p&gt;김태중님은 캔버스의 사용 사례 그리고 크롬 개발자도구를 이용한 디버깅 및 성능 테스트 경험을 센차를 이용하여 HTML5 게임 어플리케이션을 개발 사례를 통해 공유해주셨습니다.&lt;/p&gt;
 
-&lt;h4&gt;&amp;gt; Service Workers - Bring your own magic  - &lt;a href=&quot;https://plus.google.com/114443836445586809843&quot;&gt;+Jungkee Song&lt;/a&gt;님&lt;/h4&gt;
+&lt;h4 id=&quot;service-workers---bring-your-own-magic----jungkee-songhttpsplusgooglecom114443836445586809843&quot;&gt;&amp;gt; Service Workers - Bring your own magic  - &lt;a href=&quot;https://plus.google.com/114443836445586809843&quot;&gt;+Jungkee Song&lt;/a&gt;님&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F3.bp.blogspot.com%2F-VHBLOGI0hoQ%2FU41T-M_fUxI%2FAAAAAAAAAnM%2FRWKQ1E5L5aE%2Fs1600%2Fjungeesong.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: Service Workers - Bring your own magic - 송정기님&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F3.bp.blogspot.com%2F-VHBLOGI0hoQ%2FU41T-M_fUxI%2FAAAAAAAAAnM%2FRWKQ1E5L5aE%2Fs1600%2Fjungeesong.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: Service Workers - Bring your own magic - 송정기님&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;이 세션에서는 웹앱의 오프라인 사용성 강화 및 백그라운드 이벤트 처리 기능을 제공하는 이벤트 기반의 Worker인 ServiceWorker를 실제 W3C 표준 규격 저자 &lt;a href=&quot;https://plus.google.com/114443836445586809843&quot;&gt;+Jungkee Song&lt;/a&gt;님이 직접 소개해주셨습니다. :)&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://goo.gl/grn4Pw&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://goo.gl/grn4Pw&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4&gt;&amp;gt; 크롬을 이용한 가장 빠른 JavaScript DOM Selector 개발 성공기 - 백승현님&lt;/h4&gt;
+&lt;h4 id=&quot;javascript-dom-selector-----&quot;&gt;&amp;gt; 크롬을 이용한 가장 빠른 JavaScript DOM Selector 개발 성공기 - 백승현님&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F1.bp.blogspot.com%2F-Cj0jGdeTGWM%2FU41TOSGa5eI%2FAAAAAAAAAmg%2Ff09LNHIPnzQ%2Fs1600%2Fseunghyunbaek.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 크롬을 이용한 가장 빠른 JavaScript DOM Selector 개발 성공기 - 백승현님&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F1.bp.blogspot.com%2F-Cj0jGdeTGWM%2FU41TOSGa5eI%2FAAAAAAAAAmg%2Ff09LNHIPnzQ%2Fs1600%2Fseunghyunbaek.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 크롬을 이용한 가장 빠른 JavaScript DOM Selector 개발 성공기 - 백승현님&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;백승현님은 성능에 촛점을 맞추고 개발한 JavaScript DOM Selector인 bsSelector를 개발하기 위해 개발 과정에서 크롬 개발자 도구의 사용 사례와 이를 통해 축적한 노하우들을 공유해주셨습니다.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://goo.gl/UJdY1v&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://goo.gl/UJdY1v&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3&gt;Git&lt;/h3&gt;
+&lt;h3 id=&quot;git&quot;&gt;Git&lt;/h3&gt;
 
-&lt;h4&gt;&amp;gt; 효율적인 Git Branch Model 전략 - 김성노님&lt;/h4&gt;
+&lt;h4 id=&quot;git-branch-model----&quot;&gt;&amp;gt; 효율적인 Git Branch Model 전략 - 김성노님&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F2.bp.blogspot.com%2F-ylfgPWhu0Ag%2FU41TOh7IkJI%2FAAAAAAAAAms%2FA-f3MUGT6TI%2Fs1600%2Fsungnokim.JPG&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 효율적인 Git Branch Model 전략 - 김성노님&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F2.bp.blogspot.com%2F-ylfgPWhu0Ag%2FU41TOh7IkJI%2FAAAAAAAAAms%2FA-f3MUGT6TI%2Fs1600%2Fsungnokim.JPG&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 효율적인 Git Branch Model 전략 - 김성노님&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;김성노님은 이 세션에서 Git를 통해 프로젝트의 버전을 효과적으로 관리하고 이를 활용하기 위한 전략의 필요성, git-flow 브랜치 모델의 소개 및 사용 방법에 대해 설명해주셨습니다.&lt;/p&gt;
 
-&lt;h4&gt;&amp;gt; Deep Dark Side Of Git - 박성재님&lt;/h4&gt;
+&lt;h4 id=&quot;deep-dark-side-of-git---&quot;&gt;&amp;gt; Deep Dark Side Of Git - 박성재님&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F1.bp.blogspot.com%2F-1OGNtGNFCSs%2FU41U5hm2ifI%2FAAAAAAAAAng%2FwawyC5BNkhg%2Fs1600%2Fsungjaepark.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: Deep Dark Side Of Git - 박성재님&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F1.bp.blogspot.com%2F-1OGNtGNFCSs%2FU41U5hm2ifI%2FAAAAAAAAAng%2FwawyC5BNkhg%2Fs1600%2Fsungjaepark.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: Deep Dark Side Of Git - 박성재님&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;이 세션에서는 박성재님이 소스 버전 관리 도구인 Git이 어떻게 파일의 버전을 관리하는지를 이해하기 위한 방법으로 작은 단위의 Git 내부 명령들이 어떠한 방식으로 수행되는지에 대한 설명을 Git 내부로 깊숙이 들어가 설명해주셨습니다.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://goo.gl/yXV2pQ&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://goo.gl/yXV2pQ&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3&gt;안드로이드 및 안드로이드웨어&lt;/h3&gt;
+&lt;h3 id=&quot;section-1&quot;&gt;안드로이드 및 안드로이드웨어&lt;/h3&gt;
 
-&lt;h4&gt;&amp;gt; 새로워진 구글 Play Game 서비스 - &lt;a href=&quot;https://plus.google.com/101901704178116997887&quot;&gt;+Leonardo YongUk Kim&lt;/a&gt;님&lt;/h4&gt;
+&lt;h4 id=&quot;play-game----leonardo-yonguk-kimhttpsplusgooglecom101901704178116997887&quot;&gt;&amp;gt; 새로워진 구글 Play Game 서비스 - &lt;a href=&quot;https://plus.google.com/101901704178116997887&quot;&gt;+Leonardo YongUk Kim&lt;/a&gt;님&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F1.bp.blogspot.com%2F-jONiC16jeUU%2FU41VAlbk88I%2FAAAAAAAAAns%2FMhBHaBgx4L0%2Fs1600%2Fleonardo.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 새로워진 구글 Play Game 서비스 - 김용욱님&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F1.bp.blogspot.com%2F-jONiC16jeUU%2FU41VAlbk88I%2FAAAAAAAAAns%2FMhBHaBgx4L0%2Fs1600%2Fleonardo.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 새로워진 구글 Play Game 서비스 - 김용욱님&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;이 세션에서 &lt;a href=&quot;https://plus.google.com/101901704178116997887&quot;&gt;+Leonardo YongUk Kim&lt;/a&gt;님은 새로워진 구글 플레이 게임 서비스의 기능들을 리뷰하고 기존에 있던 기능들에 대한 개괄적인 리뷰를 진행해주셨습니다.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://goo.gl/eR4R2m&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://goo.gl/eR4R2m&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4&gt;&amp;gt; Android MediaCodec! 인코딩/디코딩 해보자! - &lt;a href=&quot;https://plus.google.com/109568042315611588933&quot;&gt;+Tae-hwan kwon&lt;/a&gt;님&lt;/h4&gt;
+&lt;h4 id=&quot;android-mediacodec-----tae-hwan-kwonhttpsplusgooglecom109568042315611588933&quot;&gt;&amp;gt; Android MediaCodec! 인코딩/디코딩 해보자! - &lt;a href=&quot;https://plus.google.com/109568042315611588933&quot;&gt;+Tae-hwan kwon&lt;/a&gt;님&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F3.bp.blogspot.com%2F-EtqUhygOt_o%2FU41VBfyLCgI%2FAAAAAAAAAn8%2Fq9zgawQiFf8%2Fs1600%2Ftaehwankwon.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: Android MediaCodec! 인코딩/디코딩 해보자! - 권태환님&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F3.bp.blogspot.com%2F-EtqUhygOt_o%2FU41VBfyLCgI%2FAAAAAAAAAn8%2Fq9zgawQiFf8%2Fs1600%2Ftaehwankwon.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: Android MediaCodec! 인코딩/디코딩 해보자! - 권태환님&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://plus.google.com/109568042315611588933&quot;&gt;+Tae-hwan kwon&lt;/a&gt;님은 안드로이드에서 MediaCodec을 이용하여 인코딩/디코딩을 어떻게 처리할 수 있는지에 대한 실제 방법과 안드로이드 버전에 따른 이슈 사항 및 해결 방안 그리고 안드로이드 4.3에서 포함된 MediaMuxer에 대한 소개를 해주셨습니다.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://goo.gl/cN4jtH&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://goo.gl/cN4jtH&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4&gt;&amp;gt; 서버개발자 혼자 진행한 Google Glassware 개발이야기 - &lt;a href=&quot;https://plus.google.com/117866338530460560649&quot;&gt;+Jintae Jung&lt;/a&gt;님&lt;/h4&gt;
+&lt;h4 id=&quot;google-glassware----jintae-junghttpsplusgooglecom117866338530460560649&quot;&gt;&amp;gt; 서버개발자 혼자 진행한 Google Glassware 개발이야기 - &lt;a href=&quot;https://plus.google.com/117866338530460560649&quot;&gt;+Jintae Jung&lt;/a&gt;님&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F3.bp.blogspot.com%2F-SxWrPb_-_aQ%2FU41WZlcUQqI%2FAAAAAAAAAoU%2Fgkv4uUOxasY%2Fs1600%2Fjintaejung2.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 서버개발자 혼자 진행한 Google Glassware 개발이야기 - 정진태님&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F3.bp.blogspot.com%2F-SxWrPb_-_aQ%2FU41WZlcUQqI%2FAAAAAAAAAoU%2Fgkv4uUOxasY%2Fs1600%2Fjintaejung2.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 서버개발자 혼자 진행한 Google Glassware 개발이야기 - 정진태님&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;이 세션에서는 &lt;a href=&quot;https://plus.google.com/117866338530460560649&quot;&gt;+Jintae Jung&lt;/a&gt;님이 서버개발자의 관점에서 Glass Development Kit, Mirror API를 통해 구글 글래스웨어를 어떻게 개발할 수 있는지와 그에 대한 사례를 중심으로 발표를 해주셨습니다.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://goo.gl/QtqbMY&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://goo.gl/QtqbMY&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4&gt;&amp;gt; 안드로이드웨어 엿보기 - Google &lt;a href=&quot;https://plus.google.com/104260490104489543965&quot;&gt;+Chansuk Yang&lt;/a&gt;님&lt;/h4&gt;
+&lt;h4 id=&quot;google-chansuk-yanghttpsplusgooglecom104260490104489543965&quot;&gt;&amp;gt; 안드로이드웨어 엿보기 - Google &lt;a href=&quot;https://plus.google.com/104260490104489543965&quot;&gt;+Chansuk Yang&lt;/a&gt;님&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F2.bp.blogspot.com%2F-1Zi7IgKWXC8%2FU41TNtpUBMI%2FAAAAAAAAAmY%2FcDmiAH4s7Ok%2Fs1600%2Fchansukyang.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 안드로이드웨어 엿보기 - 양찬석님&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F2.bp.blogspot.com%2F-1Zi7IgKWXC8%2FU41TNtpUBMI%2FAAAAAAAAAmY%2FcDmiAH4s7Ok%2Fs1600%2Fchansukyang.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 안드로이드웨어 엿보기 - 양찬석님&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;구글 코리아의 Android Developer Advocate인 &lt;a href=&quot;https://plus.google.com/104260490104489543965&quot;&gt;+Chansuk Yang&lt;/a&gt;님은 올 여름에 출시될 구글 안드로이드웨어에 대한 간략한 소개와 개괄적인 개발 방법 등을 공유해주셨습니다.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://goo.gl/oxxBev&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://goo.gl/oxxBev&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3&gt;구글 클라우드/서비스&lt;/h3&gt;
+&lt;h3 id=&quot;section-2&quot;&gt;구글 클라우드/서비스&lt;/h3&gt;
 
-&lt;h4&gt;&amp;gt; 우린 왜 &amp;#39;구글 클라우드&amp;#39;를 사용하는가? - 한상곤님&lt;/h4&gt;
+&lt;h4 id=&quot;section-3&quot;&gt;&amp;gt; 우린 왜 ‘구글 클라우드’를 사용하는가? - 한상곤님&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F2.bp.blogspot.com%2F-NagIQBRI4io%2FU41TNqDkZ8I%2FAAAAAAAAAmU%2FkdLZh53wzdI%2Fs1600%2Fsanggonhan.JPG&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 우린 왜 &amp;#39;구글 클라우드&amp;#39;를 사용하는가? - 한상곤님&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F2.bp.blogspot.com%2F-NagIQBRI4io%2FU41TNqDkZ8I%2FAAAAAAAAAmU%2FkdLZh53wzdI%2Fs1600%2Fsanggonhan.JPG&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 우린 왜 &#39;구글 클라우드&#39;를 사용하는가? - 한상곤님&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;한상곤님은 작은 규모의 서비스 혹은 스타트업에서 왜 클라우드 서비스가 필요하며 한상곤님의 회사인 닉스곤에서는 왜 구글 클라우드를 선택하게 되었는지에 대한 경험을 커다란 웃음들과 함께 공유해주셨습니다. :)&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://goo.gl/yN8wOh&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://goo.gl/yN8wOh&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3&gt;Dart&lt;/h3&gt;
+&lt;h3 id=&quot;dart&quot;&gt;Dart&lt;/h3&gt;
 
-&lt;h4&gt;&amp;gt; dart:async로 맛보는 Functional Reactive Programming - 김종욱님&lt;/h4&gt;
+&lt;h4 id=&quot;dartasync--functional-reactive-programming---&quot;&gt;&amp;gt; dart:async로 맛보는 Functional Reactive Programming - 김종욱님&lt;/h4&gt;
 
 &lt;p&gt;김종욱님은 Reactive Manifesto에서 말하는 4개의 목표에 대해 설명하고, 그 목표를 이루기 위해서 함수형 프로그래밍이 절차적 프로그래밍의 단점을 어떻게 극복할 수 있는지를 Dart 언어와 dart:async 라이브러리를 예시로 발표해주셨습니다.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://goo.gl/6Hv4LW&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://goo.gl/6Hv4LW&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3&gt;소프트웨어 엔지니어링, 오픈소스&lt;/h3&gt;
+&lt;h3 id=&quot;section-4&quot;&gt;소프트웨어 엔지니어링, 오픈소스&lt;/h3&gt;
 
-&lt;h4&gt;&amp;gt; 구글의 소프트웨어 엔지니어링 - Google 이준영님&lt;/h4&gt;
+&lt;h4 id=&quot;google-&quot;&gt;&amp;gt; 구글의 소프트웨어 엔지니어링 - Google 이준영님&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F1.bp.blogspot.com%2F-PK4gZ-ytSdE%2FU41TNmz7xpI%2FAAAAAAAAAmc%2F-e3DWmBheTw%2Fs1600%2Fjunyounglee.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 구글의 소프트웨어 엔지니어링 - 이준영님&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F1.bp.blogspot.com%2F-PK4gZ-ytSdE%2FU41TNmz7xpI%2FAAAAAAAAAmc%2F-e3DWmBheTw%2Fs1600%2Fjunyounglee.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 구글의 소프트웨어 엔지니어링 - 이준영님&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;1호 한국인 구글러인 이준영님은 구글 내부의 개발 및 리뷰 프로세스와 경험을 예시로 구글 내에서 소프트웨어 엔지니어링이 어떻게 이루어지는지를 설명해주셨습니다.&lt;/p&gt;
 
-&lt;h4&gt;&amp;gt; 코드 없이 오픈소스 기여하기: HTML5Rocks/KO 번역 야사 - &lt;a href=&quot;https://plus.google.com/106845564969588662434&quot;&gt;+Changwook Doh&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;html5rocksko-----changwook-dohhttpsplusgooglecom106845564969588662434&quot;&gt;&amp;gt; 코드 없이 오픈소스 기여하기: HTML5Rocks/KO 번역 야사 - &lt;a href=&quot;https://plus.google.com/106845564969588662434&quot;&gt;+Changwook Doh&lt;/a&gt;&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F4.bp.blogspot.com%2F-ASudShmhNLc%2FU41X3L3f7-I%2FAAAAAAAAAog%2FGsFte2-QiT0%2Fs1600%2Fcwdoh.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 코드 없이 오픈소스 기여하기: HTML5Rocks/KO 번역 야사 - 도창욱님&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2F4.bp.blogspot.com%2F-ASudShmhNLc%2FU41X3L3f7-I%2FAAAAAAAAAog%2FGsFte2-QiT0%2Fs1600%2Fcwdoh.jpg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*&quot; alt=&quot;GDG Korea DevFest 2014: 코드 없이 오픈소스 기여하기: HTML5Rocks/KO 번역 야사 - 도창욱님&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://plus.google.com/106845564969588662434&quot;&gt;+Changwook Doh&lt;/a&gt;님은 구글의 HTML5 튜토리얼 사이트인 HTML5Rocks에 대해 소개하고, 코드 작성이 아닌 문서 번역을 중심으로 어떻게 오픈소스 기여를 할 수 있는지에 대한 경험을 공유했습니다.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://goo.gl/hTRZsv&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://goo.gl/hTRZsv&quot;&gt;슬라이드 링크&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 08 Jun 2014 11:16:00 +0900</pubDate>
@@ -787,13 +1723,14 @@ Source: HTML5Rocks&lt;/p&gt;
     
       <item>
         <title>새로운 블로그 시작.</title>
-        <description>&lt;h2&gt;새로운 블로그를 오픈했습니다.&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;section&quot;&gt;새로운 블로그를 오픈했습니다.&lt;/h2&gt;
 
 &lt;p&gt;이전에는 개인 홈페이지를 오랜동안 운영했었습니다만 더 이상 게시판 류의 홈페이지를 운영하기는 힘들어서 새로운 블로그를 오픈했습니다.&lt;/p&gt;
 
 &lt;p&gt;물론 최근 몇개월 동안 &lt;a href=&quot;http://html5rocksko.blogspot.kr/&quot;&gt;HTML5Rocks/KO Blog&lt;/a&gt; 역시도 운영해왔지만 그곳에는 HTML5Rocks 번역 및 크롬 관련 소식들만 올리는게 맞는 듯 합니다. 게다가 웹과 관련된 개발 경험은 제 개발 경력에서 많지 않은 시간이기 때문에 다른 부분에 대해 할 얘기가 더 많겠다는 생각도 들었다는 것도 이유로 들 수 있을 듯 합니다.&lt;/p&gt;
 
 &lt;p&gt;어쨌던 그외의 개발 관련 포스트 등은 이 블로그를 통해 업데이트를 할 예정입니다.&lt;/p&gt;
+
 </description>
         <pubDate>Sun, 11 May 2014 11:16:00 +0900</pubDate>
         <link>http://cwdoh.com/essay/2014/05/11/Getting-started-blog/</link>

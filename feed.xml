@@ -275,6 +275,11 @@
 
 &lt;h4 id=&quot;section-18&quot;&gt;규격&lt;/h4&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3.org/TR/webrtc/&quot;&gt;WebRTC - W3C Working Draft&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://dev.w3.org/2011/webrtc/editor/getusermedia.html&quot;&gt;getUserMedia()&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h4 id=&quot;section-19&quot;&gt;튜토리얼 및 기타 글&lt;/h4&gt;
 
 &lt;ul&gt;

@@ -330,9 +330,9 @@
   &lt;li&gt;&lt;a href=&quot;https://github.com/slightlyoff/BackgroundSync&quot;&gt;Background Synchronization&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;section-23&quot;&gt;개발 패러다임의 변화를 이끌어 낼 규격&lt;/h3&gt;
+&lt;h3 id=&quot;section-23&quot;&gt;웹 개발 패러다임 변화의 가능성&lt;/h3&gt;
 
-&lt;p&gt;&lt;code&gt;서비스 워커&lt;/code&gt;는 &lt;code&gt;웹 컴포넌트&lt;/code&gt;와 마찬가지로 네이티브 어플리케이션 개발자 입장에서는 익숙한 개념들을 가지고 있습니다. 다만, &lt;code&gt;웹 컴포넌트&lt;/code&gt;가 컴포넌트의 재사용성을 추구하는 개념이라면 &lt;code&gt;서비스 워커&lt;/code&gt;는 웹 어플리케이션의 근본적인 한계를 탈출하기 위한 내용을 담고 있습니다. 반대로 보자면 웹 어플리케이션 개발자 관점에서는 다소 익숙하지 않은 형태의 많은 개발 형태를 예고하고 있습니다. 하지만, 웹 어플리케이션의 오프라인 기능 지원이 일반화되고 있는 지금 반드시 익숙해져야 하는 대표적인 기능이기도 합니다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;서비스 워커&lt;/code&gt;는 &lt;code&gt;웹 컴포넌트&lt;/code&gt;와 마찬가지로 네이티브 어플리케이션 개발자 입장에서는 익숙한 개념들을 가지고 있습니다. 다만, &lt;code&gt;웹 컴포넌트&lt;/code&gt;가 컴포넌트의 재사용성을 추구하는 개념이라면 &lt;code&gt;서비스 워커&lt;/code&gt;는 웹 어플리케이션의 근본적인 한계를 탈출하기 위한 내용을 담고 있습니다. 반대로 보자면 웹 어플리케이션 개발자 관점에서는 다소 익숙하지 않은 형태의 많은 개발 형태를 예고하고 있습니다. 특히 서비스 워커는 시각적인 기능을 가지고 있지는 않습니다만, 이로 인해 가능해지는 많은 기능들이 네이티브 어플리케이션에서 많이 활용되는 기능들이므로 아마도 웹 어플리케이션 개발에 있어 큰 패러다임 변화를 이끌어낼 가능성이 있다고 보입니다. 따라서, 웹 어플리케이션의 오프라인 기능 지원이 시작되고 있는 지금 반드시 익숙해져야 하는 대표적인 기능이기도 합니다.&lt;/p&gt;
 
 &lt;p&gt;서비스 워커는 그 특성상 폴리필 라이브러리를 제공할 수 없습니다만, 현재 크롬이 서비스워커의 첫번째 네이티브 구현을 포함하고 있습니다. 아직 캐시 API는 폴리필 형태로 제공하고 있습니다만, 대체적인 기능은 현재도 사용이 가능합니다. Google I/O 2014에서 폴리머 데모로 소개된 &lt;a href=&quot;http://www.polymer-project.org/apps/topeka/&quot;&gt;Topeka&lt;/a&gt;는 로딩 타임의 제거를 위해 &lt;a href=&quot;http://www.polymer-project.org/apps/topeka/sw.js&quot;&gt;모든 리소스를 초기에 로딩하는 기능을 서비스 워커로 구현&lt;/a&gt;하고 있습니다. 코드를 참조하시는 것만으로도 충분하게 기능을 확인해 볼 수 있을 것입니다.&lt;/p&gt;
 

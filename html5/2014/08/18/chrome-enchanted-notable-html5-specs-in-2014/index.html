@@ -91,7 +91,7 @@
   </header>
 
   <article class="post-content">
-  <p>시간은 화살처럼 흐른다더니 어느덧 2014년의 절반이 훌쩍 넘어가고 있습니다. 이 포스트는 사실 5월 무렵 초안을 작성을 시작했는데 이제야 정리를 하게 되네요. 이 글은 Natively Web Application에 대한 리소스들을 다루기 위해 만든 <a href="http://webapplications.kr">WebApplications.kr</a>에도 함께 업데이트됩니다. :)</p>
+  <p>시간은 화살처럼 흐른다더니 어느덧 2014년이 훌쩍 넘어가고 있습니다. 이 포스트는 사실 5월 무렵 초안을 작성을 시작했는데 이제야 정리를 하게 되네요. 이 글은 Natively Web Application에 대한 리소스들을 다루기 위해 시작한 <a href="http://webapplications.kr">WebApplications.kr</a>에도 함께 업데이트됩니다. :)</p>
 
 <h2 id="html5-">2014년에 주목할만한 HTML5 규격들</h2>
 
@@ -387,17 +387,17 @@
 
 <blockquote>
   <ol>
-    <li>온라인에 있을 때에도 파일들이 언제나 어플리케이션 캐시로부터 전달된다.</li>
-    <li>어플리케이션 캐시는 Manifest 자체가 변경될 때만 업데이트된다.</li>
-    <li>어플리케이션 캐시는 선택적이지 않은 추가적이 캐시(동작)이다.</li>
-    <li>절대로 한참 후의 manifest를 캐시하지 않는다.</li>
+    <li>온라인에 있을 때에도 파일들이 언제나 어플리케이션 캐시로부터 로딩된다.</li>
+    <li>캐시된 데이터는 Manifest 자체가 변경될 때만 업데이트된다.</li>
+    <li>어플리케이션 캐시는 선택 불가능한 추가적인 캐시(동작)이다.</li>
+    <li>이 후의 manifest를 캐시하지 않는다.</li>
     <li>캐싱되지 않은 리소스는 캐시된 페이지에서 로딩되지 않는다.</li>
   </ol>
 </blockquote>
 
 <p><img src="/images/notable-specs-2014/OMG.appcache.png" alt="Offline" /></p>
 
-<p>서비스 워커는 이를 해결하기 위해 프로그램 가능(Programmable)한 오프라인 리소스의 근본적인 처리 방법을 제시합니다. 브라우저에서 일어나는 요청(Request)들을 조건에 따라 인터럽트하여 직접 응답(Custom response)할 수 있는 기능을 통해 사용자가 직접 리소스를 관리할 수 있습니다. 따라서 캐시 로직은 사용자가 직접 작성이 가능하며 언제든지 업데이트할 수 있습니다.</p>
+<p>서비스 워커는 이를 해결하기 위해 프로그램 가능(Programmable)한 오프라인 리소스의 근본적인 처리 방법을 제시합니다. 브라우저에서 일어나는 요청(Request)들을 조건에 따른 콜백을 통해 직접 응답(Custom response)할 수 있는 기능을 제공하여 직접 리소스를 관리할 수 있습니다. 따라서 캐시 로직은 직접 작성이 가능하며 언제든지 업데이트할 수 있습니다.</p>
 
 <p><img src="/images/notable-specs-2014/serviceworker_cache_flow.png" alt="Service Worker - Controlling fetch flow" /></p>
 
